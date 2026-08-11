@@ -6,9 +6,10 @@
 
 ### python-coding
 
-保守しやすいPythonコードの設計・実装・レビューを支援します。
+保守しやすいPythonコードの設計・実装・テスト・レビューを支援します。
 
 - `$python-coding:choose-code-boundaries`: 薄いhelperや不要なclassを避け、自然な責務境界を選ぶ
+- `$python-coding:choose-effective-tests`: 変更された挙動とリスクを守る必要十分なPythonテストを選ぶ
 - `$python-coding:polars-style`: Polarsのnamed expressionを標準化し、`.alias()`の増殖を防ぐ
 - `$python-coding:avoid-legacy-python-compatibility`: サポート対象外の旧Python向け互換コードを避ける
 

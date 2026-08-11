@@ -1,0 +1,4 @@
+interface:
+  display_name: "Choose Effective Tests"
+  short_description: "Pythonテストを必要十分な集合に絞り、重複と保守負荷を抑える"
+  default_prompt: "Use $python-coding:choose-effective-tests to add the smallest sufficient set of valuable Python tests."

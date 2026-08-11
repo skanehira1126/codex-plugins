@@ -1,15 +1,15 @@
 {
   "name": "python-coding",
-  "version": "0.2.1",
-  "description": "Reusable skills for designing, implementing, reviewing, and refactoring maintainable Python code.",
+  "version": "0.3.0",
+  "description": "Reusable skills for designing, implementing, testing, reviewing, and refactoring maintainable Python code.",
   "author": {
     "name": "あお"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Python Coding",
-    "shortDescription": "Pythonの設計・実装・レビューを支援",
-    "longDescription": "Pythonコードの設計、実装、レビュー、リファクタリングに関する再利用可能なSkillをまとめた個人用Pluginです。",
+    "shortDescription": "Pythonの設計・実装・テスト・レビューを支援",
+    "longDescription": "Pythonコードの設計、実装、テスト、レビュー、リファクタリングに関する再利用可能なSkillをまとめた個人用Pluginです。",
     "developerName": "あお",
     "category": "Developer Tools",
     "capabilities": [
