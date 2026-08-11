@@ -10,6 +10,7 @@
 
 - `$python-coding:choose-code-boundaries`: 薄いhelperや不要なclassを避け、自然な責務境界を選ぶ
 - `$python-coding:polars-style`: Polarsのnamed expressionを標準化し、`.alias()`の増殖を防ぐ
+- `$python-coding:avoid-legacy-python-compatibility`: サポート対象外の旧Python向け互換コードを避ける
 
 ## 導入方法
 

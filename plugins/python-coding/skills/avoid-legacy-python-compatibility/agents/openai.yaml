@@ -1,0 +1,4 @@
+interface:
+  display_name: "Avoid Legacy Python Compatibility"
+  short_description: "不要な旧Python互換コードを見極めて追加を避ける"
+  default_prompt: "Use $python-coding:avoid-legacy-python-compatibility to implement or review this Python change using only compatibility required by the supported versions."
