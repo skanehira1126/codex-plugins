@@ -1,0 +1,4 @@
+interface:
+  display_name: "Choose Code Boundaries"
+  short_description: "Choose natural boundaries without thin abstractions"
+  default_prompt: "Use $python-coding:choose-code-boundaries to review this Python design and choose the simplest justified code boundary."

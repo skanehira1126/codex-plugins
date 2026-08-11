@@ -1,0 +1,4 @@
+interface:
+  display_name: "Polars Style"
+  short_description: "Polarsのnamed-expression規則を適用する"
+  default_prompt: "Use $python-coding:polars-style to implement or review Polars transformations without .alias()."
