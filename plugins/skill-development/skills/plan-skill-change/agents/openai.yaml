@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Skill Change"
+  short_description: "Decide whether to create or update a skill"
+  default_prompt: "Use $skill-development:plan-skill-change to decide whether this workflow should create, update, extend, or split a skill."
