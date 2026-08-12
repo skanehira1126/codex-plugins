@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+site_name: Codex Plugins
+site_description: PythonコーディングとCodex Skill開発を支援する個人用Codex plugin marketplace
+site_url: https://skanehira1126.github.io/codex-plugins/
+repo_url: https://github.com/skanehira1126/codex-plugins
+repo_name: skanehira1126/codex-plugins
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: ja
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切り替える
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードに切り替える
+
+nav:
+  - ホーム: index.md
+  - はじめる: getting-started.md
+  - プラグイン:
+      - Python Coding: plugins/python-coding.md
+      - Skill Development: plugins/skill-development.md
+  - よくある質問: faq.md
+
+plugins:
+  - search:
+      lang: ja
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+copyright: Copyright &copy; 2026 あお
