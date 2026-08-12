@@ -2,6 +2,8 @@
 
 個人用のCodexプラグインを管理するリポジトリです。
 
+利用方法と各Skillの選び方は、[利用者向けドキュメント](https://skanehira1126.github.io/codex-plugins/)を参照してください。
+
 ## 提供プラグイン
 
 ### python-coding
@@ -53,3 +55,14 @@ codex plugin add skill-development@codex-plugins
 ```
 
 Skillとプラグインの概要は[OpenAI公式ドキュメント](https://learn.chatgpt.com/docs/skills-and-plugins)を参照してください。
+
+## ドキュメントをローカルで確認する
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-docs.txt
+mkdocs serve
+```
+
+ドキュメントは`main`へ反映されるとGitHub ActionsによってGitHub Pagesへ公開されます。
