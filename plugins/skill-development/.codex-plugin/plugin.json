@@ -1,23 +1,25 @@
 {
   "name": "skill-development",
-  "version": "0.1.0",
-  "description": "Reusable skills for planning, designing, reviewing, and maintaining Codex skills.",
+  "version": "0.2.0",
+  "description": "Reusable skills for planning, designing, evaluating, reviewing, and maintaining Codex skills.",
   "author": {
     "name": "あお"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Skill Development",
-    "shortDescription": "Codex Skillの設計・変更判断を支援",
-    "longDescription": "Codex Skillの新規作成、更新、分割、配置を判断し、再利用可能なworkflowとして設計・保守するための個人用Pluginです。",
+    "shortDescription": "Codex Skillの設計・変更・堅牢性評価を支援",
+    "longDescription": "Codex Skillの新規作成、更新、分割、配置の判断と、モデルやreasoning effortによる挙動差の評価を支援する個人用Pluginです。",
     "developerName": "あお",
     "category": "Developer Tools",
     "capabilities": [
       "Interactive",
-      "Read"
+      "Read",
+      "Write"
     ],
     "defaultPrompt": [
-      "新しいworkflowをSkillにするべきか、既存Skillを変更するべきか判断してください。"
+      "新しいworkflowをSkillにするべきか、既存Skillを変更するべきか判断してください。",
+      "開発中のCodex Skillを、承認したモデルとreasoning effortの範囲で比較評価してください。"
     ]
   }
 }

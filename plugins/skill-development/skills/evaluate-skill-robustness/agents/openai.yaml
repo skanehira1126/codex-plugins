@@ -1,0 +1,6 @@
+interface:
+  display_name: "Evaluate Skill Robustness"
+  short_description: "Codex Skillのモデル依存性と堅牢性を比較評価"
+  default_prompt: "Use $skill-development:evaluate-skill-robustness to evaluate this Codex skill across approved model and reasoning profiles."
+policy:
+  allow_implicit_invocation: false
