@@ -50,5 +50,5 @@ Before delivery:
 - Core titles match the approved storyline.
 - No important evidence is missing or hidden.
 - Charts, tables, and citations are accurate.
-- Appendix is navigable and Q&A-ready.
+- When an appendix is useful, it is navigable and Q&A-ready; otherwise the core deck covers the predictable questions.
 - Filename and version are unambiguous.

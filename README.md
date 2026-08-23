@@ -23,11 +23,11 @@ Codex Skillの設計、変更、保守を支援します。
 
 ### document-authoring
 
-文章やスライドなどの成果物を、構造設計、作成、自己レビュー、改訂、検証まで一貫して支援します。
+文章やスライドなどの成果物の構造設計、作成、レビュー、改訂、検証と、コードや設定を含む既存成果物へのレビュー指摘の反映を支援します。
 
 - `$document-authoring:text-document-architect`: 文章中心の文書を、論証、根拠、読者動作から設計・作成する
 - `$document-authoring:presentation-architect`: 発表資料のstoryline、pacing、本編・ノート・Appendixを設計する
-- `$document-authoring:revision-hygiene`: レビュー修正で不要なtest、comment、互換層などの残留物を増やさない
+- `$document-authoring:revision-hygiene`: コードや設定を含むレビュー修正で、不要なtest、comment、互換層などの残留物を増やさない
 
 ## 導入方法
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.3 — 2026-08-23
+
+- Made review mode strictly diagnostic while reserving deck creation and modification for create/revise modes.
+- Separated storyboard metadata and deck-level gate sections from visible-content lint checks.
+- Tightened local source detection, placement validation, and action-term matching.
+- Made appendix quality conditional on predictable Q&A or verification needs.
+- Added canonical asset and revision-hygiene regression coverage.
+
 ## 2.0.2 — 2026-08-23
 
 - Added a revise-mode handoff to `revision-hygiene` without duplicating its cross-artifact rules.

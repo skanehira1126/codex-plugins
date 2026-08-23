@@ -29,18 +29,37 @@ GENERIC_TITLES = {
     "next steps", "roadmap", "details", "reference",
 }
 
-SOURCE_PATTERNS = (
-    re.compile(r"https?://\S+", re.IGNORECASE),
-    re.compile(
-        r"(?:\*\*|__)?(?:source|sources|出典|参照|引用|cite|citation)(?:\*\*|__)?\s*[:：]\s*\S+",
-        re.IGNORECASE,
-    ),
-    re.compile(r"\[(?:\^)?[1-9]\d*\]"),
-    re.compile(r"[（(][^（）()\n]*(?:19|20)\d{2}[a-z]?[^（）()\n]*[）)]", re.IGNORECASE),
+SOURCE_KEYS = ("Source", "Sources", "出典", "参照", "引用", "Cite", "Citation")
+METADATA_KEYS = (
+    "Placement", "配置", "Destination", "区分",
+    "Audience question", "質問", "Cognitive move", "Move", "認知動作", "主な動き",
+    "Time weight", "Decisive evidence", "Visual form", "Visual", "表現形式", "ビジュアル",
+    "Speaker beat", "Transition", "Likely Q&A", "Appendix link",
+    "Trigger question", "想定質問", "Core link", "Answer/message", "Evidence/detail",
+    "Presenter guidance", *SOURCE_KEYS,
 )
-ACTION_TERMS = (
+CLAIM_METADATA_KEYS = {"decisive evidence", "answer/message", "evidence/detail"}
+JAPANESE_ACTION_TERMS = (
     "承認", "判断", "決定", "優先", "実施", "採用", "停止", "開始", "投資", "配分",
-    "recommend", "approve", "decide", "prioritize", "implement", "launch", "ask",
+    "試行", "継続", "中止",
+)
+ENGLISH_ACTION_TERMS = (
+    r"recommend(?:ed|ation)?", r"approv(?:e|ed|al)", r"decid(?:e|ed)", "decision",
+    r"prioriti[sz](?:e|ed)", r"implement(?:ed)?", r"launch(?:ed)?", "ask",
+)
+NON_SOURCE_QUALIFIERS = {
+    "暫定", "暫定値", "暫定集計", "暫定集計値", "速報", "速報値",
+    "推計", "推計値", "概算", "概算値", "見込み", "予定", "未監査",
+    "provisional", "preliminary", "estimate", "estimated", "draft", "unaudited",
+}
+SOURCE_PLACEHOLDERS = {
+    "n/a", "na", "none", "tbd", "todo", "unknown", "pending",
+    "不明", "未定", "未記入", "なし",
+}
+ENGLISH_MONTH_PATTERN = re.compile(
+    r"\b(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|"
+    r"jul(?:y)?|aug(?:ust)?|sep(?:tember)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\b",
+    re.IGNORECASE,
 )
 CRITICAL_TERMS = (
     "重大", "致命", "結論を変", "前提", "主要な制約", "material risk", "critical risk",
@@ -94,6 +113,10 @@ def parse_slides(text: str) -> list[Slide]:
             slide_id = unicodedata.normalize("NFKC", match.group(1)).upper()
             current = Slide(slide_id, match.group(2).strip(), line_no, [])
             slides.append(current)
+        elif not in_fence and re.match(r"^#{2,3}\s+", raw):
+            # A deck-level section such as "Gate results" is not part of the
+            # preceding slide's visible content or source context.
+            current = None
         elif current is not None:
             current.body_lines.append(raw)
     return slides
@@ -110,20 +133,142 @@ def contains_any(text: str, terms: Iterable[str]) -> bool:
     return any(term.lower() in lower for term in terms)
 
 
-def has_source_reference(body: str, source: str | None) -> bool:
-    return bool(source) or any(pattern.search(body) for pattern in SOURCE_PATTERNS)
+def metadata_entry(line: str) -> tuple[str, str] | None:
+    labels = "|".join(re.escape(key) for key in METADATA_KEYS)
+    match = re.match(
+        rf"^\s*[-*]?\s*({labels})\s*[:：][ \t]*(.*?)\s*$",
+        line,
+        re.IGNORECASE,
+    )
+    if not match:
+        return None
+    return match.group(1).strip().lower(), match.group(2).strip()
+
+
+def meaningful_source_value(value: str) -> bool:
+    cleaned = re.sub(r"<!--.*?-->", "", value, flags=re.DOTALL)
+    cleaned = re.sub(r"[`*_~<>]", "", cleaned).strip()
+    compact = re.sub(r"[^0-9A-Za-z\u3040-\u30ff\u3400-\u9fff]+", "", cleaned).lower()
+    normalized_placeholders = {
+        re.sub(r"[^0-9A-Za-z\u3040-\u30ff\u3400-\u9fff]+", "", item).lower()
+        for item in SOURCE_PLACEHOLDERS
+    }
+    if not cleaned or compact in normalized_placeholders:
+        return False
+    if re.search(r"https?://\S+", cleaned, re.IGNORECASE):
+        return True
+    if re.search(r"\[(?:\^)?[1-9]\d*\]", cleaned):
+        return True
+    without_dates = re.sub(
+        r"(?:19|20)\d{2}(?:[-/.]\d{1,2}(?:[-/.]\d{1,2})?|年(?:\d{1,2}月(?:\d{1,2}日)?)?)?"
+        r"|\d{1,2}(?:月|日)|\d{1,2}[-/.]\d{1,2}",
+        "",
+        cleaned,
+    )
+    without_dates = ENGLISH_MONTH_PATTERN.sub("", without_dates)
+    without_dates = re.sub(r"\bas\s+of\b", "", without_dates, flags=re.IGNORECASE)
+    for qualifier in sorted(NON_SOURCE_QUALIFIERS, key=len, reverse=True):
+        without_dates = re.sub(re.escape(qualifier), "", without_dates, flags=re.IGNORECASE)
+    without_dates = re.sub(r"[\s,.;:：、。()（）\[\]{}\-–—_/〜~]+", "", without_dates)
+    without_dates = re.sub(r"[・]", "", without_dates)
+    without_dates = re.sub(r"^(?:の|時点)+", "", without_dates, flags=re.IGNORECASE)
+    return bool(re.search(r"[A-Za-z\u3040-\u30ff\u3400-\u9fff]", without_dates))
+
+
+def has_inline_source_reference(line: str) -> bool:
+    if re.search(r"https?://\S+", line, re.IGNORECASE):
+        return True
+    if re.search(r"\[(?:\^)?[1-9]\d*\]", line):
+        return True
+    entry = metadata_entry(line)
+    if entry and entry[0] in {key.lower() for key in SOURCE_KEYS}:
+        return meaningful_source_value(entry[1])
+    for match in re.finditer(r"[（(]([^（）()\n]+)[）)]", line):
+        value = match.group(1)
+        if re.search(r"(?:19|20)\d{2}[a-z]?", value, re.IGNORECASE) and meaningful_source_value(value):
+            return True
+    return False
+
+
+def numerical_claim_lines(slide: Slide) -> list[int]:
+    result: list[int] = []
+    number_pattern = re.compile(r"(?<![A-Za-z#\d])\d+(?:[.,]\d+)?\s*(?:%|％|人|件|円|日|週|月|年|倍)?")
+    source_keys = {key.lower() for key in SOURCE_KEYS}
+    for index, line in enumerate(slide.body_lines):
+        entry = metadata_entry(line)
+        if entry:
+            key, value = entry
+            if key in source_keys or key not in CLAIM_METADATA_KEYS:
+                continue
+            candidate = value
+        else:
+            candidate = line
+        candidate = re.sub(r"^\s*\d+[.)．]\s+", "", candidate)
+        if number_pattern.search(candidate):
+            result.append(index)
+    return result
+
+
+def has_nearby_source(slide: Slide, claim_line: int) -> bool:
+    source_keys = {key.lower() for key in SOURCE_KEYS}
+    context_lines: list[int] = []
+    for index, line in enumerate(slide.body_lines):
+        entry = metadata_entry(line)
+        if entry:
+            if entry[0] in source_keys or entry[0] in CLAIM_METADATA_KEYS:
+                context_lines.append(index)
+        elif line.strip():
+            context_lines.append(index)
+
+    position = context_lines.index(claim_line)
+    nearby = context_lines[max(0, position - 1):position + 2]
+    return any(has_inline_source_reference(slide.body_lines[index]) for index in nearby)
+
+
+def contains_action_term(text: str) -> bool:
+    for term in JAPANESE_ACTION_TERMS:
+        for match in re.finditer(
+            rf"{re.escape(term)}(?=$|[\s:：、。をがへ]|する|します|してください|せよ)",
+            text,
+        ):
+            after = text[match.end():match.end() + 24]
+            if re.match(r"(?:する)?(?:か(?:どうか)?|必要|予定)?(?:は|が|を)?(?:未定|保留|見送|不要|ない|できない)", after):
+                continue
+            return True
+
+    lower = text.lower()
+    for term in ENGLISH_ACTION_TERMS:
+        for match in re.finditer(rf"(?<![a-z])(?:{term})(?![a-z])", lower):
+            before = lower[max(0, match.start() - 24):match.start()]
+            after = lower[match.end():match.end() + 24]
+            matched_term = match.group(0)
+            if re.search(r"(?:cannot|can't|unable\s+to)\s+$", before):
+                continue
+            if (
+                (matched_term.startswith("recommend") or matched_term == "decision")
+                and re.search(r"(?:\bno|\b(?:do|does|did)\s+not|\bnot)\s+$", before)
+            ):
+                continue
+            if matched_term == "approval" and re.search(r"(?:\bno|\bnot\s+asking\s+for)\s+$", before):
+                continue
+            if re.match(r"\s+(?:is|are)\s+(?:not|unknown|undecided|deferred|pending)\b", after):
+                continue
+            return True
+    return False
 
 
 def placement_kind(slide_id: str, placement: str | None) -> str:
     if placement:
-        lower = placement.lower()
-        if any(term in lower for term in ("appendix", "付録", "参考", "backup", "予備")):
+        lower = re.sub(r"\s+", " ", placement.strip().lower())
+        if lower in {"appendix", "backup", "付録", "参考", "予備"}:
             return "appendix"
-        if any(term in lower for term in ("notes", "note", "speaker", "ノート", "話者")):
+        if lower in {"note", "notes", "speaker", "speaker note", "speaker notes", "ノート", "話者ノート"}:
             return "notes"
-        if any(term in lower for term in ("omit", "remove", "削除", "除外")):
+        if lower in {"omit", "remove", "削除", "除外"}:
             return "omit"
-        return "core"
+        if lower in {"core", "main deck", "本編"}:
+            return "core"
+        return "unknown"
 
     match = re.match(r"([A-Z]+)", slide_id)
     return "appendix" if match and match.group(1) != "S" else "core"
@@ -150,8 +295,18 @@ def lint(text: str, check_sources: bool, mode: str) -> list[Finding]:
         move = metadata(body, ("Cognitive move", "Move", "認知動作", "主な動き"))
         visual = metadata(body, ("Visual form", "Visual", "表現形式", "ビジュアル"))
         trigger = metadata(body, ("Trigger question", "想定質問", "Audience question", "質問"))
-        source = metadata(body, ("Source", "Sources", "出典", "参照"))
-        bullets = [line for line in slide.body_lines if re.match(r"^\s*[-*+]\s+", line)]
+        visible_lines: list[str] = []
+        for line in slide.body_lines:
+            entry = metadata_entry(line)
+            if entry is None:
+                visible_lines.append(line)
+            elif entry[0] in CLAIM_METADATA_KEYS and entry[1]:
+                visible_lines.append(entry[1])
+        visible_body = "\n".join(visible_lines).strip()
+        bullets = [
+            line for line in slide.body_lines
+            if metadata_entry(line) is None and re.match(r"^\s*[-*+]\s+", line)
+        ]
 
         if title in seen_titles:
             findings.append(Finding(
@@ -183,6 +338,12 @@ def lint(text: str, check_sources: bool, mode: str) -> list[Finding]:
                 "Classify the content before visual production.",
             ))
         placement_type = placement_kind(slide.slide_id, placement)
+        if placement_type == "unknown":
+            findings.append(Finding(
+                "warning", "P002", slide.line, slide.slide_id,
+                f"The placement value '{placement}' is not recognized.",
+                "Use Core, Notes, Appendix, or Omit explicitly; unknown values are not treated as core.",
+            ))
 
         if placement_type == "appendix":
             appendix.append(slide)
@@ -207,7 +368,7 @@ def lint(text: str, check_sources: bool, mode: str) -> list[Finding]:
         elif placement_type == "core":
             core.append((slide, move.lower() if move else None, visual.lower() if visual else None))
 
-        if placement_type == "core" and len(body) > 1250:
+        if placement_type == "core" and len(visible_body) > 1250:
             findings.append(Finding(
                 "warning", "D001", slide.line, slide.slide_id,
                 "The core slide specification is dense enough to contain multiple messages.",
@@ -222,15 +383,15 @@ def lint(text: str, check_sources: bool, mode: str) -> list[Finding]:
             ))
 
         if check_sources:
-            has_number = bool(re.search(r"(?<![#\d])\d+(?:[.,]\d+)?\s*(?:%|％|人|件|円|日|週|月|年|倍)?", body))
-            if has_number and not has_source_reference(body, source):
+            claim_lines = numerical_claim_lines(slide)
+            if any(not has_nearby_source(slide, line) for line in claim_lines):
                 findings.append(Finding(
                     "warning", "E001", slide.line, slide.slide_id,
                     "A numerical claim has no obvious nearby source.",
                     "Add source, date, scope, denominator, and metric definition or mark it provisional.",
                 ))
 
-    if mode in {"decision", "proposal", "status"} and core and not contains_any("\n".join(s.title + "\n" + s.body for s, _, _ in core[:3]), ACTION_TERMS):
+    if mode in {"decision", "proposal", "status"} and core and not contains_action_term("\n".join(s.title + "\n" + s.body for s, _, _ in core[:3])):
         findings.append(Finding(
             "warning", "C001", core[0][0].line, core[0][0].slide_id,
             "The early core deck has no obvious recommendation, decision, or exact ask.",

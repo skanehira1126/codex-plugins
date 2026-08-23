@@ -33,9 +33,9 @@ A presentation is not a long document cut into rectangles. It must manage attent
 Infer the mode from the request:
 
 - **design**: create the presentation brief, content triage, core storyline, storyboard, and appendix plan.
-- **create**: design first, then produce the requested slide deck or complete slide specification.
-- **review**: diagnose an existing deck without rewriting unless requested.
-- **revise**: diagnose and then revise, including moving material among core slides, notes, appendix, and omission.
+- **create**: design first, then produce the requested slide deck or complete slide specification, repairing hard-gate failures before delivery.
+- **review**: diagnose and report on an existing deck without modifying the deck, notes, sources, or supporting files.
+- **revise**: diagnose and then revise, including moving material among core slides, notes, appendix, and omission, repairing hard-gate failures before delivery.
 
 When the request is simply “発表資料を作って” or “create a deck,” use **create** and complete the design and triage gates before generating slides.
 
@@ -164,6 +164,8 @@ After dense evidence, provide synthesis, implication, comparison, or decision. U
 
 Use `assets/appendix-plan.md`.
 
+Create an appendix only when there is a foreseeable question, verification need, or decision branch that should not interrupt the core sequence. If the core deck already covers the likely questions and no additional verification branch is useful, record that no appendix is needed instead of creating filler.
+
 For each likely audience question, record:
 
 ```text
@@ -191,7 +193,7 @@ Do not create the full deck in one undifferentiated pass.
 2. **Proof pass**: evidence, examples, and claim support.
 3. **Visual pass**: choose forms that express comparison, causality, sequence, hierarchy, or scale.
 4. **Delivery pass**: speaker notes, transitions, and time weights.
-5. **Appendix pass**: Q&A coverage, detailed evidence, and navigation.
+5. **Appendix pass**: when useful, Q&A coverage, detailed evidence, and navigation.
 6. **Artifact pass**: generate, render, inspect, and revise.
 
 ### 10. Produce and verify the slide artifact
@@ -222,11 +224,11 @@ Run a presenter pass:
 
 - Can the presenter explain why each core slide follows the previous one?
 - Can the deck fit the available time without rushing the decision?
-- Can likely questions be answered quickly from the appendix?
+- Can likely questions be answered quickly from the core deck or appendix?
 - Are any core slides present only because the source material contained them?
 - Are any critical claims supported only in speaker notes or appendix?
 
-Score the deck with `references/quality-rubric.md` and fix all hard-gate failures.
+Score the deck with `references/quality-rubric.md` and handle hard-gate failures according to the selected operating mode.
 
 When a structured Markdown storyboard is available, optionally run:
 
@@ -247,7 +249,7 @@ Return:
 3. argument and audience-question map;
 4. content triage: core / notes / appendix / omit;
 5. title-only core storyline and storyboard;
-6. appendix plan and Q&A coverage matrix;
+6. appendix plan and Q&A coverage matrix, or the reason no appendix is needed;
 7. hard-gate results.
 
 Do not generate the final deck unless requested.
@@ -266,7 +268,7 @@ Return prioritized findings with slide location, audience impact, structural cau
 
 ### Revise mode
 
-Deliver the revised deck and a concise change summary, including slide moves and appendix additions. Preserve valid sources, notes, brand rules, and editable structure.
+Deliver the revised deck and a concise change summary, including slide moves and appendix additions when applicable. Preserve valid sources, notes, brand rules, and editable structure.
 
 ## Prohibited shortcuts
 
