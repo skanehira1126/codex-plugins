@@ -29,10 +29,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "document-writing",
+      "name": "document-authoring",
       "source": {
         "source": "local",
-        "path": "./plugins/document-writing"
+        "path": "./plugins/document-authoring"
       },
       "policy": {
         "installation": "AVAILABLE",

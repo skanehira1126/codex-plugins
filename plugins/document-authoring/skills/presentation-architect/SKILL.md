@@ -39,6 +39,8 @@ Infer the mode from the request:
 
 When the request is simply “発表資料を作って” or “create a deck,” use **create** and complete the design and triage gates before generating slides.
 
+When **revise** applies self-review or external feedback, also use `revision-hygiene` when available to decide which verification or explanation should persist. This skill remains authoritative for presentation structure and quality.
+
 ## Core workflow
 
 ### 1. Inspect sources, constraints, and the real deck

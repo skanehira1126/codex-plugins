@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2 — 2026-08-23
+
+- Added a revise-mode handoff to `revision-hygiene` without duplicating its cross-artifact rules.
+
 ## 2.0.1 — 2026-08-23
 
 - Aligned appendix IDs, placement handling, and supported lint modes.
