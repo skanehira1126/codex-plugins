@@ -1,0 +1,24 @@
+{
+  "name": "document-writing",
+  "version": "0.1.0",
+  "description": "Reusable skills for architecting, creating, reviewing, and revising prose-first documents and slide presentations.",
+  "author": {
+    "name": "あお"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Document Writing",
+    "shortDescription": "文章・スライド資料の構成設計と執筆を支援",
+    "longDescription": "文章中心の文書とスライド資料を、読者・聴衆、論証、根拠、情報配置、認知的な流れから設計・作成・レビューするための個人用Pluginです。",
+    "developerName": "あお",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "素材から、読者や聴衆に伝わる文書またはスライド資料を設計・作成してください。"
+    ]
+  }
+}
