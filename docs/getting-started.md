@@ -24,6 +24,12 @@ codex plugin marketplace add skanehira1126/codex-plugins --ref main
     codex plugin add skill-development@codex-plugins
     ```
 
+=== "Document Authoring"
+
+    ```bash
+    codex plugin add document-authoring@codex-plugins
+    ```
+
 ## 3. インストールを確認する
 
 ```bash
@@ -60,3 +66,4 @@ codex plugin add python-coding@codex-plugins
 
 - Pythonの設計・実装・テストを支援してほしい: [Python Coding](plugins/python-coding.md)
 - Skillを作る前に責務を整理したい: [Skill Development](plugins/skill-development.md)
+- 文書やスライドを設計・作成・改訂したい: [Document Authoring](plugins/document-authoring.md)

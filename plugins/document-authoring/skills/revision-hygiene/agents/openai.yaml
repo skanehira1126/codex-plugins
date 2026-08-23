@@ -1,0 +1,4 @@
+interface:
+  display_name: "Revision Hygiene"
+  short_description: "レビュー修正で不要なテスト、コメント、残留物を増やさない"
+  default_prompt: "Use $document-authoring:revision-hygiene to apply this feedback without leaving unnecessary tests, comments, or obsolete concepts."

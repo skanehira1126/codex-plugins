@@ -1,0 +1,313 @@
+#!/usr/bin/env python3
+"""Heuristic linter for structured Markdown presentation storyboards.
+
+Expected slide headings look like:
+    ## S01 — Message title
+    ## A1 — Appendix answer
+
+Metadata lines may include Placement, Cognitive move, Visual form, Trigger
+question, Time weight, Source, and Appendix link. The linter is deliberately
+heuristic and does not replace editorial, visual, or factual review.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+import unicodedata
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Iterable
+
+GENERIC_TITLES = {
+    "背景", "概要", "目的", "現状", "課題", "問題", "原因", "施策", "対応策",
+    "解決策", "提案", "まとめ", "結論", "考察", "今後", "ロードマップ",
+    "次のステップ", "補足", "参考", "付録", "appendix", "agenda", "overview",
+    "background", "challenges", "solution", "proposal", "summary", "conclusion",
+    "next steps", "roadmap", "details", "reference",
+}
+
+SOURCE_PATTERNS = (
+    re.compile(r"https?://\S+", re.IGNORECASE),
+    re.compile(
+        r"(?:\*\*|__)?(?:source|sources|出典|参照|引用|cite|citation)(?:\*\*|__)?\s*[:：]\s*\S+",
+        re.IGNORECASE,
+    ),
+    re.compile(r"\[(?:\^)?[1-9]\d*\]"),
+    re.compile(r"[（(][^（）()\n]*(?:19|20)\d{2}[a-z]?[^（）()\n]*[）)]", re.IGNORECASE),
+)
+ACTION_TERMS = (
+    "承認", "判断", "決定", "優先", "実施", "採用", "停止", "開始", "投資", "配分",
+    "recommend", "approve", "decide", "prioritize", "implement", "launch", "ask",
+)
+CRITICAL_TERMS = (
+    "重大", "致命", "結論を変", "前提", "主要な制約", "material risk", "critical risk",
+    "changes the conclusion", "required assumption", "重大なリスク",
+)
+EXPLAIN_MOVES = {"explain", "説明", "observe", "観察"}
+
+
+@dataclass(frozen=True)
+class Finding:
+    severity: str
+    code: str
+    line: int
+    slide: str
+    message: str
+    suggestion: str
+
+
+@dataclass
+class Slide:
+    slide_id: str
+    title: str
+    line: int
+    body_lines: list[str]
+
+    @property
+    def body(self) -> str:
+        return "\n".join(self.body_lines).strip()
+
+
+def normalize(text: str) -> str:
+    text = re.sub(r"[`*_~]", "", text).strip().lower()
+    text = re.sub(r"^[saｓａ]?\d+[\s|｜:：.．\-—–]*", "", text)
+    return re.sub(r"\s+", " ", text).strip(" .。:：-—–")
+
+
+def parse_slides(text: str) -> list[Slide]:
+    slides: list[Slide] = []
+    current: Slide | None = None
+    in_fence = False
+    pattern = re.compile(r"^#{2,3}\s+([A-Za-zＡ-Ｚａ-ｚ]?\d+)\s*[|｜:：.．\-—–]+\s*(.+?)\s*$")
+    for line_no, raw in enumerate(text.splitlines(), start=1):
+        stripped = raw.strip()
+        if stripped.startswith("```") or stripped.startswith("~~~"):
+            in_fence = not in_fence
+            if current is not None:
+                current.body_lines.append(raw)
+            continue
+        match = None if in_fence else pattern.match(raw)
+        if match:
+            slide_id = unicodedata.normalize("NFKC", match.group(1)).upper()
+            current = Slide(slide_id, match.group(2).strip(), line_no, [])
+            slides.append(current)
+        elif current is not None:
+            current.body_lines.append(raw)
+    return slides
+
+
+def metadata(body: str, keys: Iterable[str]) -> str | None:
+    joined = "|".join(re.escape(key) for key in keys)
+    match = re.search(rf"^\s*[-*]?\s*(?:{joined})\s*[:：]\s*(.+?)\s*$", body, re.IGNORECASE | re.MULTILINE)
+    return match.group(1).strip() if match else None
+
+
+def contains_any(text: str, terms: Iterable[str]) -> bool:
+    lower = text.lower()
+    return any(term.lower() in lower for term in terms)
+
+
+def has_source_reference(body: str, source: str | None) -> bool:
+    return bool(source) or any(pattern.search(body) for pattern in SOURCE_PATTERNS)
+
+
+def placement_kind(slide_id: str, placement: str | None) -> str:
+    if placement:
+        lower = placement.lower()
+        if any(term in lower for term in ("appendix", "付録", "参考", "backup", "予備")):
+            return "appendix"
+        if any(term in lower for term in ("notes", "note", "speaker", "ノート", "話者")):
+            return "notes"
+        if any(term in lower for term in ("omit", "remove", "削除", "除外")):
+            return "omit"
+        return "core"
+
+    match = re.match(r"([A-Z]+)", slide_id)
+    return "appendix" if match and match.group(1) != "S" else "core"
+
+
+def lint(text: str, check_sources: bool, mode: str) -> list[Finding]:
+    slides = parse_slides(text)
+    findings: list[Finding] = []
+    if not slides:
+        return [Finding(
+            "error", "DECK001", 1, "",
+            "No structured slide headings were found.",
+            "Use headings such as '## S01 — <message title>' and '## A1 — <appendix answer>'.",
+        )]
+
+    seen_titles: dict[str, int] = {}
+    core: list[tuple[Slide, str | None, str | None]] = []
+    appendix: list[Slide] = []
+
+    for slide in slides:
+        body = slide.body
+        title = normalize(slide.title)
+        placement = metadata(body, ("Placement", "配置", "Destination", "区分"))
+        move = metadata(body, ("Cognitive move", "Move", "認知動作", "主な動き"))
+        visual = metadata(body, ("Visual form", "Visual", "表現形式", "ビジュアル"))
+        trigger = metadata(body, ("Trigger question", "想定質問", "Audience question", "質問"))
+        source = metadata(body, ("Source", "Sources", "出典", "参照"))
+        bullets = [line for line in slide.body_lines if re.match(r"^\s*[-*+]\s+", line)]
+
+        if title in seen_titles:
+            findings.append(Finding(
+                "warning", "H002", slide.line, slide.slide_id,
+                f"The title duplicates the title on line {seen_titles[title]}.",
+                "Merge the slides or state their distinct messages.",
+            ))
+        else:
+            seen_titles[title] = slide.line
+
+        if title in GENERIC_TITLES:
+            findings.append(Finding(
+                "warning", "H001", slide.line, slide.slide_id,
+                "The slide title is a generic topic label.",
+                "Rewrite it as the answer, claim, contrast, decision, or specific question.",
+            ))
+
+        if len(slide.title) > 95:
+            findings.append(Finding(
+                "info", "H003", slide.line, slide.slide_id,
+                "The title may be too long to scan at presentation distance.",
+                "Keep the claim and move qualifiers into the body or note.",
+            ))
+
+        if placement is None:
+            findings.append(Finding(
+                "warning", "P001", slide.line, slide.slide_id,
+                "The slide has no explicit Core/Notes/Appendix/Omit placement.",
+                "Classify the content before visual production.",
+            ))
+        placement_type = placement_kind(slide.slide_id, placement)
+
+        if placement_type == "appendix":
+            appendix.append(slide)
+            if not trigger:
+                findings.append(Finding(
+                    "warning", "A001", slide.line, slide.slide_id,
+                    "The appendix slide has no trigger question.",
+                    "State the plausible audience question or verification need it answers.",
+                ))
+            if title in {"appendix", "補足", "参考", "付録", "details", "reference"}:
+                findings.append(Finding(
+                    "warning", "A002", slide.line, slide.slide_id,
+                    "The appendix title does not communicate an answer.",
+                    "Use a question-answer or message-bearing title and a stable ID.",
+                ))
+            if contains_any(body, CRITICAL_TERMS):
+                findings.append(Finding(
+                    "warning", "A003", slide.line, slide.slide_id,
+                    "The appendix may contain a material assumption or risk that belongs in the core deck.",
+                    "Check whether this information could change the recommendation and promote it if so.",
+                ))
+        elif placement_type == "core":
+            core.append((slide, move.lower() if move else None, visual.lower() if visual else None))
+
+        if placement_type == "core" and len(body) > 1250:
+            findings.append(Finding(
+                "warning", "D001", slide.line, slide.slide_id,
+                "The core slide specification is dense enough to contain multiple messages.",
+                "Reduce to decisive proof and move detail to notes or appendix.",
+            ))
+
+        if placement_type == "core" and len(bullets) > 8:
+            findings.append(Finding(
+                "warning", "D002", slide.line, slide.slide_id,
+                "The core slide contains a bullet wall.",
+                "Express the relationship visually or split secondary detail into appendix.",
+            ))
+
+        if check_sources:
+            has_number = bool(re.search(r"(?<![#\d])\d+(?:[.,]\d+)?\s*(?:%|％|人|件|円|日|週|月|年|倍)?", body))
+            if has_number and not has_source_reference(body, source):
+                findings.append(Finding(
+                    "warning", "E001", slide.line, slide.slide_id,
+                    "A numerical claim has no obvious nearby source.",
+                    "Add source, date, scope, denominator, and metric definition or mark it provisional.",
+                ))
+
+    if mode in {"decision", "proposal", "status"} and core and not contains_any("\n".join(s.title + "\n" + s.body for s, _, _ in core[:3]), ACTION_TERMS):
+        findings.append(Finding(
+            "warning", "C001", core[0][0].line, core[0][0].slide_id,
+            "The early core deck has no obvious recommendation, decision, or exact ask.",
+            "Make the recommendation or audience action visible early when the deck is decision-oriented.",
+        ))
+
+    if len(core) >= 3:
+        for idx in range(len(core) - 2):
+            run = core[idx:idx + 3]
+            moves = [move for _, move, _ in run]
+            if all(move in EXPLAIN_MOVES for move in moves if move) and all(moves):
+                first = run[0][0]
+                findings.append(Finding(
+                    "warning", "R001", first.line, first.slide_id,
+                    "Three consecutive core slides use only Observe/Explain moves.",
+                    "Add synthesis, reframe, comparison, implication, or decision.",
+                ))
+                break
+
+        for idx in range(len(core) - 2):
+            run = core[idx:idx + 3]
+            visuals = [visual for _, _, visual in run]
+            if visuals[0] and visuals[0] == visuals[1] == visuals[2] and visuals[0] in {"cards", "card", "three cards", "3 cards", "カード"}:
+                first = run[0][0]
+                findings.append(Finding(
+                    "info", "R002", first.line, first.slide_id,
+                    "Three consecutive core slides use the same card layout.",
+                    "Confirm that the ideas are genuinely parallel; otherwise choose semantic forms.",
+                ))
+                break
+
+    if not appendix:
+        findings.append(Finding(
+            "info", "A004", 1, "",
+            "No appendix slides were detected.",
+            "Confirm that predictable Q&A and verification needs are covered, or explicitly decide that no appendix is needed.",
+        ))
+
+    return findings
+
+
+def severity_rank(value: str) -> int:
+    return {"info": 1, "warning": 2, "error": 3}[value]
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("path", type=Path)
+    parser.add_argument("--mode", choices=("general", "decision", "proposal", "status"), default="general")
+    parser.add_argument("--check-sources", action="store_true")
+    parser.add_argument("--json", action="store_true")
+    parser.add_argument("--fail-on", choices=("never", "info", "warning", "error"), default="never")
+    args = parser.parse_args()
+
+    try:
+        text = args.path.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+
+    findings = lint(text, args.check_sources, args.mode)
+    if args.json:
+        print(json.dumps([asdict(item) for item in findings], ensure_ascii=False, indent=2))
+    else:
+        if not findings:
+            print("No heuristic findings.")
+        for item in findings:
+            location = f"line {item.line}" if item.line else "deck"
+            slide = f" [{item.slide}]" if item.slide else ""
+            print(f"{item.severity.upper()} {item.code} {location}{slide}: {item.message}")
+            print(f"  -> {item.suggestion}")
+
+    if args.fail_on == "never":
+        return 0
+    threshold = severity_rank(args.fail_on)
+    return 1 if any(severity_rank(item.severity) >= threshold for item in findings) else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

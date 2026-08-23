@@ -21,6 +21,14 @@ Codex Skillの設計、変更、保守を支援します。
 
 - `$skill-development:plan-skill-change`: workflowを新しいSkillにするか、既存Skillを変更するか、別の場所に置くかを判断する
 
+### document-authoring
+
+文章やスライドなどの成果物を、構造設計、作成、自己レビュー、改訂、検証まで一貫して支援します。
+
+- `$document-authoring:text-document-architect`: 文章中心の文書を、論証、根拠、読者動作から設計・作成する
+- `$document-authoring:presentation-architect`: 発表資料のstoryline、pacing、本編・ノート・Appendixを設計する
+- `$document-authoring:revision-hygiene`: レビュー修正で不要なtest、comment、互換層などの残留物を増やさない
+
 ## 導入方法
 
 Codex CLIでこのリポジトリをmarketplaceとして登録します。
@@ -34,6 +42,7 @@ codex plugin marketplace add skanehira1126/codex-plugins --ref main
 ```bash
 codex plugin add python-coding@codex-plugins
 codex plugin add skill-development@codex-plugins
+codex plugin add document-authoring@codex-plugins
 ```
 
 インストール結果は次のコマンドで確認できます。
@@ -52,6 +61,7 @@ cd codex-plugins
 codex plugin marketplace add "$PWD"
 codex plugin add python-coding@codex-plugins
 codex plugin add skill-development@codex-plugins
+codex plugin add document-authoring@codex-plugins
 ```
 
 Skillとプラグインの概要は[OpenAI公式ドキュメント](https://learn.chatgpt.com/docs/skills-and-plugins)を参照してください。
