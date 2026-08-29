@@ -46,6 +46,14 @@ codex plugin add skill-development@codex-plugins
 codex plugin add document-authoring@codex-plugins
 ```
 
+すべてのプラグインをまとめてインストールする場合は、Marketplace登録後に次を実行します。
+
+```bash
+./scripts/install-all-plugins.sh
+```
+
+実行されるコマンドだけを確認する場合は`--dry-run`を付けます。
+
 インストール結果は次のコマンドで確認できます。
 
 ```bash
@@ -60,9 +68,7 @@ codex plugin list --marketplace codex-plugins
 git clone git@github.com:skanehira1126/codex-plugins.git
 cd codex-plugins
 codex plugin marketplace add "$PWD"
-codex plugin add python-coding@codex-plugins
-codex plugin add skill-development@codex-plugins
-codex plugin add document-authoring@codex-plugins
+./scripts/install-all-plugins.sh
 ```
 
 Skillとプラグインの概要は[OpenAI公式ドキュメント](https://learn.chatgpt.com/docs/skills-and-plugins)を参照してください。
