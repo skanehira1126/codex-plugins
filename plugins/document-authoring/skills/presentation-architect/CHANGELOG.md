@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.0 — 2026-08-29
+
+- Added dependency-aware decision discovery before design and creation, separating researchable
+  facts, safe defaults, and user-owned decisions.
+- Added explicit grilling behavior with frontier rounds, recommended answers, and a shared-
+  understanding confirmation before full deck generation.
+- Added regression boundaries for ordinary requests and diagnostic-only review mode.
+
 ## 2.0.3 — 2026-08-23
 
 - Made review mode strictly diagnostic while reserving deck creation and modification for create/revise modes.

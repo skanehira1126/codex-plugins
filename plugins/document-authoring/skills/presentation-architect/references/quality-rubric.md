@@ -27,6 +27,8 @@ Score each dimension 0–2 after the storyboard and again after rendered product
 
 Fail the deck until repaired when any applies:
 
+- in design or create mode, a material user-owned decision is silently treated as a safe default
+  and the full deck is generated before that decision is resolved or explicitly deferred;
 - the exact ask or central thesis is not clear from early core slides;
 - core titles alone do not tell the story;
 - a slide contains multiple competing primary messages;

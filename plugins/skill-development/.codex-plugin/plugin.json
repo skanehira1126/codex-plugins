@@ -1,7 +1,7 @@
 {
   "name": "skill-development",
-  "version": "0.2.0",
-  "description": "Reusable skills for planning, designing, evaluating, reviewing, and maintaining Codex skills.",
+  "version": "0.3.0",
+  "description": "Reusable skills for dependency-aware planning, designing, evaluating, reviewing, and maintaining Codex skills.",
   "author": {
     "name": "あお"
   },
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Skill Development",
     "shortDescription": "Codex Skillの設計・変更・堅牢性評価を支援",
-    "longDescription": "Codex Skillの新規作成、更新、分割、配置の判断と、モデルやreasoning effortによる挙動差の評価を支援する個人用Pluginです。",
+    "longDescription": "Codex Skillの新規作成、更新、分割、配置について、調査可能な事実と利用者が決める事項を分け、依存関係に沿って判断します。モデルやreasoning effortによる挙動差の評価も支援する個人用Pluginです。",
     "developerName": "あお",
     "category": "Developer Tools",
     "capabilities": [

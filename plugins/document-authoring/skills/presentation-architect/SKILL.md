@@ -56,7 +56,34 @@ Read supplied source material before drafting. Identify:
 
 For an existing deck, inspect the actual slides and speaker notes. For current or external claims, verify them. Never invent evidence, quotations, citations, numbers, or organizational context.
 
-### 2. Build the presentation brief
+### 2. Resolve material decisions and build the presentation brief
+
+In design and create modes, run decision discovery before storyboarding when unresolved choices
+could materially change the audience, exact ask, central thesis, deck scope, evidence burden,
+delivery mode, or time allocation. Also run it when the user explicitly asks to be interviewed,
+challenged, grilled, or taken through a thorough discovery conversation.
+
+1. Separate missing information into **facts** available from sources or research, **safe defaults**
+   that will not materially change the deck, and **user decisions**. Establish facts yourself
+   rather than asking the user.
+2. Map material user decisions as a dependency tree. The current decision frontier contains only
+   open decisions whose prerequisites are settled.
+3. Ask up to the three highest-impact frontier decisions in one concise numbered round. Give a
+   recommended answer and rationale for each question, wait for the user's answers, and defer
+   downstream questions that depend on an open upstream decision.
+4. Recompute the frontier after every response. For ordinary authoring, proceed when material
+   decisions are settled and safe defaults are explicit. For explicit grilling, summarize the
+   shared understanding and obtain confirmation after the material frontier is empty, before
+   generating the full deck.
+
+When a choice such as visual density, delivery style, or interaction pattern cannot be resolved
+through discussion, create the smallest reversible storyboard or sample slide allowed by the
+requested mode, use it to make the decision concrete, and return to the frontier. Do not prolong
+the interview by repeatedly rephrasing an unanswerable preference question.
+
+Do not use decision discovery in review mode to solicit permission for revision; inspect the deck
+and report findings under the review contract. Do not block an ordinary deck request with
+exhaustive hypothetical questions when safe defaults are available.
 
 Use `assets/presentation-brief.md`. Establish or infer:
 
