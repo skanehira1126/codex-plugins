@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shape Skill Change"
+  short_description: "Plan and review coherent skill changes"
+  default_prompt: "Use $skill-development:shape-skill-change to plan or review this Codex skill change."

@@ -19,7 +19,8 @@
 
 Codex Skillの設計、変更、保守を支援します。
 
-- `$skill-development:plan-skill-change`: workflowを新しいSkillにするか、既存Skillを変更するか、別の場所に置くかを判断する
+- `$skill-development:shape-skill-change`: Skill変更の実装前に責務と配置を判断し、実装後にscope drift、重複、肥大化をレビューする
+- `$skill-development:evaluate-skill-robustness`: 明示的に承認したモデルとreasoning effortでSkillの堅牢性を比較評価する
 
 ### document-authoring
 

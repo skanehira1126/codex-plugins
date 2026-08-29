@@ -65,5 +65,5 @@ codex plugin add python-coding@codex-plugins
 ## 次に読む
 
 - Pythonの設計・実装・テストを支援してほしい: [Python Coding](plugins/python-coding.md)
-- Skillを作る前に責務を整理したい: [Skill Development](plugins/skill-development.md)
+- Skill変更の実装前後で責務、配置、肥大化を確認したい: [Skill Development](plugins/skill-development.md)
 - 文書やスライドを設計・作成・改訂したい: [Document Authoring](plugins/document-authoring.md)
