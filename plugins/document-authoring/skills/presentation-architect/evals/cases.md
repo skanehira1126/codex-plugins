@@ -24,32 +24,14 @@ python -m unittest discover -s evals -p 'test_*.py'
 
 ## Behavioral cases
 
-### Material decisions are unresolved before creation
+### Grilling and ordinary creation boundary
 
-Request: "I want an executive deck for a new initiative, but the audience and decision are still
-fuzzy. Grill me before you build it."
-
-Must:
-
-- separate facts available from the supplied material from decisions owned by the user;
-- ask upstream audience and decision questions before downstream storyline or slide choices;
-- ask up to the three highest-impact frontier decisions in a concise numbered round with a
-  recommended answer and rationale for every question;
-- summarize shared understanding and obtain confirmation before generating the full deck.
-
-Failure:
-
-- asks the user for facts available in the source material;
-- generates a complete deck while a material upstream decision is still open.
-
-### Ordinary deck request has safe defaults
-
-Request: "Turn these approved meeting notes into a ten-minute internal update deck."
-
-Must:
-
-- state safe defaults for non-material gaps and continue without unnecessary questioning;
-- avoid expanding the request into an exhaustive discovery interview.
+- Grilling example: "The audience and decision are still fuzzy. Grill me before you build it."
+- Ordinary example: "Turn these approved notes into a ten-minute internal update deck."
+- Explicit grilling establishes source-backed facts itself, then asks prerequisite decisions at
+  most three per round with recommendations and brief rationales.
+- Ordinary creation states safe defaults and proceeds without exhaustive questioning.
+- A full deck is not generated while a material upstream decision remains unresolved.
 
 ### Source material contains too much detail
 
@@ -76,7 +58,7 @@ Must:
 - use review mode and report prioritized findings, a proposed title-only storyline, a move table, and Q&A gaps;
 - leave the supplied deck, notes, sources, and supporting files unchanged;
 - treat the proposed storyline and slide moves as recommendations rather than applied edits.
-- not use decision discovery to obtain permission for revision or invent new deck requirements.
+- not use grilling to obtain permission for revision or invent new deck requirements.
 
 Failure:
 

@@ -10,16 +10,6 @@
 - Q&A duration:
 - Page or brand constraints:
 
-## Decision discovery
-
-- Approach: direct design / explicit grilling
-- Facts established from sources or research:
-- Safe defaults adopted:
-
-| Decision | Prerequisite | Status | User choice | Recommended answer and rationale |
-|---|---|---|---|---|
-|  |  | open / decided / deferred |  |  |
-
 ## Audience and meeting
 
 - Primary audience:
@@ -46,13 +36,13 @@
 - Required content:
 - Non-goals:
 - Assumptions:
+- Deferred decisions:
 - Evidence gaps:
 - Existing template or brand rules:
 - Material likely for appendix:
 
 ## Success gates
 
-- [ ] Decisions that would materially change the deck are resolved or explicitly deferred.
 - [ ] Exact ask is visible early and at the close.
 - [ ] Core titles alone communicate the storyline.
 - [ ] Core sequence fits the time budget.

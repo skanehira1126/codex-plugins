@@ -1,7 +1,7 @@
 {
   "name": "document-authoring",
   "version": "0.3.0",
-  "description": "Skills for dependency-aware discovery, design, creation, review, revision, and verification of prose documents and presentations, plus residue-free review fixes.",
+  "description": "Skills for designing, creating, reviewing, revising, and verifying prose documents and presentations, plus applying review-driven fixes to code and configuration without obsolete residue.",
   "author": {
     "name": "あお"
   },
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Document Authoring",
     "shortDescription": "文書・スライドの設計と、コード・設定を含むレビュー後改訂を支援",
-    "longDescription": "文章、スライドなどの作成前に、調査可能な事実と利用者が決める事項を分け、重要な意思決定を依存関係に沿って解消します。構造設計、作成、レビュー、改訂、検証に加え、コードや設定を含む既存成果物へのレビュー指摘を不要な残留物を増やさず反映するSkill bundleです。",
+    "longDescription": "文章、スライドなど文書的な成果物の構造設計、作成、レビュー、改訂、検証に加え、コードや設定を含む既存成果物へのレビュー指摘を不要な残留物を増やさず反映するためのSkill bundleです。",
     "developerName": "あお",
     "category": "Productivity",
     "capabilities": [

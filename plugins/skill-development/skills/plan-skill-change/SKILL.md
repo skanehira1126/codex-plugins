@@ -22,17 +22,6 @@ Extract or infer:
 - required tools, references, scripts, or assets;
 - whether the workflow is repo-specific, personal, organizational, or distributable.
 
-Separate missing information before asking the user:
-
-- **Facts** that can be established from the skill catalog, repository, supplied artifacts, or
-  available tools are the agent's responsibility. Inspect them instead of asking the user.
-- **Safe defaults** that do not materially change the skill boundary may be inferred and stated.
-- **User decisions** that could change the trigger boundary, success criterion, ownership, or
-  placement must be resolved before choosing the primary decision.
-
-Record possible user decisions without asking yet. Inspect and compare plausible existing skills
-first so that the agent does not turn discoverable facts into questions.
-
 ### 2. Inspect existing skills
 
 Use the available skill catalog and paths to identify plausible candidates. Inspect the full
@@ -57,17 +46,14 @@ Compare the proposal with each candidate using:
 Prefer a coherent existing workflow over a smaller diff. Avoid expanding a skill until its
 description becomes a loose collection of related topics.
 
-Map remaining material user decisions as a dependency tree. The current **decision frontier** is
-every open decision whose prerequisites are already settled. Ask up to the three highest-impact
-frontier decisions in one concise numbered round, include a recommended answer and rationale for
-each question, and wait for the user's answers. Do not ask a downstream question whose answer
-depends on an open upstream decision. Recompute the frontier after each response, and continue
-inspecting any newly exposed facts without interrupting the user.
+Inspect facts before questioning the user and infer details that cannot change the decision,
+placement, or handoff scope. Ask only unresolved user choices needed for those outcomes, in
+dependency order. Each round should contain at most three independent, high-impact questions,
+each with a recommended answer and brief rationale.
 
-For an ordinary skill-change request, stop the interview as soon as the evidence supports one
-primary decision; do not exhaust implementation details that belong to `skill-creator`. When the
-user explicitly asks to be interviewed, challenged, or thoroughly questioned, continue until the
-material frontier is empty and ask the user to confirm the shared understanding before deciding.
+For ordinary requests, stop once the decision brief is supportable. If the user explicitly asks
+for a thorough interview, repeat only until those planning choices are resolved; leave
+implementation details to `skill-creator`.
 
 ### 4. Choose one decision
 
