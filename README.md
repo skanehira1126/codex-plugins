@@ -30,6 +30,12 @@ Codex Skillの設計、変更、保守を支援します。
 - `$document-authoring:presentation-architect`: 発表資料のstoryline、pacing、本編・ノート・Appendixを設計する
 - `$document-authoring:revision-hygiene`: コードや設定を含むレビュー修正で、不要なtest、comment、互換層などの残留物を増やさない
 
+### agent-coordination
+
+明示的に起動したときだけ、実装をサブエージェントへ段階的に委譲し、メインの会話で議論を続けられるようにします。
+
+- `$agent-coordination:delegate-work-in-stages`: ファイル所有権を分けて1人または複数のサブエージェントへ作業を委譲し、完了時に次の段階を会話で確認する
+
 ## 導入方法
 
 Codex CLIでこのリポジトリをmarketplaceとして登録します。
@@ -44,6 +50,7 @@ codex plugin marketplace add skanehira1126/codex-plugins --ref main
 codex plugin add python-coding@codex-plugins
 codex plugin add skill-development@codex-plugins
 codex plugin add document-authoring@codex-plugins
+codex plugin add agent-coordination@codex-plugins
 ```
 
 すべてのプラグインをまとめてインストールする場合は、Marketplace登録後に次を実行します。

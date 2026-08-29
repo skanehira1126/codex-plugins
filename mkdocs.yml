@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 site_name: Codex Plugins
-site_description: Pythonコーディング、Codex Skill開発、文書的な成果物のauthoringを支援する個人用Codex plugin marketplace
+site_description: Pythonコーディング、Codex Skill開発、文書authoring、サブエージェント調整を支援する個人用Codex plugin marketplace
 site_url: https://skanehira1126.github.io/codex-plugins/
 repo_url: https://github.com/skanehira1126/codex-plugins
 repo_name: skanehira1126/codex-plugins
@@ -41,6 +41,7 @@ nav:
       - Python Coding: plugins/python-coding.md
       - Skill Development: plugins/skill-development.md
       - Document Authoring: plugins/document-authoring.md
+      - Agent Coordination: plugins/agent-coordination.md
   - よくある質問: faq.md
 
 plugins:
