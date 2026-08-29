@@ -1,6 +1,6 @@
 # Document Authoring
 
-文章、スライドなど文書的な成果物を、構造設計から作成、自己レビュー、フィードバック反映、改訂、検証まで一貫して扱うプラグインです。
+文章、スライドなど文書的な成果物を構造設計から作成、レビュー、改訂、検証まで扱い、コードや設定を含む既存成果物へのレビュー指摘の反映も支援するプラグインです。
 
 ## インストール
 
@@ -30,7 +30,7 @@ $document-authoring:presentation-architect を使って、
 
 ### `revision-hygiene`
 
-自己レビューまたは外部レビューの修正を反映するとき、却下・削除された概念を不要なtest、comment、guard、互換層、注記として残さず、望ましい修正後状態へ収束させます。
+自己レビューまたは外部レビューの修正をコード、文書、スライド、設定などへ反映するとき、却下・削除された概念を不要なtest、comment、guard、互換層、注記として残さず、望ましい修正後状態へ収束させるoverlayです。
 
 ただし、security、課金、重複副作用、互換性など、現在の公開契約や重大リスクを固有に守る検証は削除しません。
 
@@ -45,6 +45,6 @@ $document-authoring:revision-hygiene を使って、
 |---|---|
 | 文章中心の文書 | `text-document-architect` |
 | スライド資料 | `presentation-architect` |
-| レビュー後の修正で残留物を増やしたくない | `revision-hygiene` |
+| コード・設定を含むレビュー後の修正で残留物を増やしたくない | `revision-hygiene` |
 
-改訂では、成果物形式に対応するarchitect Skillと`revision-hygiene`を組み合わせられます。文章・スライド固有の構造品質はarchitect Skill、不要なtestやcommentを残すかどうかの判断は`revision-hygiene`が担当します。
+文章やスライドの構造改訂では、成果物形式に対応するarchitect Skillと`revision-hygiene`を併用します。文章・スライド固有の構造品質はarchitect Skill、不要なtestやcommentを残すかどうかの判断は`revision-hygiene`が担当します。DOCXやPPTXなどの生成・render・形式検証には、利用可能な形式固有Skillを優先します。レビュー結果の診断だけで成果物を修正しない依頼では、`revision-hygiene`を自動選択しません。

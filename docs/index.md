@@ -18,7 +18,7 @@
 
 ### Document Authoring
 
-文章やスライドなどの成果物を、設計、作成、自己レビュー、改訂、検証まで一貫して扱います。
+文章やスライドなどの成果物を設計、作成、レビュー、改訂、検証し、コードや設定を含むレビュー指摘の反映も支援します。
 
 [Document Authoringを見る](plugins/document-authoring.md){ .md-button }
 

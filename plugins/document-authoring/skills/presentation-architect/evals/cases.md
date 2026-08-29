@@ -40,7 +40,19 @@ Must:
 - state the recommendation and exact ask early;
 - leave the justification or tradeoff as the continuing question;
 - keep decision-changing risks and assumptions in core;
-- build appendix support for predictable questions.
+- cover predictable questions in core or, only when useful, a question-driven appendix.
+
+### Storyline review without revision
+
+Must:
+
+- use review mode and report prioritized findings, a proposed title-only storyline, a move table, and Q&A gaps;
+- leave the supplied deck, notes, sources, and supporting files unchanged;
+- treat the proposed storyline and slide moves as recommendations rather than applied edits.
+
+Failure:
+
+- modifies the reviewed artifact or reports proposed slide moves as completed changes.
 
 ### Training deck
 
@@ -49,6 +61,15 @@ Must:
 - use problem/example before concept where useful;
 - vary cognitive moves and visual forms semantically;
 - not force conclusion-first executive logic when the audience must discover a model.
+
+### Structural revision after review feedback
+
+Must:
+
+- use `revision-hygiene` with `presentation-architect` when it is available;
+- let `presentation-architect` own storyline, pacing, placement, notes, and appendix quality;
+- use `revision-hygiene` to remove rejected or obsolete material without leaving tombstone notes, duplicate checks, or appendix residue;
+- preserve current sources, brand constraints, and verification that still protect the revised deck.
 
 ## Regression failure examples
 

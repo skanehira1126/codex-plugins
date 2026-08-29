@@ -59,20 +59,40 @@ from typing import Iterable
     r"|求める判断"
     r"|(?:優先|実施|採用|停止|開始|投資|配分|試行|継続|中止)(?:する|します|してください)"
     r"|(?:優先|実施|採用|停止|開始|投資|配分|試行|継続|中止)を(?:承認|決定)"
-    r"|(?:責任者|担当者)\s*(?:[:：]|は)"
-    r"|\b(?:recommend(?:ed|ation)?|approve|decide|prioritize|implement|launch|owner)\b",
+    r"|\b(?:recommend(?:ed|ation)?|approve|decide|prioritize|implement|launch)\b",
+    re.IGNORECASE,
+)
+
+出典ラベルパターン = re.compile(
+    r"(?:\*\*|__)?(?:source|sources|出典|参照|引用|cite|citation|footnote|脚注|参考文献)"
+    r"(?:\*\*|__)?[ \t]*[:：][ \t]*(\S[^\r\n]*)",
     re.IGNORECASE,
 )
 
 出典パターン = (
     re.compile(r"https?://\S+", re.IGNORECASE),
-    re.compile(
-        r"(?:\*\*|__)?(?:source|sources|出典|参照|引用|cite|citation|footnote|脚注|参考文献)"
-        r"(?:\*\*|__)?\s*[:：]\s*\S+",
-        re.IGNORECASE,
-    ),
     re.compile(r"\[(?:\^)?[1-9]\d*\]"),
-    re.compile(r"[（(][^（）()\n]*(?:19|20)\d{2}[a-z]?[^（）()\n]*[）)]", re.IGNORECASE),
+)
+
+出典ではない限定表現 = {
+    "暫定", "暫定値", "暫定集計", "暫定集計値", "速報", "速報値",
+    "推計", "推計値", "概算", "概算値", "見込み", "予定", "未監査",
+    "provisional", "preliminary", "estimate", "estimated", "draft", "unaudited",
+}
+
+出典プレースホルダー = {
+    "n/a", "na", "none", "tbd", "todo", "unknown", "pending",
+    "不明", "未定", "未記入", "なし",
+}
+
+英語月パターン = re.compile(
+    r"\b(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|"
+    r"jul(?:y)?|aug(?:ust)?|sep(?:tember)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\b",
+    re.IGNORECASE,
+)
+
+数値主張パターン = re.compile(
+    r"\d+(?:[.,]\d+)?\s*(?:%|％|人|件|円|日|週|月|年|倍|部署|営業日)?",
 )
 
 メタデータキー = (
@@ -177,8 +197,62 @@ def いずれかを含む(text: str, terms: Iterable[str]) -> bool:
     return any(term.lower() in lower for term in terms)
 
 
+def 有意な出典値(value: str) -> bool:
+    cleaned = re.sub(r"<!--.*?-->", "", value, flags=re.DOTALL)
+    cleaned = re.sub(r"[`*_~<>]", "", cleaned).strip()
+    compact = re.sub(r"[^0-9A-Za-z\u3040-\u30ff\u3400-\u9fff]+", "", cleaned).lower()
+    normalized_placeholders = {
+        re.sub(r"[^0-9A-Za-z\u3040-\u30ff\u3400-\u9fff]+", "", item).lower()
+        for item in 出典プレースホルダー
+    }
+    if not cleaned or compact in normalized_placeholders:
+        return False
+
+    without_dates = re.sub(
+        r"(?:19|20)\d{2}(?:[-/.]\d{1,2}(?:[-/.]\d{1,2})?|年(?:\d{1,2}月(?:\d{1,2}日)?)?)?"
+        r"|\d{1,2}(?:月|日)|\d{1,2}[-/.]\d{1,2}",
+        "",
+        cleaned,
+    )
+    without_dates = 英語月パターン.sub("", without_dates)
+    without_dates = re.sub(r"\bas\s+of\b", "", without_dates, flags=re.IGNORECASE)
+    for qualifier in sorted(出典ではない限定表現, key=len, reverse=True):
+        without_dates = re.sub(re.escape(qualifier), "", without_dates, flags=re.IGNORECASE)
+    normalized = re.sub(r"[\s,.;:：、。()（）\[\]{}\-–—_/〜~]+", "", without_dates)
+    normalized = re.sub(r"[・]", "", normalized)
+    normalized = re.sub(r"^(?:の|時点)+", "", normalized, flags=re.IGNORECASE)
+    return bool(normalized)
+
+
+def 明示的行動あり(text: str) -> bool:
+    for match in 明示的行動パターン.finditer(text):
+        before = text[max(0, match.start() - 24):match.start()].lower()
+        after = text[match.end():match.end() + 24].lower()
+        term = match.group(0).lower()
+        if re.search(r"(?:cannot|can't|unable\s+to)\s+$", before):
+            continue
+        if term.startswith("recommend") and re.search(r"(?:\bno|\b(?:do|does|did)\s+not|\bnot)\s+$", before):
+            continue
+        if term == "approval" and re.search(r"(?:\bno|\bnot\s+asking\s+for)\s+$", before):
+            continue
+        if re.match(r"(?:する)?(?:か(?:どうか)?|必要|予定)?(?:は|が|を)?(?:未定|保留|見送|不要|ない|できない)", after):
+            continue
+        if re.match(r"\s+(?:is|are)\s+(?:not|unknown|undecided|deferred|pending)\b", after):
+            continue
+        return True
+    return False
+
+
 def 出典参照あり(text: str) -> bool:
-    return any(pattern.search(text) for pattern in 出典パターン)
+    if any(pattern.search(text) for pattern in 出典パターン):
+        return True
+    if any(有意な出典値(match.group(1)) for match in 出典ラベルパターン.finditer(text)):
+        return True
+    for match in re.finditer(r"[（(]([^（）()\n]+)[）)]", text):
+        value = match.group(1)
+        if re.search(r"(?:19|20)\d{2}[a-z]?", value, re.IGNORECASE) and 有意な出典値(value):
+            return True
+    return False
 
 
 def 認知動作を抽出(section: セクション) -> str | None:
@@ -191,7 +265,139 @@ def 認知動作を抽出(section: セクション) -> str | None:
 
 def メタデータ行(line: str) -> bool:
     joined = "|".join(re.escape(key) for key in メタデータキー)
-    return bool(re.match(rf"^\s*[-*+]\s*(?:{joined})\s*[:：]", line, re.IGNORECASE))
+    return bool(re.match(
+        rf"^\s*(?:[-*+]\s*)?(?:{joined})\s*[:：]",
+        line,
+        re.IGNORECASE,
+    ))
+
+
+def Markdown表行(line: str) -> bool:
+    stripped = line.strip()
+    return "|" in stripped and not stripped.startswith(("http://", "https://"))
+
+
+def 散文段落を抽出(lines: list[str]) -> list[str]:
+    paragraphs: list[str] = []
+    current: list[str] = []
+    in_fence = False
+
+    def flush() -> None:
+        if current:
+            paragraphs.append("\n".join(current).strip())
+            current.clear()
+
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("```") or stripped.startswith("~~~"):
+            flush()
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        if (
+            not stripped
+            or Markdown表行(line)
+            or メタデータ行(line)
+            or line.startswith(("    ", "\t"))
+        ):
+            flush()
+            continue
+        current.append(line)
+
+    flush()
+    return paragraphs
+
+
+def Markdown内容ブロックを抽出(lines: list[str]) -> list[str]:
+    blocks: list[str] = []
+    current: list[str] = []
+    in_fence = False
+
+    def flush() -> None:
+        if current:
+            blocks.append("\n".join(current).strip())
+            current.clear()
+
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("```") or stripped.startswith("~~~"):
+            flush()
+            in_fence = not in_fence
+            continue
+        if in_fence or line.startswith(("    ", "\t")):
+            continue
+        if not stripped:
+            flush()
+            continue
+        current.append(line)
+
+    flush()
+    return blocks
+
+
+def 独立出典ブロック(text: str) -> bool:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    for line in lines:
+        normalized = re.sub(r"[`*_~]", "", line)
+        if re.match(
+            r"^(?:[-*+]\s*)?(?:source|sources|出典|参照|引用|cite|citation|"
+            r"footnote|脚注|参考文献)[ \t]*[:：]",
+            normalized,
+            re.IGNORECASE,
+        ) and 出典参照あり(line):
+            return True
+
+    first_line = lines[0]
+    return bool(
+        re.fullmatch(r"https?://\S+", first_line, re.IGNORECASE)
+        or re.match(r"^\[\^[1-9]\d*\]:\s*\S+", first_line)
+    )
+
+
+def Markdown表ブロック(text: str) -> bool:
+    lines = [line for line in text.splitlines() if line.strip()]
+    return bool(lines) and all(Markdown表行(line) for line in lines)
+
+
+def 数値主張用テキスト(text: str) -> str:
+    cleaned_lines = []
+    for line in text.splitlines():
+        line = re.sub(r"^\s*\d+[.)．]\s+", "", line)
+        line = re.sub(
+            r"(?<![A-Za-zＡ-Ｚａ-ｚ0-9０-９])[A-Za-zＡ-Ｚａ-ｚ][0-9０-９]+(?![0-9０-９])",
+            "",
+            line,
+        )
+        cleaned_lines.append(line)
+    return "\n".join(cleaned_lines)
+
+
+def 数値主張あり(text: str) -> bool:
+    return bool(数値主張パターン.search(数値主張用テキスト(text)))
+
+
+def 数値トークン(text: str) -> set[str]:
+    return {
+        re.sub(r"\s+", "", match.group(0))
+        for match in 数値主張パターン.finditer(数値主張用テキスト(text))
+    }
+
+
+def 未出典の数値主張あり(lines: list[str]) -> bool:
+    blocks = Markdown内容ブロックを抽出(lines)
+    for index, block in enumerate(blocks):
+        if not 数値主張あり(block) or 出典参照あり(block):
+            continue
+
+        neighbors = blocks[max(0, index - 1):index] + blocks[index + 1:index + 2]
+        if any(独立出典ブロック(neighbor) for neighbor in neighbors):
+            continue
+        if index >= 2 and Markdown表ブロック(blocks[index - 1]) and 独立出典ブロック(blocks[index - 2]):
+            if 数値トークン(block) & 数値トークン(blocks[index - 1]):
+                continue
+        return True
+    return False
 
 
 def 検査(text: str, mode: str, 出典確認: bool) -> list[指摘]:
@@ -257,7 +463,7 @@ def 検査(text: str, mode: str, 出典確認: bool) -> list[指摘]:
                     "関係を解釈する一文を追加するか、関係を表現できる構造へ変えてください。",
                 ))
 
-        paragraphs = [p.strip() for p in re.split(r"\n\s*\n", body) if p.strip()]
+        paragraphs = 散文段落を抽出(section.body_lines)
         if any(len(p) > 900 for p in paragraphs):
             findings.append(指摘(
                 "warning", "S002", section.line, section.title,
@@ -294,11 +500,7 @@ def 検査(text: str, mode: str, 出典確認: bool) -> list[指摘]:
                 break
 
         if 出典確認:
-            has_number = bool(re.search(
-                r"\d+(?:[.,]\d+)?\s*(?:%|％|人|件|円|日|週|月|年|倍|部署|営業日)?",
-                body,
-            ))
-            if has_number and not 出典参照あり(body):
+            if 未出典の数値主張あり(section.body_lines):
                 findings.append(指摘(
                     "warning", "E001", section.line, section.title,
                     "数値主張の近くに明確な出典マーカーがありません。",
@@ -322,10 +524,10 @@ def 検査(text: str, mode: str, 出典確認: bool) -> list[指摘]:
                 break
 
     early_text = "\n".join(section.title + "\n" + section.body for section in sections[:3])
-    if mode == "decision" and not 明示的行動パターン.search(early_text):
+    if mode == "decision" and not 明示的行動あり(early_text):
         findings.append(指摘(
             "warning", "D001", 1, "",
-            "意思決定文書に、明確な推奨、判断、責任者、行動を示す語が見当たりません。",
+            "意思決定文書に、明確な推奨、求める判断または行動を示す語が見当たりません。",
             "読者が行う正確な判断・行動を明示し、早い段階に置いてください。",
         ))
 

@@ -11,7 +11,7 @@ Score each dimension 0–2 after the storyboard and again after rendered product
 | 5. Cognitive and visual rhythm | Long runs of identical explanatory slides or layouts | Some variation, partly decorative | Audience operations and visual forms vary with semantic purpose |
 | 6. Slide message and proof | Multiple messages, generic titles, or unsupported claims | Primary message exists but proof is weak or distant | One message per slide; body and evidence prove the title |
 | 7. Visual-semantic hierarchy | Layout is decorative, flat, or misleading | Legible but generic | Spatial hierarchy, chart, or diagram directly explains the relationship |
-| 8. Appendix and Q&A readiness | Appendix is absent, a dump, or hides critical content | Some Q&A support but poor retrieval or coverage | Appendix is question-driven, navigable, self-contained, and appropriately scoped |
+| 8. Appendix and Q&A readiness | Predictable questions or verification needs are unsupported, or appendix hides critical content | Some Q&A support exists but retrieval, coverage, or scope is weak | Predictable needs are covered by core or a question-driven appendix; no appendix is created when none is useful |
 | 9. Evidence and trust | Claims are unsupported, invented, or overconfident | Evidence exists but citations or caveats are weak | Sources are traceable and certainty matches support |
 | 10. Artifact and rehearsal quality | File is broken, unreadable, or untested | Usable with minor defects or timing risk | Deck is rendered, filmstrip-reviewed, editable, legible, and fits delivery |
 
@@ -33,7 +33,7 @@ Fail the deck until repaired when any applies:
 - decision-changing evidence, risk, limitation, or assumption appears only in notes or appendix;
 - the core sequence cannot fit the time budget without rushing or tiny text;
 - several consecutive slides require only absorbing dense abstract explanation;
-- the appendix cannot answer predictable questions quickly;
+- predictable questions or verification needs cannot be answered quickly from the core deck or appendix;
 - the rendered deck contains clipping, unreadable text, broken charts, inconsistent notes, or navigation defects.
 
 ## Review severity

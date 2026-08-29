@@ -47,5 +47,5 @@
 - [ ] Core sequence fits the time budget.
 - [ ] Every core slide has one primary job.
 - [ ] Decision-changing evidence and caveats remain in core.
-- [ ] Likely Q&A is covered by a navigable appendix.
+- [ ] Likely Q&A is covered by the core deck or, when useful, a navigable appendix.
 - [ ] Final deck will be rendered and inspected as a filmstrip.
