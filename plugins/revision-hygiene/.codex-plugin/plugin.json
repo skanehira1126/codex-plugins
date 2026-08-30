@@ -1,0 +1,24 @@
+{
+  "name": "revision-hygiene",
+  "version": "0.1.0",
+  "description": "A cross-artifact review-revision overlay that removes obsolete residue while preserving current contracts and material safeguards.",
+  "author": {
+    "name": "あお"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Revision Hygiene",
+    "shortDescription": "レビュー修正で不要な残留物を増やさない",
+    "longDescription": "コード、文書、スライド、設定などへレビュー指摘を反映するとき、却下・削除された概念を不要なtest、comment、guard、互換層、注記として残さず、現在の契約と重大リスクを守るためのPluginです。",
+    "developerName": "あお",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "レビュー指摘を、不要な不在testや墓標commentを増やさずに反映してください。"
+    ]
+  }
+}

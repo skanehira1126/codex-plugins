@@ -363,7 +363,7 @@ def lint(text: str, check_sources: bool, mode: str) -> list[Finding]:
                 findings.append(Finding(
                     "warning", "A003", slide.line, slide.slide_id,
                     "The appendix may contain a material assumption or risk that belongs in the core deck.",
-                    "Check whether this information could change the recommendation and promote it if so.",
+                    "Check whether this information could change the intended outcome or interpretation and promote it if so.",
                 ))
         elif placement_type == "core":
             core.append((slide, move.lower() if move else None, visual.lower() if visual else None))
@@ -391,7 +391,7 @@ def lint(text: str, check_sources: bool, mode: str) -> list[Finding]:
                     "Add source, date, scope, denominator, and metric definition or mark it provisional.",
                 ))
 
-    if mode in {"decision", "proposal", "status"} and core and not contains_action_term("\n".join(s.title + "\n" + s.body for s, _, _ in core[:3])):
+    if mode in {"decision", "proposal"} and core and not contains_action_term("\n".join(s.title + "\n" + s.body for s, _, _ in core[:3])):
         findings.append(Finding(
             "warning", "C001", core[0][0].line, core[0][0].slide_id,
             "The early core deck has no obvious recommendation, decision, or exact ask.",
@@ -407,7 +407,7 @@ def lint(text: str, check_sources: bool, mode: str) -> list[Finding]:
                 findings.append(Finding(
                     "warning", "R001", first.line, first.slide_id,
                     "Three consecutive core slides use only Observe/Explain moves.",
-                    "Add synthesis, reframe, comparison, implication, or decision.",
+                    "Add synthesis, an example, application, reframe, comparison, implication, checkpoint, or decision.",
                 ))
                 break
 
@@ -427,7 +427,7 @@ def lint(text: str, check_sources: bool, mode: str) -> list[Finding]:
         findings.append(Finding(
             "info", "A004", 1, "",
             "No appendix slides were detected.",
-            "Confirm that predictable Q&A and verification needs are covered, or explicitly decide that no appendix is needed.",
+            "Confirm that material questions and verification needs are covered, or explicitly decide that no appendix is useful.",
         ))
 
     return findings

@@ -1,15 +1,15 @@
 {
   "name": "document-authoring",
-  "version": "0.3.0",
-  "description": "Skills for designing, creating, reviewing, revising, and verifying prose documents and presentations, plus applying review-driven fixes to code and configuration without obsolete residue.",
+  "version": "0.4.0",
+  "description": "Skills for designing, creating, reviewing, revising, and verifying prose documents and presentations.",
   "author": {
     "name": "あお"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Document Authoring",
-    "shortDescription": "文書・スライドの設計と、コード・設定を含むレビュー後改訂を支援",
-    "longDescription": "文章、スライドなど文書的な成果物の構造設計、作成、レビュー、改訂、検証に加え、コードや設定を含む既存成果物へのレビュー指摘を不要な残留物を増やさず反映するためのSkill bundleです。",
+    "shortDescription": "文章・スライドの構造設計、作成、レビュー、改訂を支援",
+    "longDescription": "文章、スライドなど文書的な成果物を、用途に合う構造、根拠、情報配置、ナビゲーションから設計、作成、レビュー、改訂、検証するためのSkill bundleです。",
     "developerName": "あお",
     "category": "Productivity",
     "capabilities": [
@@ -18,7 +18,7 @@
       "Write"
     ],
     "defaultPrompt": [
-      "依頼に応じて、素材や既存成果物の設計、作成、レビュー、改訂、検証、またはレビュー指摘の反映を行ってください。レビューのみの依頼では成果物を変更しないでください。"
+      "依頼に応じて、文章またはスライドの設計、作成、レビュー、改訂、検証を行ってください。レビューのみの依頼では成果物を変更しないでください。"
     ]
   }
 }

@@ -1,7 +1,7 @@
 interface:
   display_name: "テキスト文書アーキテクト"
-  short_description: "長文資料を、論証・根拠・認知的なメリハリから設計"
-  default_prompt: "$document-authoring:text-document-architect を使って、この素材から、初見の読者が論理を復元せずに読み進められるテキスト文書を設計・作成してください。"
+  short_description: "連続読解・学習・検索参照に合う文書構造を設計"
+  default_prompt: "$document-authoring:text-document-architect を使って、この素材から、対象読者が読み進めるか必要情報を引き当てられる文書を設計・作成してください。"
   icon_small: "./assets/icon.svg"
   icon_large: "./assets/icon.svg"
 policy:

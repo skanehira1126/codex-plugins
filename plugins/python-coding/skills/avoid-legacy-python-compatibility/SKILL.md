@@ -14,15 +14,14 @@ description: >-
 
 ## 手順
 
-1. `pyproject.toml`の`requires-python`、package metadata、tox/nox、CI、Docker image、プロジェクト文書の順に確認し、サポート範囲を特定する。ローカルのPythonバージョンだけから推測しない。
-2. 宣言が競合する場合は、配布metadataと実際のCI対象を優先して差異を報告する。判断に影響する範囲が特定できない場合は、既存の互換範囲を勝手に広げず確認する。
+1. `pyproject.toml`の`requires-python`、package metadata、tox/nox、CI、Docker image、プロジェクト文書を照合し、library、application、配布物、実行環境のどのsurfaceがサポート契約を所有するか特定する。ローカルのPythonバージョンだけから推測しない。
+2. 宣言が競合する場合は、宣言された配布範囲、検証matrix、実際の実行環境を同一視せず差異を報告する。authoritativeなsurfaceを特定できない場合は、既存の互換範囲を勝手に広げず確認する。
 3. 最小サポートバージョンで利用できるnativeな構文、標準ライブラリ、typing機能を選ぶ。
 4. 互換処理を追加する前に、どのサポート対象で何が失敗するか確認する。説明できなければ追加しない。
 5. diffを読み、周辺コードから不要なlegacy boilerplateをコピーしていないことを確認する。
 
 ## 避けるもの
 
-- boilerplateとしての`from __future__ import annotations`
 - 標準ライブラリに存在する機能の不要な`typing_extensions`やbackport
 - 最小サポートバージョンより古いPython向けの`try`/`except ImportError` fallback
 - 不要な`sys.version_info`分岐、互換alias、shim
@@ -36,7 +35,7 @@ description: >-
 - `typing_extensions`からimportする各symbolが最小サポートバージョンの`typing`に存在し、必要な意味論を満たすなら、標準の`typing`からimportする。同名であることだけで置換せず、type checkerやframeworkがbackport固有の挙動を要求していないことを確認する。
 - 最小サポートがPython 3.11以上でTOMLを読むだけなら、`tomli`ではなく`tomllib`を使う。`tomllib`は書き込みや書式保持を提供しないため、それらが必要な用途まで置換しない。
 
-`from __future__ import annotations`は新規ファイルへ既定で追加しない。単なる慣習や、古いPython向けの型注釈互換を理由に追加しない。遅延評価の意味論が実行時に必要であり、別の直接的な表現より明確な場合だけ使用し、その理由を示す。
+`from __future__ import annotations`は新規ファイルへ既定で追加しない。単なる慣習や、古いPython向けの型注釈互換だけを理由に追加しない。runtimeでのannotation評価、import関係、code generation、frameworkやtype checker、既存のproject方針など、現在の具体的な契約が必要とする場合に使用し、その理由を示す。
 
 ## 既存コードの扱い
 
@@ -53,5 +52,4 @@ description: >-
 
 - 最小サポートバージョン未満のためだけのコードを追加していない。
 - 追加または維持した互換処理は、対象バージョンと必要性を説明できる。
-- `from __future__ import annotations`を慣習的に追加していない。
 - 既存サポート範囲とruntime behaviorを意図せず変えていない。

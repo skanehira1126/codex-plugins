@@ -4,12 +4,12 @@
 
 Keep material in the core when everyone must encounter it in sequence to:
 
-- understand the recommendation or model;
+- understand the governing message, recommendation, or model;
 - accept the diagnosis;
 - evaluate decisive evidence;
 - compare material alternatives;
 - recognize a conclusion-changing risk or limitation;
-- make the requested decision or take the next action.
+- reach the intended learning, alignment, decision, or action outcome.
 
 A core slide must earn presentation time. “It was in the source file” is not a reason.
 
@@ -44,7 +44,7 @@ An appendix slide must answer a plausible trigger question. If no one can name t
 Omit content that is:
 
 - redundant with a stronger slide;
-- unsupported or low-confidence without decision value;
+- unsupported or low-confidence without value to the intended outcome;
 - decorative background;
 - a raw data dump with no likely retrieval need;
 - included solely to demonstrate effort or exhaustiveness;
@@ -52,7 +52,7 @@ Omit content that is:
 
 ## Placement decision tree
 
-1. Does the audience need this before making the intended judgment? **Core.**
+1. Does the audience need this to reach the intended outcome? **Core.**
 2. Does it materially prove or qualify a core claim? **Core**, possibly summarized with detail in appendix.
 3. Is it useful for spoken delivery but visually distracting? **Notes.**
 4. Is it likely needed only for a specific Q&A or verification branch? **Appendix.**
@@ -67,7 +67,7 @@ Create a Q&A coverage matrix:
 | Likely question | Core claim | Appendix answer | Source | Presenter action |
 |---|---|---|---|---|
 
-Group appendix slides by decision branch or question family, not by the order in which source material was collected.
+Group appendix slides by audience-task branch or question family, not by the order in which source material was collected.
 
 ### Make retrieval fast
 
@@ -89,13 +89,13 @@ Appendix slides may be denser, but they still need:
 
 ### Promotion rule
 
-If a slide is used in most rehearsals or answers a question that predictably determines the decision, promote it to the core or create a compact core slide with the appendix as backup.
+If a slide is used in most rehearsals or answers a question that predictably determines the intended outcome, promote it to the core or create a compact core slide with the appendix as backup.
 
 ### Critical-information rule
 
 Never hide in appendix:
 
-- a risk that could reverse the recommendation;
-- a limitation that materially changes interpretation;
-- an assumption required for the business case;
-- evidence without which a core claim is not defensible.
+- a risk that could reverse a recommendation or block the intended outcome;
+- a limitation that materially changes interpretation or application;
+- an assumption required for a governing claim, model, or action;
+- evidence or explanation without which a core claim, model, or update is not defensible.

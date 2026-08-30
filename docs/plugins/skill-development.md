@@ -58,4 +58,6 @@ PRレビューのworkflowを新しいSkillにするべきか判断し、実装�
 
 ## `evaluate-skill-robustness`
 
-明示的に承認したモデルとreasoning effortの組み合わせでSkillを実行し、最低限安定して動くprofileとモデル依存の失敗を報告します。高コストなworkflowのため、自動では起動しません。
+対象Skillと利用可能なprofileをread-onlyで確認して推奨matrixと最大run数を提示し、明示的な
+承認後にモデルとreasoning effortの組み合わせを実行します。最低限安定して動くprofileと
+モデル依存の失敗を報告します。高コストなworkflowのため、自動では起動しません。

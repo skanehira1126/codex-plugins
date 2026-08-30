@@ -1,7 +1,7 @@
 interface:
   display_name: "Presentation Architect"
-  short_description: "本編・話者ノート・Appendixを設計する発表資料Skill"
-  default_prompt: "$document-authoring:presentation-architect を使って、この素材から発表時間内に伝わるスライド資料を設計してください。"
+  short_description: "意思決定・学習・進捗共有に合う発表構造を設計"
+  default_prompt: "$document-authoring:presentation-architect を使って、この素材から目的と発表時間に合うスライド資料を設計してください。"
   icon_small: "./assets/icon.svg"
   icon_large: "./assets/icon.svg"
 policy:

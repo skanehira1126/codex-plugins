@@ -227,7 +227,7 @@ class LintDeckOutlineCliTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("D001", {item["code"] for item in findings})
 
-    def test_action_term_requires_a_word_boundary(self):
+    def test_early_ask_check_applies_only_to_decision_and_proposal_modes(self):
         result, findings = self.run_lint(
             """## S01 — Task context for the pilot
 - Placement: Core
@@ -239,6 +239,18 @@ The team has reviewed the implementation details.
 
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("C001", {item["code"] for item in findings})
+
+        result, findings = self.run_lint(
+            """## S01 — Sprint status is stable
+- Placement: Core
+The team completed the planned scope and has no blockers.
+""",
+            "--mode",
+            "status",
+        )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertNotIn("C001", {item["code"] for item in findings})
 
     def test_recommendation_noun_satisfies_early_ask_check(self):
         result, findings = self.run_lint(

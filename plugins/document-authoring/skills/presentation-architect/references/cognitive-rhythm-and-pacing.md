@@ -12,7 +12,7 @@ Use slide roles that reflect what the audience's mind must do:
 - **Compare**: evaluate options, scenarios, or criteria.
 - **Decide**: accept a conclusion or choose.
 - **Act**: understand owners, sequence, measures, or next steps.
-- **Consolidate**: reconnect the argument and exact ask.
+- **Consolidate**: reconnect the governing message or objective and any applicable ask or next use.
 
 A deck becomes “high-density flat” when every slide only asserts or explains, even when each slide is individually polished.
 
@@ -30,7 +30,7 @@ Map the visual form to the audience operation:
 | Compare | criteria table, option matrix, scenario chart |
 | Decide | recommendation, decision frame, explicit tradeoff |
 | Act | roadmap, owner map, milestones, measurement loop |
-| Consolidate | concise argument recap and exact ask |
+| Consolidate | concise recap of the governing message, objective, ask, or next use |
 
 Do not vary layouts merely for novelty. Repetition is useful when the audience is comparing like with like.
 
@@ -64,7 +64,9 @@ Assign each core slide a time weight:
 - **Medium**: one explanation, example, or option.
 - **High**: complex evidence, tradeoff, decision, or discussion.
 
-Budget by total cognitive weight, not slide count alone. Reserve time for transitions, interaction, the exact ask, and likely discussion. Move detail to appendix rather than shrinking type.
+Budget by total cognitive weight, not slide count alone. Reserve time for transitions, interaction,
+the intended learning, discussion, or decision work, and any applicable ask. Move detail to appendix
+rather than shrinking type.
 
 ## Live, read-ahead, and hybrid decks
 
@@ -89,9 +91,9 @@ Budget by total cognitive weight, not slide count alone. Reserve time for transi
 
 Inspect slide thumbnails and role labels. Investigate:
 
-- three or more consecutive dense Explain/Observe slides with no synthesis or implication;
+- a long run of dense Explain/Observe slides with no synthesis or implication;
 - repeated equal-weight layouts for unequal ideas;
 - every slide using the same card grid;
 - abrupt jumps where the presenter must invent the logic;
-- high-weight slides clustered without a pause or decision;
-- a generic summary that does not reconnect to the exact ask.
+- high-weight slides clustered without synthesis, application, a checkpoint, or a decision;
+- a generic summary that does not reconnect to the governing message, objective, or next use.
