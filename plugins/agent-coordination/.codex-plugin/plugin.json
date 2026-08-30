@@ -1,15 +1,15 @@
 {
   "name": "agent-coordination",
-  "version": "0.1.0",
-  "description": "Manual workflows for coordinating staged work across Codex subagents while keeping the main conversation active.",
+  "version": "0.2.0",
+  "description": "Reusable workflows for safe Codex subagent coordination, including routine delegation and explicitly staged implementation.",
   "author": {
     "name": "あお"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Agent Coordination",
-    "shortDescription": "サブエージェントの段階的な作業委譲と対話を調整",
-    "longDescription": "実装作業を1人または複数のサブエージェントへ段階的に委譲し、メインの会話で議論を続けながら、完了報告と次の作業の確認を自然に挟み込むための個人用Pluginです。",
+    "shortDescription": "サブエージェントの基本委譲と段階的な対話を調整",
+    "longDescription": "独立した作業の委譲判断、担当範囲、検証と統合を日常的なサブエージェント利用へ適用し、必要に応じてメイン会話を保つ段階的な実装委譲と承認チェックポイントを追加する個人用Pluginです。",
     "developerName": "あお",
     "category": "Developer Tools",
     "capabilities": [
@@ -18,7 +18,7 @@
       "Write"
     ],
     "defaultPrompt": [
-      "実装をサブエージェントへ段階的に委譲し、この会話では設計相談を続けてください。"
+      "独立して進められる作業をサブエージェントへ安全に委譲し、結果を検証して統合してください。"
     ]
   }
 }
