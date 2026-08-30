@@ -2,8 +2,9 @@
 
 ## Executive diagnosis
 
-- Audience, meeting, and exact ask:
-- Central thesis as currently understood:
+- Structural profile:
+- Audience task, meeting, and intended outcome:
+- Governing message or objective as currently understood:
 - Main source of cognitive load or lost attention:
 - Core slide count / appendix slide count:
 - Directional score: /20
@@ -13,14 +14,14 @@
 
 | Dimension | Score 0–2 | Evidence | Required change |
 |---|---:|---|---|
-| Audience, meeting, and exact ask |  |  |  |
-| Central thesis and tension |  |  |  |
+| Audience task and intended outcome |  |  |  |
+| Governing message and progression |  |  |  |
 | Core-deck selection |  |  |  |
 | Storyline and sequence |  |  |  |
 | Cognitive and visual rhythm |  |  |  |
-| Slide message and proof |  |  |  |
+| Slide message and support |  |  |  |
 | Visual-semantic hierarchy |  |  |  |
-| Appendix and Q&A readiness |  |  |  |
+| Appendix and retrieval readiness |  |  |  |
 | Evidence and trust |  |  |  |
 | Artifact and rehearsal quality |  |  |  |
 
@@ -42,7 +43,7 @@
 2.
 3.
 
-## Appendix gaps
+## Appendix, retrieval, or support gaps
 
 | Likely question | Missing support | Proposed appendix slide |
 |---|---|---|

@@ -24,6 +24,20 @@ python -m unittest discover -s evals -p 'test_*.py'
 
 ## Behavioral cases
 
+### Structural profile selection
+
+Use these representative requests to confirm that the skill selects a profile without inventing
+decision mechanics:
+
+| Request | Expected profile | Required progression | Must not force |
+|---|---|---|---|
+| “Recommend one of these three vendors to the steering committee.” | argument-led | recommendation, evidence, tradeoffs, risks, ask | none of the applicable decision gates |
+| “Teach new analysts how cohort retention differs from period retention.” | learning-led | familiar example, model, guided application, misconception, next use | recommendation, artificial tension, approval ask |
+| “Turn this sprint record into a ten-minute status deck for the project team.” | update-led | objective, material change, evidence, blockers, owners, checkpoint | thesis debate, Q&A appendix, invented decision |
+
+For every profile, keep one governing message or objective, one primary job per slide, a sequence
+that fits the time budget, and rendered artifact QA.
+
 ### Grilling and ordinary creation boundary
 
 - Grilling example: "The audience and decision are still fuzzy. Grill me before you build it."
@@ -38,8 +52,8 @@ python -m unittest discover -s evals -p 'test_*.py'
 Must:
 
 - triage each item into core, notes, appendix, or omit before slide generation;
-- keep only decision-essential content in the core;
-- create a Q&A coverage matrix;
+- keep only content essential to the intended outcome in the core;
+- map material questions or support needs and create an appendix only when it improves retrieval;
 - avoid shrinking text to fit everything.
 
 ### Decision deck
@@ -55,7 +69,7 @@ Must:
 
 Must:
 
-- use review mode and report prioritized findings, a proposed title-only storyline, a move table, and Q&A gaps;
+- use review mode and report prioritized findings, a proposed title-only storyline, a move table, and relevant appendix, retrieval, or support gaps;
 - leave the supplied deck, notes, sources, and supporting files unchanged;
 - treat the proposed storyline and slide moves as recommendations rather than applied edits.
 - not use grilling to obtain permission for revision or invent new deck requirements.
@@ -84,7 +98,7 @@ Must:
 ## Regression failure examples
 
 - Every slide uses the same three-card layout.
-- Generic agenda titles substitute for the argument.
+- Generic agenda titles substitute for a meaningful progression.
 - Appendix is a dump of all removed content.
 - The only evidence for a core claim appears in appendix.
 - The deck cannot fit the time budget except by rushing or tiny text.

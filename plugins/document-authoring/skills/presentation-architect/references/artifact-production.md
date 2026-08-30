@@ -5,7 +5,7 @@ Use the approved storyboard as the source of truth, then apply the available sli
 ## General rules
 
 - Preserve a rich existing deck, master, theme, notes, citations, and editable objects when revising.
-- Keep titles, body, visuals, notes, appendix, and sources aligned with the same thesis.
+- Keep titles, body, visuals, notes, appendix, and sources aligned with the same governing message or objective.
 - Use spatial layout to express comparison, sequence, hierarchy, causality, dependency, or scale.
 - Avoid generic equal-sized cards when ideas are not equal or parallel.
 
@@ -17,7 +17,7 @@ Use the approved storyboard as the source of truth, then apply the available sli
 - Label decisive evidence directly.
 - Keep text legible at presentation distance.
 - Use a table only when exact lookup matters; use a chart or diagram when the relationship matters.
-- Give the exact ask and decision appropriate visual weight.
+- Give the governing message or objective and any applicable ask appropriate visual weight.
 
 ## Speaker notes
 
@@ -40,7 +40,7 @@ Before delivery:
 2. Inspect each slide for overflow, clipping, wrapping, alignment, source notes, and readable type.
 3. Inspect the full filmstrip for pacing, repeated layouts, density waves, and logical progression.
 4. Check speaker notes and appendix links.
-5. Rehearse against the time budget and likely Q&A.
+5. Rehearse against the time budget and likely audience questions, application, or discussion.
 6. Re-render after any layout-sensitive change.
 
 ## Final check
@@ -50,5 +50,5 @@ Before delivery:
 - Core titles match the approved storyline.
 - No important evidence is missing or hidden.
 - Charts, tables, and citations are accurate.
-- When an appendix is useful, it is navigable and Q&A-ready; otherwise the core deck covers the predictable questions.
+- When an appendix is useful, it is navigable and supports likely questions or verification; otherwise the core deck covers the predictable questions.
 - Filename and version are unambiguous.

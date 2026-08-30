@@ -7,27 +7,31 @@
 - Delivery mode: live / read-ahead / hybrid
 - Presenter:
 - Presentation duration:
-- Q&A duration:
+- Q&A duration, when applicable:
 - Page or brand constraints:
 
 ## Audience and meeting
 
 - Primary audience:
 - Prior knowledge:
-- Attitude, incentives, objections, and decision authority:
+- Attitude, incentives, objections, and decision authority when relevant:
+- Structural profile: argument-led / learning-led / update-led
+- Audience task: decide / accept / understand / learn / align / intervene
 - Audience state A:
 - Audience state B:
-- Exact decision, belief, or action requested:
+- Intended outcome:
+- Exact decision, support, or action requested, when applicable:
 
-## Thesis and tension
+## Governing message and progression
 
-- Central thesis:
-- Recommendation or answer shown early:
-- Continuing question or tension:
+- Governing message or objective:
+- Recommendation or answer shown early, when applicable:
+- Learning objective or material change, when applicable:
+- Continuing question, tension, or checkpoint, when useful:
 
-| # | Supporting claim | Claim type | Decisive evidence | Confidence | Likely objection/question | Implication |
+| # | Supporting unit | Unit type | Evidence/example | Confidence | Likely objection/misconception/question | Implication/next use |
 |---:|---|---|---|---|---|---|
-| 1 |  | Fact / Interpretation / Hypothesis / Proposal |  |  |  |  |
+| 1 |  | Claim / Example / Concept / Signal / Action |  |  |  |  |
 | 2 |  |  |  |  |  |  |
 | 3 |  |  |  |  |  |  |
 
@@ -43,10 +47,10 @@
 
 ## Success gates
 
-- [ ] Exact ask is visible early and at the close.
-- [ ] Core titles alone communicate the storyline.
+- [ ] The intended outcome and any applicable exact ask are visible at the useful points.
+- [ ] Core titles alone communicate the storyline, learning progression, or update path.
 - [ ] Core sequence fits the time budget.
 - [ ] Every core slide has one primary job.
-- [ ] Decision-changing evidence and caveats remain in core.
-- [ ] Likely Q&A is covered by the core deck or, when useful, a navigable appendix.
+- [ ] Outcome-changing evidence and caveats remain in core.
+- [ ] Material questions are covered by the core deck or, when useful, a navigable appendix.
 - [ ] Final deck will be rendered and inspected as a filmstrip.

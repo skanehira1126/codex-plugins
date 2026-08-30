@@ -12,7 +12,8 @@ codex plugin add document-authoring@codex-plugins
 
 ### `text-document-architect`
 
-Word、Google Docs、Markdownなど文章中心の成果物を、読者、中心命題、論証、根拠、情報配置、認知的な流れから設計・作成・構造レビュー・改訂します。
+Word、Google Docs、Markdownなど文章中心の成果物を、連続読解、学習、検索・引き当てに
+合う構造、根拠、情報配置、ナビゲーションから設計・作成・構造レビュー・改訂します。
 
 ```text
 $document-authoring:text-document-architect を使って、
@@ -21,7 +22,9 @@ $document-authoring:text-document-architect を使って、
 
 ### `presentation-architect`
 
-PowerPoint、Google Slides、Keynoteなどの発表資料について、storyline、pacing、一枚一メッセージ、本編・speaker notes・Appendix・削除の配置、Q&A readinessを設計・レビュー・改訂します。
+PowerPoint、Google Slides、Keynoteなどの発表資料について、意思決定、学習、進捗共有に
+合うstoryline、pacing、一枚一メッセージ、本編・speaker notes・Appendix・削除の配置を
+設計・レビュー・改訂します。
 
 ```text
 $document-authoring:presentation-architect を使って、

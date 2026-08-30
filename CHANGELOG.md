@@ -5,6 +5,14 @@ release noteの正本とし、既存のskill別changelogは過去履歴として
 
 ## 2026-08-30
 
+### document-authoring 0.4.0
+
+- `presentation-architect`をargument-led、learning-led、update-ledの構造profileへ対応させ、
+  意思決定を必要としないdeckへ推奨案、緊張、exact ask、Q&A Appendixを強制しないようにした。
+- `text-document-architect`をsequential、learning、lookup/referenceの構造profileへ対応させ、
+  参照・検索文書では論証やreader-state narrativeより検索経路、分岐、例外を優先するようにした。
+- brief、outline、rubric、lint、回帰case、利用者向け文書を新しいprofileへ揃えた。
+
 ### document-authoring 0.3.1
 
 - `presentation-architect`と`text-document-architect`の重複する詳細を既存referenceへ統合し、

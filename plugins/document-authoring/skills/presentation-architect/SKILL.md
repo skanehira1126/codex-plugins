@@ -5,20 +5,19 @@ description: "Design, create, structurally review, or revise slide-based present
 
 # Presentation Architect
 
-Create slide decks that move an audience through a time-bounded sequence of understanding, evidence, reframing, and decision. Design the main deck as the essential presentation path and the appendix as a query-driven branch for Q&A and verification.
+Create slide decks that move an audience through a time-bounded sequence toward a decision,
+understanding, learning outcome, alignment, or intervention. Design the main deck as the essential
+presentation path and use the appendix only when a query-driven branch helps Q&A or verification.
 
 Route by the **target artifact**, not the source material. If the requested output is prose-first, do not use this skill even when the source is a deck. Match the user's language; default to Japanese for Japanese requests.
 
 ## Operating model
 
 ```text
-audience state A
-  -> orientation
-  -> tension or decision question
-  -> evidence and explanation
-  -> reframe or comparison
-  -> decision and action
-audience state B
+audience task
+  -> ordered cognitive moves
+  -> governing message or objective
+  -> intended audience outcome
 
 main deck = sequence everyone must experience
 speaker notes = nuance better heard than seen
@@ -41,6 +40,19 @@ When the request is simply “発表資料を作って” or “create a deck,�
 
 When **revise** applies self-review or external feedback, also use `revision-hygiene` when available to decide which verification or explanation should persist. This skill remains authoritative for presentation structure and quality.
 
+## Select the structural profile
+
+The operating mode controls whether to design, create, review, or revise. Separately, read
+`references/presentation-patterns.md` and select the structural profile by the audience's task:
+
+- **argument-led** for decisions, proposals, analytical findings, and strategy;
+- **learning-led** for training and explanation;
+- **update-led** for status reporting and intervention.
+
+Use the selected pattern's progression, not a universal executive storyline. Do not invent a
+recommendation, tension, exact ask, or Q&A branch when the audience instead needs to learn a model,
+understand a change, align on status, or locate the next action.
+
 ## Core workflow
 
 ### 1. Inspect sources, constraints, and the real deck
@@ -50,7 +62,7 @@ Read supplied source material before drafting. Identify:
 - audience, prior knowledge, incentives, objections, and decision authority;
 - delivery mode: live presentation, slide-based read-ahead, or hybrid;
 - presenter role and expected interaction;
-- meeting objective, exact ask, duration, Q&A time, and page constraints;
+- meeting objective, audience task, intended outcome, duration, Q&A time, and page constraints;
 - required data, citations, templates, brand rules, and existing notes;
 - whether the deck must remain editable.
 
@@ -70,55 +82,59 @@ requested output. Do not apply this interview flow in review mode.
 Use `assets/presentation-brief.md`. Establish or infer:
 
 - audience state A and desired state B;
-- exact decision, belief, or action requested;
-- one central thesis;
-- the tension, conflict, or unanswered justification that sustains attention;
+- intended outcome: decision, belief, understanding, learning, alignment, support, or action;
+- one governing message or objective;
+- a real tension, question, changed condition, or learning need when it helps the selected profile;
 - delivery mode and time budget;
-- 2–5 supporting claims and decisive evidence;
-- likely objections, questions, risks, and alternative options;
+- 2–5 supporting claims, learning beats, or update signals and their evidence or examples;
+- likely objections, misconceptions, questions, risks, blockers, or alternative options as relevant;
 - visual, brand, and artifact constraints.
 
-For decision decks, show the recommendation early. The open question should usually be **why the audience should accept it**, not **what the recommendation is**.
+For decision decks, show the recommendation early. The open question should usually be **why the audience should accept it**, not **what the recommendation is**. For learning-led and update-led decks, do not add a recommendation or suspense unless the content genuinely requires one.
 
-Classify claims as **Fact**, **Interpretation**, **Hypothesis**, or **Proposal**. Read `references/evidence-and-sources.md` when research or quantitative evidence is involved.
+When the deck makes claims, classify them as **Fact**, **Interpretation**, **Hypothesis**, or
+**Proposal**. Read `references/evidence-and-sources.md` when research or quantitative evidence is
+involved.
 
 ### 3. Choose a presentation pattern
 
-Read `references/presentation-patterns.md` and choose by what the audience must do: decide, accept a proposal, understand an analysis, learn a model, align on strategy, or intervene in progress.
+Use the selected profile and choose the matching pattern by what the audience must do: decide,
+accept a proposal, understand an analysis, learn a model, align on strategy, or intervene in
+progress.
 
 Do not default mechanically to “agenda -> background -> issues -> solution -> summary.” A generic agenda does not create a reason to listen.
 
-### 4. Build the argument and audience-question map
+### 4. Build the profile-specific content map
 
-For each major claim, record:
+Use the map that matches the selected profile:
 
 ```text
-claim -> decisive evidence -> reasoning -> implication
-                           -> likely objection or question
-                           -> deeper supporting material
+argument-led: claim -> decisive evidence -> reasoning -> implication -> objection/question
+learning-led: objective -> example -> model -> guided application -> misconception -> next use
+update-led: objective -> changed signal -> evidence -> blocker/risk -> owner/support -> checkpoint
 ```
 
-Use the audience-question map to decide both the core sequence and appendix coverage.
+Use likely audience questions to decide the core sequence and, only when useful, appendix coverage.
 
 ### 5. Triage every candidate item before slide writing
 
 Read `references/content-triage-and-appendix.md` and assign every candidate item to the core
 deck, speaker notes, appendix, or omit. Keep any limitation, risk, assumption, or missing evidence
-that could change the recommendation in the core path. The reference owns the detailed placement
-test and appendix rules.
+that could change the intended outcome or interpretation in the core path. The reference owns the
+detailed placement test and appendix rules.
 
 ### 6. Build the core storyline and storyboard
 
 Use `assets/storyboard.md`. For each core slide, specify:
 
 - slide ID and placement;
-- audience question;
+- audience task or question;
 - primary cognitive move: **Orient, Tension, Question, Observe, Explain, Reframe, Compare, Decide, Act, or Consolidate**;
 - message-bearing title;
 - decisive evidence or content;
 - semantic visual form;
 - speaker beat and transition;
-- likely question and appendix link;
+- likely question, support or verification need, and appendix link when relevant;
 - time weight.
 
 Run the following gates before visual production.
@@ -126,7 +142,7 @@ Run the following gates before visual production.
 #### Title-only gate
 
 1. Read only the deck title and core slide titles.
-2. Confirm that the thesis, argument, and exact ask remain understandable.
+2. Confirm that the governing message or objective, progression, and any applicable exact ask remain understandable.
 3. Rewrite topic labels such as “背景,” “課題,” “施策,” “まとめ,” or “Appendix” as messages or specific questions.
 4. Remove slides that do not advance the audience from A toward B.
 
@@ -142,7 +158,10 @@ View the deck as thumbnails or a storyboard:
 
 #### Time gate
 
-Allocate time by cognitive weight rather than dividing duration evenly. Account for interaction, transitions, and the decision itself. If the sequence does not fit, move detail to the appendix or omit it; do not solve the problem by shrinking text.
+Allocate time by cognitive weight rather than dividing duration evenly. Account for interaction,
+transitions, and the learning, discussion, or decision work appropriate to the profile. If the
+sequence does not fit, move detail to the appendix or omit it; do not solve the problem by shrinking
+text.
 
 ### 7. Design cognitive and visual rhythm
 
@@ -153,7 +172,7 @@ must not conceal a conclusion the audience needs.
 ### 8. Design the appendix as a Q&A system
 
 Use `assets/appendix-plan.md` and `references/content-triage-and-appendix.md`. Create an appendix
-only when a foreseeable question, verification need, or decision branch should not interrupt the
+only when a foreseeable question, verification need, or audience-task branch should not interrupt the
 core sequence; otherwise record why no appendix is needed. The reference owns the Q&A mapping,
 navigation, density, and promotion rules.
 
@@ -184,18 +203,21 @@ slides and the full filmstrip before delivery.
 Run a presenter pass:
 
 - Can the presenter explain why each core slide follows the previous one?
-- Can the deck fit the available time without rushing the decision?
+- Can the deck fit the available time without rushing its intended audience outcome?
 - Can likely questions be answered quickly from the core deck or appendix?
 - Are any core slides present only because the source material contained them?
-- Are any critical claims supported only in speaker notes or appendix?
+- Is any critical content supported or explained only in speaker notes or appendix?
 
 Score the deck with `references/quality-rubric.md` and handle hard-gate failures according to the selected operating mode.
 
 When a structured Markdown storyboard is available, optionally run:
 
 ```bash
-python scripts/lint_deck_outline.py path/to/storyboard.md --mode decision --check-sources
+python scripts/lint_deck_outline.py path/to/storyboard.md --mode general --check-sources
 ```
+
+Use `decision` or `proposal` instead of `general` only when the selected pattern requires an early
+recommendation or ask. Use `status` for update-led decks; it does not require an invented decision.
 
 Lint findings are editorial prompts, not proof of quality.
 
@@ -206,8 +228,8 @@ Lint findings are editorial prompts, not proof of quality.
 Return:
 
 1. presentation brief;
-2. audience-state transition and central thesis;
-3. argument and audience-question map;
+2. audience-state transition and governing message or objective;
+3. argument, learning, or update map and relevant audience questions;
 4. content triage: core / notes / appendix / omit;
 5. title-only core storyline and storyboard;
 6. appendix plan and Q&A coverage matrix, or the reason no appendix is needed;
@@ -221,11 +243,13 @@ Deliver the requested deck or complete slide specification, including speaker no
 
 ### Review mode
 
+Use `assets/review-report.md` when a structured review artifact is useful.
+
 Return prioritized findings with slide location, audience impact, structural cause, and concrete fix. Include:
 
 - revised title-only storyline;
 - a move table showing which slides stay in core, move to notes, move to appendix, or are removed;
-- appendix gaps for likely Q&A.
+- appendix, retrieval, or support gaps when relevant to the selected profile.
 
 ### Revise mode
 
