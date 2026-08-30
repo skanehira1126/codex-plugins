@@ -50,8 +50,8 @@ A profile qualifies as the observed minimum reliable profile only when:
 - no trial at that profile is blocked;
 - repeated runs agree when the selected level includes repeats.
 
-When these conditions are not met, report `判定不能` or describe the narrower claim that the
-evidence supports. Never extrapolate beyond the tested cases.
+When these conditions are not met, report that no reliable floor was established or describe the
+narrower claim that the evidence supports. Never extrapolate beyond the tested cases.
 
 ## Failure attribution
 

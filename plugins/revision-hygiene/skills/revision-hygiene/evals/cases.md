@@ -9,8 +9,8 @@ Use these cases after meaningful changes. Judge decisions and resulting artifact
 - 「同じValidationは後続で行っているので、前段の重複を削除して」
 - 「レビュー指摘を反映して。ただし不要になった仕組みをテストやコメントとして残さないで」
 - 「この説明は本文に不要なので削り、文書全体も再確認して」
-- 「提案書の章構成に関する指摘を反映し、却下した構成案の注記は残さないで」— `text-document-architect`と併用
-- 「deckのstorylineをレビューどおり改訂し、削除したslideのspeaker noteは残さないで」— `presentation-architect`と併用
+- 「提案書の章構成に関する指摘を反映し、却下した構成案の注記は残さないで」— `document-authoring:text-document-architect`と併用
+- 「deckのstorylineをレビューどおり改訂し、削除したslideのspeaker noteは残さないで」— `document-authoring:presentation-architect`と併用
 - “Apply these review comments and remove any obsolete compatibility residue.”
 
 ### Should not trigger
@@ -37,7 +37,7 @@ Remove the rejected paragraph, note, appendix item, or speaker note. Verify that
 
 ### Structural document or deck revision requires co-use
 
-When feedback changes a prose document's hierarchy, argument, reader motion, or information placement, use `text-document-architect` for those decisions and this skill only for residual-artifact decisions. When feedback changes a deck's storyline, pacing, or core/notes/appendix placement, use `presentation-architect` on the same basis. Use a format-specific artifact skill for generation, rendering, and technical verification when available.
+When feedback changes a prose document's hierarchy, argument, reader motion, or information placement, use `document-authoring:text-document-architect` for those decisions and this skill only for residual-artifact decisions. When feedback changes a deck's storyline, pacing, or core/notes/appendix placement, use `document-authoring:presentation-architect` on the same basis. Use a format-specific artifact skill for generation, rendering, and technical verification when available.
 
 ### Diagnosis-only review
 

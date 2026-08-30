@@ -32,8 +32,6 @@
 | # | Supporting unit | Unit type | Evidence/example | Confidence | Likely objection/misconception/question | Implication/next use |
 |---:|---|---|---|---|---|---|
 | 1 |  | Claim / Example / Concept / Signal / Action |  |  |  |  |
-| 2 |  |  |  |  |  |  |
-| 3 |  |  |  |  |  |  |
 
 ## Constraints and boundaries
 

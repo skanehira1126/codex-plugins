@@ -13,14 +13,13 @@ Score each dimension 0–2 after the storyboard and again after rendered product
 | 7. Visual-semantic hierarchy | Layout is decorative, flat, or misleading | Legible but generic | Spatial hierarchy, chart, or diagram directly explains the relationship |
 | 8. Appendix and retrieval readiness | Material questions or verification needs are unsupported, or appendix hides critical content | Some support exists but retrieval, coverage, or scope is weak | Material needs are covered by core or a question-driven appendix; no appendix is created when none is useful |
 | 9. Evidence and trust | Claims are unsupported, invented, or overconfident | Evidence exists but citations or caveats are weak | Sources are traceable and certainty matches support |
-| 10. Artifact and rehearsal quality | File is broken, unreadable, or untested | Usable with minor defects or timing risk | Deck is rendered, filmstrip-reviewed, editable, legible, and fits delivery |
+| 10. Artifact and rehearsal quality | File is broken, unreadable, or untested | Usable with minor defects or timing risk | Deck is rendered, filmstrip-reviewed, retains required editability, is legible, and fits delivery |
 
 ## Passing rule
 
 - Use the hard gates below, not the total score, to decide whether a deck passes.
 - Dimensions 1–9 are mandatory; none may score 0.
 - Treat the total as a directional editorial aid, not a calibrated or objective quality measure.
-- Use 17/20 only as an improvement target when the same reviewer and context are used before and after revision.
 - A rough storyboard may score lower only when explicitly requested and labeled.
 
 ## Hard gates

@@ -1,6 +1,6 @@
 ---
 name: presentation-architect
-description: "Design, create, structurally review, or revise slide-based presentations when the final artifact is PowerPoint, Google Slides, Keynote, or another deck. Use for storyline, pacing, one-message slides, core/notes/appendix/omit triage, Q&A readiness, and visual-semantic hierarchy. Do not use for prose-first output or formatting-only edits without structural review; use text-document-architect for prose-first documents."
+description: "Design, create, structurally review, or revise slide-based presentations when the final artifact is PowerPoint, Google Slides, Keynote, or another deck. Use for argument, learning, or update storylines, pacing, one-message slides, core/notes/appendix/omit triage, and visual-semantic hierarchy. Do not use for prose-first output or formatting-only edits without structural review; use text-document-architect for prose-first documents."
 ---
 
 # Presentation Architect
@@ -31,14 +31,16 @@ A presentation is not a long document cut into rectangles. It must manage attent
 
 Infer the mode from the request:
 
-- **design**: create the presentation brief, content triage, core storyline, storyboard, and appendix plan.
+- **design**: create the presentation brief, content triage, core storyline, storyboard, and any useful retrieval branch.
 - **create**: design first, then produce the requested slide deck or complete slide specification, repairing hard-gate failures before delivery.
 - **review**: diagnose and report on an existing deck without modifying the deck, notes, sources, or supporting files.
 - **revise**: diagnose and then revise, including moving material among core slides, notes, appendix, and omission, repairing hard-gate failures before delivery.
 
 When the request is simply “発表資料を作って” or “create a deck,” use **create** and complete the design and triage gates before generating slides.
 
-When **revise** applies self-review or external feedback, also use `revision-hygiene` when available to decide which verification or explanation should persist. This skill remains authoritative for presentation structure and quality.
+When **revise** applies self-review or external feedback, also use
+`revision-hygiene:revision-hygiene` when available to decide which verification or explanation
+should persist. This skill remains authoritative for presentation structure and quality.
 
 ## Select the structural profile
 
@@ -62,7 +64,7 @@ Read supplied source material before drafting. Identify:
 - audience, prior knowledge, incentives, objections, and decision authority;
 - delivery mode: live presentation, slide-based read-ahead, or hybrid;
 - presenter role and expected interaction;
-- meeting objective, audience task, intended outcome, duration, Q&A time, and page constraints;
+- meeting objective, audience task, intended outcome, duration, applicable interaction or Q&A, and page constraints;
 - required data, citations, templates, brand rules, and existing notes;
 - whether the deck must remain editable.
 
@@ -73,11 +75,8 @@ For an existing deck, inspect the actual slides and speaker notes. For current o
 In design and create modes, establish source- or research-backed facts yourself, state safe
 defaults for non-material gaps, and ask only user choices that could materially change the deck.
 
-When the user explicitly asks to be interviewed or grilled, ask prerequisite decisions first, at
-most three per round, with a recommended answer and brief rationale for each. Defer dependent
-questions and repeat until material choices are resolved or explicitly deferred; do not finalize
-the storyboard or full deck earlier. Then summarize the shared understanding and proceed to the
-requested output. Do not apply this interview flow in review mode.
+When the user explicitly asks to be interviewed or grilled, read and follow
+`../../references/authoring-interview.md` before finalizing the storyboard or full deck.
 
 Use `assets/presentation-brief.md`. Establish or infer:
 
@@ -86,7 +85,7 @@ Use `assets/presentation-brief.md`. Establish or infer:
 - one governing message or objective;
 - a real tension, question, changed condition, or learning need when it helps the selected profile;
 - delivery mode and time budget;
-- 2–5 supporting claims, learning beats, or update signals and their evidence or examples;
+- the smallest sufficient set of supporting claims, learning beats, or update signals and their evidence or examples;
 - likely objections, misconceptions, questions, risks, blockers, or alternative options as relevant;
 - visual, brand, and artifact constraints.
 
@@ -152,7 +151,7 @@ View the deck as thumbnails or a storyboard:
 
 - Is there a visible progression rather than a set of equal-weight pages?
 - Does each slide have one primary job?
-- Does the body prove the title rather than repeat it?
+- Does the body support the title in a way appropriate to the selected profile rather than repeat it?
 - Does the visual form change when the audience's cognitive task changes?
 - Does every slide earn presentation time?
 
@@ -169,23 +168,18 @@ Read `references/cognitive-rhythm-and-pacing.md` and use it to vary audience ope
 forms, transitions, and time by meaning. Variation must be semantic rather than decorative, and
 must not conceal a conclusion the audience needs.
 
-### 8. Design the appendix as a Q&A system
+### 8. Add a retrieval branch only when useful
 
-Use `assets/appendix-plan.md` and `references/content-triage-and-appendix.md`. Create an appendix
-only when a foreseeable question, verification need, or audience-task branch should not interrupt the
-core sequence; otherwise record why no appendix is needed. The reference owns the Q&A mapping,
-navigation, density, and promotion rules.
+When a foreseeable question, verification need, or audience-task branch should not interrupt the
+core sequence, use `assets/appendix-plan.md` and `references/content-triage-and-appendix.md` to
+design an appendix. Otherwise continue without an appendix artifact. The reference owns the Q&A
+mapping, navigation, density, and promotion rules.
 
-### 9. Generate in staged passes
+### 9. Separate the checks that matter
 
-Do not create the full deck in one undifferentiated pass.
-
-1. **Core skeleton**: titles, slide roles, and sequence.
-2. **Proof pass**: evidence, examples, and claim support.
-3. **Visual pass**: choose forms that express comparison, causality, sequence, hierarchy, or scale.
-4. **Delivery pass**: speaker notes, transitions, and time weights.
-5. **Appendix pass**: when useful, Q&A coverage, detailed evidence, and navigation.
-6. **Artifact pass**: generate, render, inspect, and revise.
+Confirm structure and sequence, support and evidence, visual and delivery choices, and artifact
+quality as distinct concerns. Combine these checks for a small deck or separate them for a complex
+deck; do not let polished rendering hide a weak storyline or unsupported content.
 
 ### 10. Produce and verify the slide artifact
 
@@ -195,8 +189,8 @@ artifact QA. This skill remains authoritative for storyline, evidence, content p
 speaker notes, and appendix design. Resolve any conflict by preserving the user's artifact format
 and the format-specific skill's technical production requirements.
 
-Follow the reference's production and QA procedure. Render every slide and inspect both individual
-slides and the full filmstrip before delivery.
+Follow the format-specific production and QA procedure. Inspect the rendered or previewed slides
+and the full filmstrip before delivery.
 
 ### 11. Rehearse and review independently
 
@@ -204,7 +198,7 @@ Run a presenter pass:
 
 - Can the presenter explain why each core slide follows the previous one?
 - Can the deck fit the available time without rushing its intended audience outcome?
-- Can likely questions be answered quickly from the core deck or appendix?
+- Can material questions, when present, be answered quickly from the core deck or appendix?
 - Are any core slides present only because the source material contained them?
 - Is any critical content supported or explained only in speaker notes or appendix?
 
@@ -229,10 +223,10 @@ Return:
 
 1. presentation brief;
 2. audience-state transition and governing message or objective;
-3. argument, learning, or update map and relevant audience questions;
+3. argument, learning, or update map and material support needs;
 4. content triage: core / notes / appendix / omit;
 5. title-only core storyline and storyboard;
-6. appendix plan and Q&A coverage matrix, or the reason no appendix is needed;
+6. appendix plan and retrieval coverage when an appendix is useful;
 7. hard-gate results.
 
 Do not generate the final deck unless requested.
@@ -245,10 +239,11 @@ Deliver the requested deck or complete slide specification, including speaker no
 
 Use `assets/review-report.md` when a structured review artifact is useful.
 
-Return prioritized findings with slide location, audience impact, structural cause, and concrete fix. Include:
+Return prioritized findings with slide location, audience impact, structural cause, and concrete
+fix. When the current structure needs revision, include:
 
 - revised title-only storyline;
-- a move table showing which slides stay in core, move to notes, move to appendix, or are removed;
+- a move table for slides whose placement should change;
 - appendix, retrieval, or support gaps when relevant to the selected profile.
 
 ### Revise mode

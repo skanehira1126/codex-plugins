@@ -32,8 +32,8 @@ decision mechanics:
 | Request | Expected profile | Required progression | Must not force |
 |---|---|---|---|
 | “Recommend one of these three vendors to the steering committee.” | argument-led | recommendation, evidence, tradeoffs, risks, ask | none of the applicable decision gates |
-| “Teach new analysts how cohort retention differs from period retention.” | learning-led | familiar example, model, guided application, misconception, next use | recommendation, artificial tension, approval ask |
-| “Turn this sprint record into a ten-minute status deck for the project team.” | update-led | objective, material change, evidence, blockers, owners, checkpoint | thesis debate, Q&A appendix, invented decision |
+| “Teach new analysts how cohort retention differs from period retention.” | learning-led | familiar example, model, guided application, misconception, next use | recommendation, artificial tension, approval ask, appendix justification |
+| “Turn this sprint record into a ten-minute status deck for the project team.” | update-led | objective, material change, evidence, blockers, owners, checkpoint | thesis debate, Q&A appendix or its rejection rationale, invented decision |
 
 For every profile, keep one governing message or objective, one primary job per slide, a sequence
 that fits the time budget, and rendered artifact QA.
@@ -42,8 +42,7 @@ that fits the time budget, and rendered artifact QA.
 
 - Grilling example: "The audience and decision are still fuzzy. Grill me before you build it."
 - Ordinary example: "Turn these approved notes into a ten-minute internal update deck."
-- Explicit grilling establishes source-backed facts itself, then asks prerequisite decisions at
-  most three per round with recommendations and brief rationales.
+- Explicit grilling follows the shared authoring interview protocol.
 - Ordinary creation states safe defaults and proceeds without exhaustive questioning.
 - A full deck is not generated while a material upstream decision remains unresolved.
 
@@ -69,7 +68,7 @@ Must:
 
 Must:
 
-- use review mode and report prioritized findings, a proposed title-only storyline, a move table, and relevant appendix, retrieval, or support gaps;
+- use review mode and report prioritized findings, adding a proposed title-only storyline, move table, or support gaps only where the findings require them;
 - leave the supplied deck, notes, sources, and supporting files unchanged;
 - treat the proposed storyline and slide moves as recommendations rather than applied edits.
 - not use grilling to obtain permission for revision or invent new deck requirements.
@@ -90,9 +89,9 @@ Must:
 
 Must:
 
-- use `revision-hygiene` with `presentation-architect` when it is available;
+- use `revision-hygiene:revision-hygiene` with `presentation-architect` when it is available;
 - let `presentation-architect` own storyline, pacing, placement, notes, and appendix quality;
-- use `revision-hygiene` to remove rejected or obsolete material without leaving tombstone notes, duplicate checks, or appendix residue;
+- use `revision-hygiene:revision-hygiene` to remove rejected or obsolete material without leaving tombstone notes, duplicate checks, or appendix residue;
 - preserve current sources, brand constraints, and verification that still protect the revised deck.
 
 ## Regression failure examples

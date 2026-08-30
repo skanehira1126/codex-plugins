@@ -11,8 +11,8 @@ description: "コード、文書、スライド、設定など既存成果物へ
 
 このSkillは、レビュー後の修正で何を恒久的に残すかを判断するoverlayである。成果物全体の構造設計、形式固有の品質、ファイル生成を単独では所有しない。
 
-- 文章中心の文書で見出し、論証、読者動作、情報配置を改訂する場合は`text-document-architect`と併用し、文章構造と文書品質については同Skillを優先する。
-- スライドでstoryline、pacing、本編・notes・Appendixの配置を改訂する場合は`presentation-architect`と併用し、発表構造とdeck品質については同Skillを優先する。
+- 文章中心の文書で見出し、論証、読者動作、情報配置を改訂する場合は`document-authoring:text-document-architect`と併用し、文章構造と文書品質については同Skillを優先する。
+- スライドでstoryline、pacing、本編・notes・Appendixの配置を改訂する場合は`document-authoring:presentation-architect`と併用し、発表構造とdeck品質については同Skillを優先する。
 - DOCX、PPTXなどの生成、編集、render、形式検証には、利用可能なら形式固有のSkillを使い、その技術的な生成・検証要件を優先する。
 - このSkillは、上記の作業でreviewにより不要になったテスト、説明、注記、互換層などを残すべきかだけを判断する。
 

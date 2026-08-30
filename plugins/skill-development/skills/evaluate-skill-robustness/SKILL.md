@@ -13,11 +13,13 @@ skill/plugin during evaluation.
 
 Treat this as a high-cost workflow. Never launch it implicitly.
 
-Before reading the target, running tests, or spawning any subagent:
+Before running tests or spawning any subagent:
 
-1. Ask the user to choose one evaluation level from the table below.
-2. State the planned maximum number of subagent runs.
-3. Wait for explicit authorization to run that level.
+1. Read the target and its required resources without modifying them, and inspect the currently
+   available subagent profiles.
+2. Recommend an evaluation level or custom matrix, with the planned maximum number of subagent
+   runs and the reason it fits the target.
+3. Wait for explicit authorization to execute that matrix.
 
 If the invocation already specifies a level and clearly authorizes execution, treat that as
 consent and do not ask again. A level name without an instruction to execute is not consent.
@@ -38,22 +40,19 @@ plan, reduce the matrix or ask for new approval before spawning.
 
 After consent:
 
-1. Resolve the exact target skill or plugin. For a skill, read its complete `SKILL.md`; for a
-   plugin, read the manifest and every `SKILL.md` directly involved in the workflow. Also read the
-   required referenced files and relevant sibling skills.
-2. Preserve the target unchanged. Record pre-existing worktree changes and avoid treating them as
-   evaluation output.
-3. Derive representative cases from the target's declared scope:
+1. Confirm the scoped target and approved matrix. Preserve the target unchanged. Record
+   pre-existing worktree changes and avoid treating them as evaluation output.
+2. Derive representative cases from the target's declared scope:
    - a typical positive request;
    - an important edge or failure case;
    - a second positive or boundary case for Standard and above;
    - an additional high-risk case for Deep.
-4. Separate execution robustness from trigger-boundary review. Explicitly invoking the target in a
+3. Separate execution robustness from trigger-boundary review. Explicitly invoking the target in a
    trial proves execution behavior, not implicit trigger quality. Mark unobserved trigger behavior
    as `not evaluated`.
-5. Define observable acceptance criteria before starting trials. Prefer deterministic validators,
+4. Define observable acceptance criteria before starting trials. Prefer deterministic validators,
    file checks, and target-defined completion conditions over stylistic judgment.
-6. Read [evaluation-rubric.md](references/evaluation-rubric.md) before scoring results.
+5. Read [evaluation-rubric.md](references/evaluation-rubric.md) before scoring results.
 
 ## Select profiles from current capabilities
 
@@ -97,19 +96,20 @@ started. Keep raw outputs associated with their exact profile, case, and repeat.
 ## Evaluate without hiding uncertainty
 
 Score and classify every trial with the shared rubric. Apply its failure-attribution and
-capability-floor rules, report competing explanations, and narrow the claim or return `判定不能`
-when the evidence cannot isolate the cause or establish a stable minimum profile.
+capability-floor rules, report competing explanations, and narrow the claim or report that no
+reliable floor was established when the evidence cannot isolate the cause or establish a stable
+minimum profile.
 
 ## Report and stop
 
-Write the report in Japanese. Include:
+Match the user's language and any active higher-level instruction. Include:
 
 - approved level and actual run count;
 - tested and skipped model/reasoning profiles;
 - case-by-profile outcome table;
 - concrete failures with evidence;
 - model-dependent behaviors and alternative explanations;
-- lowest profile supported by the evidence, or `判定不能`;
+- lowest profile supported by the evidence, or that no reliable floor was established;
 - proposed skill improvements, separated from model-selection advice;
 - untested areas and confidence limits.
 

@@ -12,9 +12,9 @@ Use the approved storyboard as the source of truth, then apply the available sli
 ## Core slides
 
 - Use one primary message per slide.
-- Write the title as the answer or claim.
-- Make the body prove the title rather than repeat it.
-- Label decisive evidence directly.
+- Write the title as the message, question, task, or status the audience needs at that point.
+- Make the body support that title with the profile-appropriate evidence, example, explanation, or action rather than repeat it.
+- Label decisive support directly when the audience needs to verify it.
 - Keep text legible at presentation distance.
 - Use a table only when exact lookup matters; use a chart or diagram when the relationship matters.
 - Give the governing message or objective and any applicable ask appropriate visual weight.
@@ -45,7 +45,7 @@ Before delivery:
 
 ## Final check
 
-- File opens and remains editable.
+- File opens and retains the editability required by the request or existing artifact.
 - Master/theme and fonts render correctly.
 - Core titles match the approved storyline.
 - No important evidence is missing or hidden.

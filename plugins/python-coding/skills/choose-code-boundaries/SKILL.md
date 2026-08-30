@@ -19,6 +19,7 @@ description: >-
 - 独立してテストすべき非自明な処理
 - 長い主要処理を明確にする意味のある単位
 - 状態、ライフサイクル、共有不変条件、または実際に必要なポリモーフィズム
+- frameworkや公開APIが要求するtype identity、extension point、creationまたはlookupの所有権
 
 どれも所有しない場合はインラインを維持する。コードの移動や呼び出しの言い換えを責務分離とみなさず、「将来増えるかもしれない」だけで抽象化しない。
 
@@ -50,11 +51,16 @@ def apply_all(result, items):
 
 ### class、Runner、Manager、Service
 
-状態、ライフサイクル、リソース、共有不変条件、必要なポリモーフィズムのいずれも持たないclassは導入しない。1つの関数を呼ぶだけのRunnerやManager、名前を変えて委譲するだけのServiceを避ける。
+classは状態だけでなく、独立したdomain concept、type identity、framework/API contract、
+ライフサイクル、リソース、共有不変条件、必要なポリモーフィズムを所有し得る。これらを
+持たず、1つの関数を呼ぶだけのRunnerやManager、名前を変えて委譲するだけのServiceは避ける。
 
 ### Factory、Registry、Protocol、抽象基底class
 
-複数の実装と共通契約が実在し、設定や外部入力による選択が必要で、直接的な条件分岐より明確になる場合だけ導入する。将来の拡張可能性だけでは導入しない。
+FactoryやRegistryは、生成、lookup、選択、登録、ライフサイクルのpolicyを所有し、直接的な
+生成や条件分岐より責務を明確にするときに使う。Protocolや抽象基底classは、package間の
+static contract、framework/APIのextension point、または複数実装に共通する実在の契約を
+表すときに使う。いずれも将来の拡張可能性だけでは導入しない。
 
 ### 外部I/O
 

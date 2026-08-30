@@ -18,18 +18,23 @@
 
 ### skill-development
 
-Codex Skillの設計、変更、保守を支援します。
+Codex Skillの設計、変更、レビュー、評価を支援します。
 
 - `$skill-development:shape-skill-change`: Skill変更の実装前に責務と配置を判断し、実装後にscope drift、重複、肥大化をレビューする
 - `$skill-development:evaluate-skill-robustness`: 明示的に承認したモデルとreasoning effortでSkillの堅牢性を比較評価する
 
 ### document-authoring
 
-文章やスライドなどの成果物の構造設計、作成、レビュー、改訂、検証と、コードや設定を含む既存成果物へのレビュー指摘の反映を支援します。
+文章やスライドなどの成果物の構造設計、作成、レビュー、改訂、検証を支援します。
 
-- `$document-authoring:text-document-architect`: 文章中心の文書を、論証、根拠、読者動作から設計・作成する
-- `$document-authoring:presentation-architect`: 発表資料のstoryline、pacing、本編・ノート・Appendixを設計する
-- `$document-authoring:revision-hygiene`: コードや設定を含むレビュー修正で、不要なtest、comment、互換層などの残留物を増やさない
+- `$document-authoring:text-document-architect`: 文章中心の文書を、連続読解、学習、検索参照に合う構造から設計・作成する
+- `$document-authoring:presentation-architect`: 意思決定、学習、進捗共有に合う発表構造を設計する
+
+### revision-hygiene
+
+コード、文書、スライド、設定などへレビュー指摘を反映するとき、不要なtest、comment、互換層、注記などの残留物を増やさず、現在の契約へ収束させます。
+
+- `$revision-hygiene:revision-hygiene`: レビュー後の修正で何を恒久的に残すか判断する
 
 ### agent-coordination
 
@@ -52,6 +57,7 @@ codex plugin add python-coding@codex-plugins
 codex plugin add skill-development@codex-plugins
 codex plugin add document-authoring@codex-plugins
 codex plugin add agent-coordination@codex-plugins
+codex plugin add revision-hygiene@codex-plugins
 ```
 
 すべてのプラグインをまとめてインストールする場合は、Marketplace登録後に次を実行します。

@@ -1,6 +1,6 @@
 # 構造アウトライン
 
-選択したprofileに対応する表だけを使う。
+primary profileに対応する表を使い、利用者の仕事がある場合だけsecondary profileの表も使う。
 
 ## 北極星
 

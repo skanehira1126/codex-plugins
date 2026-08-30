@@ -91,7 +91,7 @@ rather than shrinking type.
 
 Inspect slide thumbnails and role labels. Investigate:
 
-- three or more consecutive dense Explain/Observe slides with no synthesis or implication;
+- a long run of dense Explain/Observe slides with no synthesis or implication;
 - repeated equal-weight layouts for unequal ideas;
 - every slide using the same card grid;
 - abrupt jumps where the presenter must invent the logic;
