@@ -1,6 +1,6 @@
 {
   "name": "document-authoring",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Skills for designing, creating, reviewing, revising, and verifying prose documents and presentations, plus applying review-driven fixes to code and configuration without obsolete residue.",
   "author": {
     "name": "あお"

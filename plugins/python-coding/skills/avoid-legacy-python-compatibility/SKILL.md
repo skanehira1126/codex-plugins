@@ -22,7 +22,6 @@ description: >-
 
 ## 避けるもの
 
-- boilerplateとしての`from __future__ import annotations`
 - 標準ライブラリに存在する機能の不要な`typing_extensions`やbackport
 - 最小サポートバージョンより古いPython向けの`try`/`except ImportError` fallback
 - 不要な`sys.version_info`分岐、互換alias、shim
@@ -53,5 +52,4 @@ description: >-
 
 - 最小サポートバージョン未満のためだけのコードを追加していない。
 - 追加または維持した互換処理は、対象バージョンと必要性を説明できる。
-- `from __future__ import annotations`を慣習的に追加していない。
 - 既存サポート範囲とruntime behaviorを意図せず変えていない。

@@ -3,6 +3,7 @@
 個人用のCodexプラグインを管理するリポジトリです。
 
 利用方法と各Skillの選び方は、[利用者向けドキュメント](https://skanehira1126.github.io/codex-plugins/)を参照してください。
+リリース履歴は[CHANGELOG.md](CHANGELOG.md)にまとめています。
 
 ## 提供プラグイン
 

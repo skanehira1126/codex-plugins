@@ -96,17 +96,9 @@ started. Keep raw outputs associated with their exact profile, case, and repeat.
 
 ## Evaluate without hiding uncertainty
 
-Score each trial with the shared rubric and classify failures as one of:
-
-- skill underspecification;
-- model-capability sensitivity;
-- environment, tool, or permission limitation;
-- invalid or contaminated test fixture;
-- stochastic or inconclusive result.
-
-Do not infer model dependence from a single stylistic difference. Treat a one-run success as weak
-evidence, and do not claim a stable minimum profile unless all required cases at that profile meet
-their acceptance criteria. Use Deep or an approved custom repeated run when variance matters.
+Score and classify every trial with the shared rubric. Apply its failure-attribution and
+capability-floor rules, report competing explanations, and narrow the claim or return `判定不能`
+when the evidence cannot isolate the cause or establish a stable minimum profile.
 
 ## Report and stop
 

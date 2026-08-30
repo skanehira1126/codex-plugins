@@ -102,21 +102,10 @@ Use the audience-question map to decide both the core sequence and appendix cove
 
 ### 5. Triage every candidate item before slide writing
 
-Use `references/content-triage-and-appendix.md` and assign each item to exactly one destination:
-
-- **Core deck**: everyone must see it in sequence to understand, evaluate, or decide.
-- **Speaker notes**: useful nuance, transition, or example that is better heard than seen.
-- **Appendix**: useful for a foreseeable question, verification, methodology, sensitivity, segment detail, or secondary implementation discussion, but not required for the main path.
-- **Omit**: redundant, unsupported, decorative, source-order residue, or unlikely to affect understanding or Q&A.
-
-Apply the placement test in order:
-
-1. Would removing it change the audience's understanding, decision, or confidence? **Core deck.**
-2. Is it necessary for delivery but better spoken than displayed? **Speaker notes.**
-3. Is it useful only when a plausible question or verification need arises? **Appendix.**
-4. Otherwise, **omit.**
-
-Never place a limitation, risk, assumption, or missing evidence in the appendix if it could change the recommendation.
+Read `references/content-triage-and-appendix.md` and assign every candidate item to the core
+deck, speaker notes, appendix, or omit. Keep any limitation, risk, assumption, or missing evidence
+that could change the recommendation in the core path. The reference owns the detailed placement
+test and appendix rules.
 
 ### 6. Build the core storyline and storyboard
 
@@ -157,42 +146,16 @@ Allocate time by cognitive weight rather than dividing duration evenly. Account 
 
 ### 7. Design cognitive and visual rhythm
 
-Read `references/cognitive-rhythm-and-pacing.md`.
-
-Avoid long runs in which every slide only explains or asserts. Deliberately vary audience operations:
-
-```text
-orient -> notice tension -> observe evidence -> reframe -> compare -> decide -> act
-```
-
-Variation must be semantic, not decorative. Do not alternate layouts merely to look dynamic. Use chart-led, diagram-led, comparison, example, statement, and roadmap slides only when those forms match the message.
-
-After dense evidence, provide synthesis, implication, comparison, or decision. Use an open question as a transition when useful, but never use suspense to conceal a conclusion the audience needs.
+Read `references/cognitive-rhythm-and-pacing.md` and use it to vary audience operations, visual
+forms, transitions, and time by meaning. Variation must be semantic rather than decorative, and
+must not conceal a conclusion the audience needs.
 
 ### 8. Design the appendix as a Q&A system
 
-Use `assets/appendix-plan.md`.
-
-Create an appendix only when there is a foreseeable question, verification need, or decision branch that should not interrupt the core sequence. If the core deck already covers the likely questions and no additional verification branch is useful, record that no appendix is needed instead of creating filler.
-
-For each likely audience question, record:
-
-```text
-question -> core claim -> appendix slide -> evidence/source -> presenter use
-```
-
-Appendix rules:
-
-- organize by anticipated question or decision branch, not source-file order;
-- use message-bearing titles and stable IDs such as A1, A2, and A3;
-- make each appendix slide independently understandable;
-- include enough context, definitions, and sources for retrieval during Q&A;
-- cross-reference from the core deck when useful;
-- add an appendix index when the set is large;
-- allow higher density than the core deck, but never illegibility or raw-data dumping;
-- promote frequently needed appendix content into the core deck or create a compact core version.
-
-The appendix is not a content graveyard. Speaker notes are not an overflow bin.
+Use `assets/appendix-plan.md` and `references/content-triage-and-appendix.md`. Create an appendix
+only when a foreseeable question, verification need, or decision branch should not interrupt the
+core sequence; otherwise record why no appendix is needed. The reference owns the Q&A mapping,
+navigation, density, and promotion rules.
 
 ### 9. Generate in staged passes
 
@@ -213,19 +176,8 @@ artifact QA. This skill remains authoritative for storyline, evidence, content p
 speaker notes, and appendix design. Resolve any conflict by preserving the user's artifact format
 and the format-specific skill's technical production requirements.
 
-Apply these defaults unless the context requires otherwise:
-
-- one primary message per slide;
-- title states the slide's answer or claim;
-- body proves the title;
-- evidence is close to the claim;
-- layout expresses meaning rather than decorating it;
-- important material receives greater visual weight;
-- live decks leave appropriate work to the speaker without becoming unintelligible;
-- read-ahead decks include enough connective explanation to stand alone;
-- citations remain traceable without dominating the page.
-
-Render all slides. Inspect individual slides and the full filmstrip for clipping, tiny text, accidental wrapping, monotony, hierarchy, pacing, source notes, and appendix navigation.
+Follow the reference's production and QA procedure. Render every slide and inspect both individual
+slides and the full filmstrip before delivery.
 
 ### 11. Rehearse and review independently
 
@@ -278,22 +230,6 @@ Return prioritized findings with slide location, audience impact, structural cau
 ### Revise mode
 
 Deliver the revised deck and a concise change summary, including slide moves and appendix additions when applicable. Preserve valid sources, notes, brand rules, and editable structure.
-
-## Prohibited shortcuts
-
-Do not:
-
-- treat a deck as a document split across slides;
-- give every slide the same density, role, visual form, or card layout;
-- hide the recommendation to manufacture suspense;
-- use a generic agenda as a substitute for a storyline;
-- place decision-changing evidence, risks, or caveats only in the appendix;
-- use the appendix as storage for everything removed from the core deck;
-- solve time or density problems by shrinking text;
-- make slides repeat the speaker word for word;
-- add decorative visuals that compete with the message;
-- force visual variety when the semantics do not change;
-- fabricate evidence to make the narrative complete.
 
 ## Reference map
 

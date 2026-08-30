@@ -36,6 +36,11 @@ Check:
 Do not optimize for fewer lines. A long non-obvious constraint may be essential, while a short
 duplicate or generic instruction may still be bloat.
 
+Classify each material finding as either **behavior-preserving consolidation** or
+**behavior-changing revision**. When both are in scope, complete and verify the behavior-preserving
+consolidation first so trigger, boundary, requirement, and output changes remain independently
+reviewable.
+
 ## 3. Give every finding a disposition
 
 Use one of:
@@ -54,6 +59,11 @@ Choose one overall verdict:
 - **merge:** Another skill already owns the same workflow.
 - **retire:** The skill no longer justifies a durable skill surface.
 
+Before assigning `merge` or `remove` to duplicated guidance, name its canonical owner and confirm
+that every remaining caller or routing instruction still reaches that owner. Preserve distinct
+trigger metadata, routing, and layer-specific invariants rather than treating them as duplicate
+detail.
+
 ## 4. Report and hand off
 
 Return:
@@ -67,7 +77,8 @@ Return:
 
 ## Findings
 
-- <keep | move | merge | remove>: <location, impact, and specific action>
+- <keep | move | merge | remove> [<behavior-preserving | behavior-changing>]: <location, impact,
+  specific action, and canonical owner when applicable>
 
 ## Preserved contracts
 
