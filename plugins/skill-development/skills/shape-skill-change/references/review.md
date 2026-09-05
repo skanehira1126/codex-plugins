@@ -30,8 +30,11 @@ Check:
   universal rule without a demonstrated need.
 - **Resource hygiene:** Every reference, script, asset, example, test, and compatibility layer has
   a current caller and a distinct purpose.
-- **Handoffs:** Editing, model evaluation, external writes, and other costly actions remain behind
-  the correct request or approval boundary.
+- **Handoffs:** Editing, model evaluation, external writes, and other costly actions respect the
+  correct request or approval boundary.
+  Internal quality gates do not add approval pauses; required approvals identify their scope and
+  reuse current consent. A skill-caused pause cites the file and rule, distinguishing its explicit
+  requirement from interpretation. Verification ends after relevant risks and required checks pass.
 
 Do not optimize for fewer lines. A long non-obvious constraint may be essential, while a short
 duplicate or generic instruction may still be bloat.

@@ -13,18 +13,18 @@ skill/plugin during evaluation.
 
 Treat this as a high-cost workflow. Never launch it implicitly.
 
-Before running tests or spawning any subagent:
+Before running evaluation trials or spawning any subagent:
 
 1. Read the target and its required resources without modifying them, and inspect the currently
    available subagent profiles.
-2. Recommend an evaluation level or custom matrix, with the planned maximum number of subagent
-   runs and the reason it fits the target.
-3. Wait for explicit authorization to execute that matrix.
+2. Prepare a proposed level or custom matrix with profiles, case outlines, maximum subagent runs,
+   and the reason it fits the target, so the approval concerns a concrete evaluation scope.
+3. Request authorization for that matrix, linking this skill's consent rule, and wait for approval.
 
-If the invocation already specifies a level and clearly authorizes execution, treat that as
-consent and do not ask again. A level name without an instruction to execute is not consent.
-Never infer consent from token availability, an approaching usage reset, or previous evaluations.
-The user may cancel or lower the level at any time.
+Use explicit authorization from this invocation or earlier in the conversation for the same
+evaluation matrix without asking again. A level name alone does not authorize execution or
+additional runs. Never infer consent from token availability, an approaching reset, or a different
+evaluation. The user may cancel or lower the level at any time.
 
 | Level | Profiles | Cases | Repeats | Maximum runs | Intended use |
 | --- | ---: | ---: | ---: | ---: | --- |
@@ -113,5 +113,5 @@ Match the user's language and any active higher-level instruction. Include:
 - proposed skill improvements, separated from model-selection advice;
 - untested areas and confidence limits.
 
-Do not edit the evaluated target automatically. End after the report unless the user separately
-authorizes revisions and a new evaluation budget.
+End evaluation after the approved trials and report. Hand off separately authorized revisions
+without editing the target during evaluation; further trials require a new evaluation budget.

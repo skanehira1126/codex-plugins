@@ -36,7 +36,7 @@ Infer the mode from the request:
 - **review**: diagnose and report on an existing deck without modifying the deck, notes, sources, or supporting files.
 - **revise**: diagnose and then revise, including moving material among core slides, notes, appendix, and omission, repairing hard-gate failures before delivery.
 
-When the request is simply “発表資料を作って” or “create a deck,” use **create** and complete the design and triage gates before generating slides.
+When the request is simply “発表資料を作って” or “create a deck,” use **create**: pass the design and triage gates, then produce and verify the deck. Pause for design approval only when the user requested that checkpoint.
 
 When **revise** applies self-review or external feedback, also use
 `revision-hygiene:revision-hygiene` when available to decide which verification or explanation

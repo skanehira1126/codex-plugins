@@ -12,8 +12,8 @@ the change; it does not edit skill files by itself.
 
 - **Before implementation:** read [planning.md](references/planning.md) and produce a decision brief.
 - **After implementation:** read [review.md](references/review.md) and review the implemented change.
-- **Both:** plan first, use the decision brief with `skill-creator`, then review the resulting
-  implementation. Apply further edits only when the user requested implementation.
+- **Both:** plan first; when implementation is requested, continue with `skill-creator` and then
+  review without another planning approval. Planning and review alone do not authorize edits.
 
 Read only the reference needed for the current phase. Do not run `evaluate-skill-robustness`
 unless the user explicitly invokes that separate, high-cost workflow.
@@ -42,9 +42,9 @@ placement, or review verdict. Ask only unresolved user choices needed for the cu
 dependency order and at most three independent, high-impact questions per round. Give a
 recommended answer and brief rationale for each question.
 
-## Stop at the phase boundary
+## Complete the requested scope
 
 - Planning ends when the decision brief is supportable.
 - Review ends when every material finding has a disposition and the next handoff is clear.
-- A combined implementation request ends after the implemented result passes one review cycle or
-  remaining tradeoffs require a user decision.
+- A combined implementation request ends when material findings are resolved; recheck findings
+  affected by further edits. Pause only work that depends on an unresolved user decision.

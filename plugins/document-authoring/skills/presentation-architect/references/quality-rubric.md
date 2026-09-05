@@ -1,6 +1,6 @@
 # Presentation quality rubric
 
-Score each dimension 0–2 after the storyboard and again after rendered production.
+Score each dimension 0–2 after the storyboard. After rendered production, reassess dimensions affected by production, revisions, or unresolved findings; reuse unchanged results. Retain all hard gates and rendered artifact QA.
 
 | Dimension | 0 — failure | 1 — partial | 2 — strong |
 |---|---|---|---|
