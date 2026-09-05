@@ -15,8 +15,8 @@ available for discussion.
 
 ## Define the current stage
 
-Treat the user's explicit request as authorization for the current implementation stage only.
-Before delegating, determine:
+Use the explicit request or earlier approval for the current stage without asking again; it does
+not authorize a follow-on stage. Before delegating, determine:
 
 - the outcome and completion criteria;
 - the validation needed to establish that the stage is complete.
@@ -55,9 +55,9 @@ Do not require every worker to finish before surfacing a checkpoint when one com
 creates a material decision or safely enables a next step. Keep other independent work running,
 but avoid interrupting the conversation for routine partial completions.
 
-Ask for approval in ordinary conversation before delegating the proposed next stage. While waiting,
-continue discussing alternatives with the user. Start the next stage only after the user clearly
-approves it, then repeat this workflow.
+Before the next stage, request approval for its proposed outcome, citing this checkpoint rule
+with a link to this skill. While waiting, continue discussing alternatives. Start the next stage
+only after the user clearly approves it, then repeat this workflow.
 
 When no further stage is needed, provide the integrated final result.
 

@@ -3,6 +3,29 @@
 このリポジトリで配布するpluginのrelease noteを記録する。2026-08-30以降はこのファイルを
 release noteの正本とし、既存のskill別changelogは過去履歴として保持する。
 
+## 2026-09-05
+
+### agent-coordination 0.2.1
+
+- 委譲不可時のローカル実行と、承認済み段階の扱いを明確化した。次段階の承認は維持し、理由を該当規則で示す。
+- 利用者向け文書で、通常の委譲と明示呼び出し限定の段階的委譲を区別した。
+
+### document-authoring 0.5.0
+
+- 通常の作成依頼では設計から成果物検証まで進め、参照先の不要な設計承認前提を解消した。
+- 成果物生成後は影響のある評価軸を再確認する。採点基準、必須構造、ハードゲート、形式固有QAは維持した。
+
+### python-coding 0.4.0
+
+- `choose-effective-tests`の追加候補を探し尽くす完了条件を除き、変更と主要リスク、必須checkを検証範囲とした。UIからの呼び出しも既存テストの再利用を含めた。
+
+### skill-development 0.5.0
+
+- 実装まで依頼された作業のphase間継続と、関連箇所の再レビューを明確化した。
+- 高コスト評価は具体的なmatrixの承認を維持し、同じ評価への既存承認、後続編集、追加trialの予算を区別した。
+
+変更根拠（2026-09-05本文確認）：[GPT-6 Astra: Prompting best practices](https://developers.openai.com/api/docs/guides/latest-model#prompting-best-practices)の自律実行、skillとの指示競合、停止理由、検証範囲。[AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)の読み込み範囲と優先順位、[Build skills](https://learn.chatgpt.com/docs/build-skills)の構成・description・段階的読み込みも照合し、既存の識別子、発火条件、参照構造を維持した。
+
 ## 2026-08-30
 
 ### document-authoring 0.4.0

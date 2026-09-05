@@ -1,6 +1,6 @@
 # Slide artifact production and verification
 
-Use the approved storyboard as the source of truth, then apply the available slide-generation workflow.
+Use the storyboard established from the user's choices, sources, and reasonable defaults as the source of truth, then apply the available slide-generation workflow.
 
 ## General rules
 
@@ -47,7 +47,7 @@ Before delivery:
 
 - File opens and retains the editability required by the request or existing artifact.
 - Master/theme and fonts render correctly.
-- Core titles match the approved storyline.
+- Core titles match the established storyline.
 - No important evidence is missing or hidden.
 - Charts, tables, and citations are accurate.
 - When an appendix is useful, it is navigable and supports likely questions or verification; otherwise the core deck covers the predictable questions.

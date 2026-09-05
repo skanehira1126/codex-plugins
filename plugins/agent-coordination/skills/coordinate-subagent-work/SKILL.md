@@ -15,8 +15,8 @@ main agent or another worker performs other useful work. Prefer one worker; add 
 workstreams that are independently useful and do not depend on one another's unfinished results.
 
 Consider expected speed or quality gains against coordination cost. Do not split tightly coupled
-work merely to create parallel activity. If delegation would not help, continue locally; explain
-that choice briefly only when the user specifically asked for subagents.
+work merely to create parallel activity. If delegation is unavailable, disallowed, or would not
+help, continue locally; explain that choice briefly when the user specifically asked for subagents.
 
 ## Assign bounded ownership
 

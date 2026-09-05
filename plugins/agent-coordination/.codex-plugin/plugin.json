@@ -1,6 +1,6 @@
 {
   "name": "agent-coordination",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Reusable workflows for safe Codex subagent coordination, including routine delegation and explicitly staged implementation.",
   "author": {
     "name": "あお"

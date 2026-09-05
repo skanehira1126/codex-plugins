@@ -43,7 +43,7 @@ that fits the time budget, and rendered artifact QA.
 - Grilling example: "The audience and decision are still fuzzy. Grill me before you build it."
 - Ordinary example: "Turn these approved notes into a ten-minute internal update deck."
 - Explicit grilling follows the shared authoring interview protocol.
-- Ordinary creation states safe defaults and proceeds without exhaustive questioning.
+- Ordinary creation states safe defaults and completes the deck and artifact QA without exhaustive questioning or a separate storyboard approval, unless the user requested that checkpoint.
 - A full deck is not generated while a material upstream decision remains unresolved.
 
 ### Source material contains too much detail
