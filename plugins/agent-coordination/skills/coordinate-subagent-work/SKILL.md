@@ -1,18 +1,20 @@
 ---
 name: coordinate-subagent-work
-description: Coordinate Codex subagents for the current task by deciding when independent delegation adds value, assigning bounded non-overlapping work, and integrating verified results. Use when a task contains independently useful workstreams, another workflow delegates to subagents, or the user asks to use subagents or parallel agents. Do not use for user-owned Codex task management or model-profile evaluation.
+description: Coordinate subagent ownership, validation, and integration when delegation is explicitly requested or already planned independently of this skill. Do not use merely because a task could be parallelized, or for user-owned Codex task management or model-profile evaluation.
 ---
 
 # Coordinate Subagent Work
 
-Use this as the baseline coordination contract whenever subagents participate in the current task.
+Apply this baseline after the user or another workflow requests delegation, or after delegation has
+been chosen independently of this skill under the active runtime and user instructions. Loading this
+skill is not a reason to start subagents.
 Keep the main agent accountable for task scope, integration, validation, and the final result.
 
-## Decide whether delegation helps
+## Bound the planned delegation
 
-Delegate only when at least one concrete, bounded subtask can make independent progress while the
-main agent or another worker performs other useful work. Prefer one worker; add workers only for
-workstreams that are independently useful and do not depend on one another's unfinished results.
+For planned delegation, require a concrete, bounded subtask that can make independent progress while
+the main agent or another worker performs other useful work. Keep the worker count to the minimum
+needed; multiple workers need independently useful assignments without unfinished dependencies.
 
 Consider expected speed or quality gains against coordination cost. Do not split tightly coupled
 work merely to create parallel activity. If delegation is unavailable, disallowed, or would not

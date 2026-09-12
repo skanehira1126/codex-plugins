@@ -1,7 +1,7 @@
 interface:
-  display_name: "Delegate Work in Stages"
-  short_description: "Delegate staged implementation while keeping chat active"
-  default_prompt: "Use $delegate-work-in-stages to delegate implementation in stages while keeping this chat available for discussion."
+  display_name: "Delegate Implementation"
+  short_description: "Delegate implementation while keeping discussion active"
+  default_prompt: "Use $delegate-work-in-stages to complete this implementation with subagents while you handle implementation decisions and keep this conversation available for discussion."
 
 policy:
   allow_implicit_invocation: false

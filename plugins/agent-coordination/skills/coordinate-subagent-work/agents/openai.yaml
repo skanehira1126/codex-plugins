@@ -1,4 +1,4 @@
 interface:
   display_name: "Coordinate Subagent Work"
-  short_description: "Coordinate bounded, non-overlapping subagent work"
-  default_prompt: "Use $coordinate-subagent-work to delegate independent parts of this task and integrate the verified results."
+  short_description: "Coordinate requested or already planned subagent work"
+  default_prompt: "Use $coordinate-subagent-work to coordinate the requested or already planned delegation, define ownership, and integrate verified results."

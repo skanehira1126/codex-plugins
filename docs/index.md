@@ -30,7 +30,7 @@
 
 ### Agent Coordination
 
-実装をサブエージェントへ段階的に委譲しながら、メインの会話で設計や方針の議論を続けます。
+実装をサブエージェントへ委譲し、メインが実装判断を担いながら、会話で設計や方針の議論を続けます。
 
 [Agent Coordinationを見る](plugins/agent-coordination.md){ .md-button }
 
