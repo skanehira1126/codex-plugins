@@ -1,67 +1,64 @@
 ---
 name: delegate-work-in-stages
-description: Delegate an approved implementation stage to one or more Codex subagents while keeping the main chat available for discussion, then bring completed work back as a conversational checkpoint before starting another stage. Use only when explicitly invoked for staged background implementation. Do not use for ordinary implementation, autonomous multi-stage execution, or parallel edits with uncertain file ownership.
+description: Delegate implementation to Codex subagents while the main agent handles decisions and parallel discussion. Use only when explicitly invoked to implement a task while continuing the main conversation.
 ---
 
 # Delegate Work in Stages
 
 First read and apply the baseline contract in
-[coordinate-subagent-work](../coordinate-subagent-work/SKILL.md). This skill adds staged
-authorization and conversational checkpoints. It owns stage boundaries and conversation behavior
-when its rules are more specific than the baseline.
+[coordinate-subagent-work](../coordinate-subagent-work/SKILL.md). This skill adds implementation
+decision ownership and ongoing discussion to the baseline's delegation, validation, and integration.
 
-Coordinate implementation as a sequence of user-approved stages while keeping the main chat
-available for discussion.
+## Define the task
 
-## Define the current stage
+Establish the user's goal, agreed scope, constraints, and completion criteria from the request and
+conversation. Delegate bounded implementation work while keeping the main agent available to discuss
+other aspects of the work.
 
-Use the explicit request or earlier approval for the current stage without asking again; it does
-not authorize a follow-on stage. Before delegating, determine:
+The main agent chooses internal stages and work assignments. Existing authorization for the task
+covers its implementation, validation, and necessary fixes across those stages; an internal stage
+boundary does not require renewed user approval.
 
-- the outcome and completion criteria;
-- the validation needed to establish that the stage is complete.
+## Own implementation decisions
 
-Inspect the workspace for discoverable facts. Ask the user only when an unresolved choice would
-materially change the stage, ownership boundary, or intended result.
+The main agent owns decomposition, implementation direction, cross-worker decisions, review, and
+integration. Workers may make routine local decisions within their assignment; have them return
+questions that affect shared contracts, other assignments, or the task's intended result.
+
+Resolve implementation questions from inspected evidence and the agreed constraints. A worker's
+request for guidance is input for the main agent to assess, not an automatic question for the user.
 
 ## Keep the main conversation active
 
-After dispatching the current stage, briefly tell the user what is running and keep the main chat
-available for discussion.
+After dispatching work, briefly tell the user what is running. Answer discussion and design questions
+in the main conversation while implementation continues within the agreed scope.
 
-Treat new user messages according to their intent:
+Treat exploratory ideas as discussion, not implementation instructions. Apply explicit corrections
+and new constraints to affected workers. When the user changes direction, revise or stop affected
+assignments instead of letting them continue under outdated assumptions.
 
-- answer discussion and design questions in the main chat;
-- do not start a newly proposed implementation stage merely because it arose during discussion.
+## Ask at user decision points
 
-## Complete the authorized stage
+Ask only when proceeding requires a change to the agreed goal or scope that the user has not already
+authorized, a material choice that cannot be resolved from the user's intent and available evidence,
+or a checkpoint the user explicitly requested, such as reviewing a design before implementation.
+The baseline's action permissions continue to apply.
 
-When workers finish, use the baseline contract to verify and integrate their work. Follow the
-active runtime and repository guidance for proportionate review and non-destructive validation.
+Prepare the concrete choice or reviewable result before asking, explain the reason for the pause,
+and reuse relevant authorization already given in the conversation. Pause only work that depends on
+the answer; continue independent authorized work and discussion while waiting.
 
-Validation, focused fixes, or read-only review needed to complete the already authorized stage may
-be delegated under the baseline contract. Do not treat this as authorization for a materially new
-feature, refactor, or follow-on stage.
+## Share results and complete the task
 
-## Insert a conversational checkpoint
+Share a concise update when a verified result or finding materially informs the discussion or a
+user decision. Include what completed, relevant validation, and any implication for the task.
+An update by itself does not require a reply before work continues.
 
-At a natural boundary, place a concise checkpoint into the main conversation containing:
+Use the baseline contract to verify and integrate worker results. Continue the remaining
+implementation, review, and necessary fixes until the agreed task completion criteria are met.
+An individual worker or internal stage finishing is not completion of the whole task.
 
-- what completed and the validation result;
-- any finding that changes the current discussion or next decision;
-- one concrete proposed next stage, when useful.
+Deliver the integrated result with relevant verification and any unresolved limitations.
 
-Do not require every worker to finish before surfacing a checkpoint when one completed workstream
-creates a material decision or safely enables a next step. Keep other independent work running,
-but avoid interrupting the conversation for routine partial completions.
-
-Before the next stage, request approval for its proposed outcome, citing this checkpoint rule
-with a link to this skill. While waiting, continue discussing alternatives. Start the next stage
-only after the user clearly approves it, then repeat this workflow.
-
-When no further stage is needed, provide the integrated final result.
-
-## Boundaries
-
-- Never activate this workflow implicitly.
-- Do not run an autonomous chain of implementation stages without conversational checkpoints.
+When testing changes to this workflow, use [evals/cases.md](evals/cases.md) for task completion,
+discussion, and user decision boundaries.
