@@ -1,6 +1,6 @@
 ---
 name: coordinate-subagent-work
-description: Coordinate subagent ownership, validation, and integration when delegation is explicitly requested or already planned independently of this skill. Do not use merely because a task could be parallelized, or for user-owned Codex task management or model-profile evaluation.
+description: Choose subagent models, reasoning effort, and context, then coordinate ownership, validation, and integration when delegation is explicitly requested or already planned independently of this skill. Do not use merely because a task could be parallelized, or for user-owned Codex task management or model-profile evaluation.
 ---
 
 # Coordinate Subagent Work
@@ -19,6 +19,26 @@ needed; multiple workers need independently useful assignments without unfinishe
 Consider expected speed or quality gains against coordination cost. Do not split tightly coupled
 work merely to create parallel activity. If delegation is unavailable, disallowed, or would not
 help, continue locally; explain that choice briefly when the user specifically asked for subagents.
+
+## Choose a launch profile
+
+Define which decisions the worker may make and which remain with the parent. Match that latitude
+to the harness's current model descriptions and supported efforts, choosing a resource-conscious
+profile that meets the acceptance criteria, including likely retries and review work. Respect user
+choices; do not hardcode model IDs or infer numerical savings from qualitative descriptions.
+
+Set model and effort explicitly when supported; do not inherit the parent's settings by default.
+Use a compact brief containing the necessary instructions, decisions, constraints, and source paths.
+With `fork_turns`, prefer `"none"` or limited history; where full-history forks prevent profile
+overrides, use the brief to apply the selected profile.
+
+Briefly state the assignment, profile, and selection reason before dispatch without adding an
+approval pause. Use a stronger profile for a concrete need in the worker's decisions, not merely
+because the overall task is difficult or an input, permission, or environment problem occurred.
+
+When delegating data science or analysis work, read
+[Data science and analysis](references/use-cases/data-science-and-analysis.md) for examples of
+decision boundaries and suitable model descriptions.
 
 ## Assign bounded ownership
 

@@ -1,15 +1,15 @@
 {
   "name": "agent-coordination",
-  "version": "0.4.0",
-  "description": "Coordinate requested or already planned Codex subagent work, with an explicit workflow for implementation alongside ongoing discussion.",
+  "version": "0.5.0",
+  "description": "Choose models, reasoning effort, and context for requested or planned Codex subagent work, coordinate verified results, and support implementation alongside ongoing discussion.",
   "author": {
     "name": "あお"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Agent Coordination",
-    "shortDescription": "依頼・計画済みの委譲の調整と、会話を続けながらの実装を支援",
-    "longDescription": "委譲が依頼された、または基本Skillとは別に決まった作業の担当範囲、検証と統合を支援する個人用Pluginです。会話を続けながら実装を委譲するSkillは明示起動専用で、メインエージェントが実装判断を担い、依頼されたタスクを完了まで進めます。ユーザー固有の判断や指定された確認地点では、必要な作業だけを待機させます。",
+    "shortDescription": "委譲時のモデル・推論強度・文脈の選択と、実装・検証・統合を支援",
+    "longDescription": "委譲が依頼された、または基本Skillとは別に決まった作業について、モデル・推論強度・引き継ぐ文脈を選び、担当範囲、検証と統合を支援する個人用Pluginです。親の設定を無条件に継承せず、実行時に利用可能なモデルの説明と担当作業から構成を選びます。会話を続けながら実装を委譲するSkillは明示起動専用で、メインエージェントが実装判断を担い、依頼されたタスクを完了まで進めます。ユーザー固有の判断や指定された確認地点では、必要な作業だけを待機させます。",
     "developerName": "あお",
     "category": "Developer Tools",
     "capabilities": [
@@ -18,7 +18,7 @@
       "Write"
     ],
     "defaultPrompt": [
-      "依頼された、または別途決まったサブエージェントへの委譲について、担当範囲を調整し、結果を検証して統合してください。"
+      "依頼された、または別途決まったサブエージェントへの委譲について、モデル・推論強度・文脈を選び、担当範囲を調整し、結果を検証して統合してください。"
     ]
   }
 }
