@@ -1,4 +1,4 @@
 interface:
   display_name: "Coordinate Subagent Work"
-  short_description: "Coordinate requested or already planned subagent work"
-  default_prompt: "Use $coordinate-subagent-work to coordinate the requested or already planned delegation, define ownership, and integrate verified results."
+  short_description: "Choose subagent profiles and coordinate planned delegation"
+  default_prompt: "Use $coordinate-subagent-work for the requested or already planned delegation: choose suitable models, effort, and context, define ownership, and integrate verified results."
