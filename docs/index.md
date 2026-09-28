@@ -34,6 +34,12 @@
 
 [Agent Coordinationを見る](plugins/agent-coordination.md){ .md-button }
 
+### Abstractum
+
+テーマと配色から、上品な抽象ヘッダー画像を制作します。複数の画風や構図違いを選べます。
+
+[Abstractumを見る](plugins/abstractum.md){ .md-button }
+
 ## すぐに使う
 
 ```bash

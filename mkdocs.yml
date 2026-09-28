@@ -43,6 +43,7 @@ nav:
       - Document Authoring: plugins/document-authoring.md
       - Revision Hygiene: plugins/revision-hygiene.md
       - Agent Coordination: plugins/agent-coordination.md
+      - Abstractum: plugins/abstractum.md
   - よくある質問: faq.md
 
 plugins:

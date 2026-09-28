@@ -43,6 +43,12 @@ Codex Skillの設計、変更、レビュー、評価を支援します。
 - `$agent-coordination:coordinate-subagent-work`: 委譲が依頼された、またはこのSkillとは別に決まった場面で、モデル・推論強度・文脈と担当範囲を選び、結果を検証・統合する
 - `$agent-coordination:delegate-work-in-stages`: メインが実装判断と会話を担い、サブエージェントへ依頼済みタスクの実装を委譲して完了まで進める
 
+### abstractum
+
+abstractとmuseumを合わせた、抽象ヘッダー画像の制作プラグインです。
+
+- `$abstractum:abstract-header`: テーマと配色を確定し、12画風から候補を提案。複数画風や構図違いの画像を制作する
+
 ## 導入方法
 
 Codex CLIでこのリポジトリをmarketplaceとして登録します。
@@ -59,6 +65,7 @@ codex plugin add skill-development@codex-plugins
 codex plugin add document-authoring@codex-plugins
 codex plugin add agent-coordination@codex-plugins
 codex plugin add revision-hygiene@codex-plugins
+codex plugin add abstractum@codex-plugins
 ```
 
 すべてのプラグインをまとめてインストールする場合は、Marketplace登録後に次を実行します。
