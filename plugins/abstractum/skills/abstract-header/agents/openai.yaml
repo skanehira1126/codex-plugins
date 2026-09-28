@@ -1,0 +1,7 @@
+interface:
+  display_name: "Abstractum"
+  short_description: "テーマと配色から抽象ヘッダー画像を制作する明示呼び出し専用Skill"
+  default_prompt: "$abstract-header を使って、テーマと配色から抽象ヘッダー画像を制作してください。"
+
+policy:
+  allow_implicit_invocation: false

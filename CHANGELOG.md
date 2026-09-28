@@ -5,6 +5,10 @@ release noteの正本とし、既存のskill別changelogは過去履歴として
 
 ## 2026-09-28
 
+### abstractum 0.3.0
+
+- `abstract-header`の自動呼び出しを無効にし、明示呼び出し専用にした。pluginの開始プロンプトにもSkill名を追加した。
+
 ### abstractum 0.2.0
 
 - リソグラフ・版画、織物・繊維、フォトグラム・光、フレスコ・漆喰を追加し、12画風に拡張した。

@@ -1,6 +1,6 @@
 {
   "name": "abstractum",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "テーマと配色から、複数の画風で洗練された抽象ヘッダー画像を制作する。",
   "author": {
     "name": "あお"
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Abstractum",
     "shortDescription": "抽象と配色から、上品なヘッダー画像を複数パターンで制作",
-    "longDescription": "Abstractumはabstractとmuseumの造語。テーマとメイン・アクセントカラーをもとに、12の画風から候補を提案し、選んだ画風や構図違いの抽象ビジュアルを制作します。テーマに応じた鮮やかな配色や複数選択に対応し、生成にはCodexの画像生成機能を利用します。",
+    "longDescription": "Abstractumはabstractとmuseumの造語。テーマとメイン・アクセントカラーをもとに、12の画風から候補を提案し、選んだ画風や構図違いの抽象ビジュアルを制作します。テーマに応じた鮮やかな配色や複数選択に対応し、生成にはCodexの画像生成機能を利用します。 自動呼び出しは無効で、Skill名を明示して利用します。",
     "developerName": "あお",
     "category": "Productivity",
     "capabilities": [
@@ -17,9 +17,9 @@
       "Write"
     ],
     "defaultPrompt": [
-      "抽象的で上品なヘッダー画像を作りたい。テーマと配色から画風を提案して。",
-      "テーマは静かな変化。メインは紺、アクセントは銅色。複数の画風を比較したい。",
-      "同じテーマと配色で、選んだ画風の構図違いを3案作って。"
+      "$abstractum:abstract-header 抽象的で上品なヘッダー画像を作りたい。テーマと配色から画風を提案して。",
+      "$abstractum:abstract-header テーマは静かな変化。メインは紺、アクセントは銅色。複数の画風を比較したい。",
+      "$abstractum:abstract-header 同じテーマと配色で、選んだ画風の構図違いを3案作って。"
     ]
   }
 }

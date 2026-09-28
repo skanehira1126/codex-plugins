@@ -5,6 +5,8 @@ abstractとmuseumの造語。テーマを色・質感・構図・空気感のみ
 
 ## 使い方
 
+自動呼び出しは無効です。使うときだけ `$abstractum:abstract-header` を明示してください。
+
 ```text
 $abstractum:abstract-header
 テーマは「静かな変化」。メインカラーは紺、アクセントカラーは銅色。
