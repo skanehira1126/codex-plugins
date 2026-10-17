@@ -1,6 +1,10 @@
 # Text Document Architect 保守ガイド
 
-このSkillは、文章中心の業務文書について、**連続読解・学習・検索参照に合う構造、根拠、情報配置、指定形式の成果物**を一つのワークフローとして扱います。
+このSkillは、文章中心の業務文書について、**連続読解・学習・検索参照に合う構造、表現、根拠、指定形式の成果物**を一つのワークフローとして扱います。
+
+Core × Profileと外部Purpose Presetの契約は`SKILL.md`を正本とします。文・段落・改行・
+リスト・表・強調の選択は`references/prose-and-formatting.md`、評価は
+`references/quality-rubric.md`で管理します。小さな文書は必要な設計と確認だけを行います。
 
 ## この版の重要な方針
 
@@ -18,7 +22,7 @@
 text-document-architect/
 ├── SKILL.md                       # 実行時の中核指示
 ├── README.md                      # この保守ガイド
-├── CHANGELOG.md                   # 変更履歴
+├── CHANGELOG.md                   # 過去履歴（新規release noteはrepo root）
 ├── agents/openai.yaml             # UI表示と既定プロンプト
 ├── assets/                        # 設計・レビュー用テンプレート
 ├── references/                    # 判断基準と詳細規則
@@ -84,6 +88,10 @@ python scripts/lint_text_document.py evals/sample-bad-outline.md --モード 意
 ```
 
 このlintはヒューリスティックです。注意箇所を絞り込むもので、論理、事実性、読みやすさ、成果物品質を完全に証明するものではありません。
+
+意味と表現の回帰は`evals/prose-cases.md`の入力・依頼・判定基準を使います。
+`evals/prose-samples.md`は架空の改善例であり、生成テストの実行結果ではありません。
+評価時はケース追加、サンプルの編集レビュー、実際の生成実行を分けて記録してください。
 
 ## バージョニング
 

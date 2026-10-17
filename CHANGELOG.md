@@ -5,6 +5,12 @@ release noteの正本とし、既存のskill別changelogは過去履歴として
 
 ## 2026-10-17
 
+### document-authoring 0.6.0
+
+- `text-document-architect`をCore × Profileとして整理し、素材の統合と文・段落・改行・リスト・表・強調の選択を強化した。既存の3 Profileと4動作モードを維持し、小さな文書の工程を軽量化した。
+- 用途固有要件は作業環境側が所有する契約を明示した。PluginにPresetや探索基盤を追加せず、未確認の参照先、根拠、重要な制約の扱いを明確にした。
+- 構造・表現・根拠・成果物を区別する評価基準、設計・レビュー用assets、架空の改善例と回帰ケースを追加した。lintの検出規則は変更していない。
+
 ### python-coding 0.5.0
 
 - 共通Skill `write-python-code`を追加し、Pythonの実装・修正・レビューから必要な用途別Skillだけを読む構成にした。既存4つの直接呼び出しを維持し、未読の共通Skillへ接続する。

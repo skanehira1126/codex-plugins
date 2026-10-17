@@ -1,6 +1,6 @@
 interface:
   display_name: "テキスト文書アーキテクト"
-  short_description: "連続読解・学習・検索参照に合う文書構造を設計"
+  short_description: "連続読解・学習・検索参照に合う文書構造と文章表現を設計"
   default_prompt: "$document-authoring:text-document-architect を使って、この素材から、対象読者が読み進めるか必要情報を引き当てられる文書を設計・作成してください。"
   icon_small: "./assets/icon.svg"
   icon_large: "./assets/icon.svg"
