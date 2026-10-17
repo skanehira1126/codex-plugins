@@ -3,6 +3,14 @@
 このリポジトリで配布するpluginのrelease noteを記録する。2026-08-30以降はこのファイルを
 release noteの正本とし、既存のskill別changelogは過去履歴として保持する。
 
+## 2026-10-17
+
+### python-coding 0.5.0
+
+- 共通Skill `write-python-code`を追加し、Pythonの実装・修正・レビューから必要な用途別Skillだけを読む構成にした。既存4つの直接呼び出しを維持し、未読の共通Skillへ接続する。
+- コメントの指針を共通Skillのreferenceへ集約した。What・How・Whyとdocstringの役割を区別し、会話・変更履歴の実況や根拠のない理由の後付けを避ける。
+- `choose-code-boundaries`と`choose-effective-tests`の重複する判断基準を整理した。専門ルールと検証・出力の契約を維持し、共通指針の再読や再帰的な読み込みを避ける導線、表示情報、利用者向け説明を整えた。
+
 ## 2026-09-28
 
 ### abstractum 0.3.0

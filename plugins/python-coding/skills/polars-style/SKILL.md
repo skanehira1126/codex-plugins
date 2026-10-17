@@ -5,6 +5,8 @@ description: Polarsのnamed-expression実装規則。`pl.DataFrame` / `pl.LazyFr
 
 # Polars Style
 
+単独で呼び出された場合は、未読の[共通Skill](../write-python-code/SKILL.md)を先に読む。同じ作業で既読なら再読せず、以下を適用する。
+
 ## Rules
 
 - `select`、`with_columns`、`agg`ではnamed expressionを使う。

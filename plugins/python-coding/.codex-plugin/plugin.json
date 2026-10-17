@@ -1,7 +1,7 @@
 {
   "name": "python-coding",
-  "version": "0.4.0",
-  "description": "Reusable skills for designing, implementing, testing, reviewing, and refactoring maintainable Python code.",
+  "version": "0.5.0",
+  "description": "Shared Python coding guidance with focused skills for design, testing, compatibility, and Polars.",
   "author": {
     "name": "あお"
   },
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Python Coding",
     "shortDescription": "Pythonの設計・実装・テスト・レビューを支援",
-    "longDescription": "Pythonコードの設計、実装、テスト、レビュー、リファクタリングに関する再利用可能なSkillをまとめた個人用Pluginです。",
+    "longDescription": "Pythonの実装・修正・レビューに共通の指針を適用し、設計・テスト・互換性・Polarsの用途別Skillを必要に応じて選ぶ個人用Pluginです。コメントの役割と根拠を共通referenceで扱います。",
     "developerName": "あお",
     "category": "Developer Tools",
     "capabilities": [
@@ -18,7 +18,7 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Pythonコードをレビューし、必要最小限の境界で改善してください。"
+      "$python-coding:write-python-code を使って、このPythonコードを実装・改善してください。"
     ]
   }
 }

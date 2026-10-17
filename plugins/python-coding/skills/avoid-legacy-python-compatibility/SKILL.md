@@ -6,6 +6,8 @@ description: >-
 
 # Avoid Legacy Python Compatibility
 
+単独で呼び出された場合は、未読の[共通Skill](../write-python-code/SKILL.md)を先に読む。同じ作業で既読なら再読せず、以下を適用する。
+
 ## 原則
 
 プロジェクトが宣言するPythonサポート範囲を契約として扱う。最小サポートバージョンで利用できる最も直接的な構文と標準ライブラリを使い、それより古いPythonのためのコードを追加しない。

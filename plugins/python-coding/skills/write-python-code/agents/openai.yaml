@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Python Code"
+  short_description: "Python実装の共通指針を適用し、必要な用途別Skillへつなぐ"
+  default_prompt: "Use $python-coding:write-python-code to implement or review this Python code using the shared guidance and only the relevant specialist skills."
