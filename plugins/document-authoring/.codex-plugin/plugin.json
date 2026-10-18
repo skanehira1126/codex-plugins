@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Document Authoring",
     "shortDescription": "文章の構造・表現とスライドの設計、作成、レビュー、改訂を支援",
-    "longDescription": "文章、スライドなど文書的な成果物を、用途に合う構造、根拠、情報配置、ナビゲーションから設計、作成、レビュー、改訂、検証するSkill bundleです。文章文書ではCore × Profileに沿って素材を統合し、文・段落・表現形式も設計します。",
+    "longDescription": "文章やスライドを、読者に伝わる構成、根拠、情報配置から設計・作成・レビュー・改訂するSkill bundleです。文章文書では、素材の整理から文・段落の表現、読み直し、成果物の確認まで扱います。",
     "developerName": "あお",
     "category": "Productivity",
     "capabilities": [

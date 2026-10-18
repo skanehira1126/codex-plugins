@@ -12,18 +12,10 @@ codex plugin add document-authoring@codex-plugins
 
 ### `text-document-architect`
 
-Word、Google Docs、Markdownなど文章中心の成果物を、連続読解、学習、検索・引き当てに
-合う構造、根拠、情報配置、ナビゲーションと文・段落の表現を設計・作成・レビュー・改訂します。
-
-共通品質原則（Core）を、読み方（sequential / learning / lookup/reference）に合わせて
-適用します。複数の素材は読者の目的に沿って統合し、推論はつながる段落、並列項目は
-リスト、共通軸の比較は表など、関係に合う表現を選びます。固定の章構成や結論先出しを
-すべての文書へ強制しません。
-
-用途固有の文体・必須内容・評価基準（Purpose Preset）は作業環境側で管理します。
-ユーザーやAGENTS.md等が明示する要件を確認して取り込み、指定がなければCore × Profileで
-動作します。未読の参照先を適用済みとは扱わず、Presetの自動探索・作成・変更は行いません。
-レビューのみの依頼では原本と関連ファイルを変更しません。
+Word、Google Docs、Markdownなどの文章を、読者が必要な前提を補わずに理解できる形へ
+設計・作成・レビュー・改訂します。素材を整理し、情報の関係が伝わる説明順、文・段落、
+リスト・表を選びます。学習や検索・参照など、利用要件に応じた工夫は補足資料で扱います。
+レビューのみの依頼では原本を変更しません。
 
 ```text
 $document-authoring:text-document-architect を使って、
