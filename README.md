@@ -106,3 +106,7 @@ mkdocs serve
 ```
 
 ドキュメントは`main`へ反映されるとGitHub ActionsによってGitHub Pagesへ公開されます。
+
+## Skillの保守・評価
+
+文章作成Skillの評価素材と検証方法は、[Text Document Architectの保守・評価](evals/document-authoring/text-document-architect/README.md)を参照してください。評価素材は配布pluginの外で管理します。
