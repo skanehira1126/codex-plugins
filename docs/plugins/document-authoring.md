@@ -12,8 +12,10 @@ codex plugin add document-authoring@codex-plugins
 
 ### `text-document-architect`
 
-Word、Google Docs、Markdownなど文章中心の成果物を、連続読解、学習、検索・引き当てに
-合う構造、根拠、情報配置、ナビゲーションから設計・作成・構造レビュー・改訂します。
+Word、Google Docs、Markdownなどの文章を、読者が必要な前提を補わずに理解できる形へ
+設計・作成・レビュー・改訂します。素材を整理し、情報の関係が伝わる説明順、文・段落、
+リスト・表を選びます。学習や検索・参照など、利用要件に応じた工夫は補足資料で扱います。
+レビューのみの依頼では原本を変更しません。
 
 ```text
 $document-authoring:text-document-architect を使って、

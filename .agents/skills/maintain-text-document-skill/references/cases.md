@@ -2,10 +2,14 @@
 
 重要な変更後に、起動条件と動作を軽量確認する。
 
-lintの自動回帰テストは次で実行する。
+文・段落・表現形式、外部要件、素材統合の追加ケースは[prose-cases.md](prose-cases.md)を使う。
+架空の改善例は[prose-samples.md](prose-samples.md)にある。ケース追加と実際の生成実行は
+区別し、lintの通過を意味的な読みやすさの証明にしない。
+
+以下のコマンドはリポジトリrootから実行する。
 
 ```bash
-python -m unittest discover -s evals -p 'test_*.py'
+python -m unittest discover -s .agents/skills/maintain-text-document-skill/scripts -p 'test_*.py'
 ```
 
 ## 起動ケース
@@ -126,8 +130,8 @@ python -m unittest discover -s evals -p 'test_*.py'
 ## lint回帰確認
 
 ```bash
-python scripts/lint_text_document.py evals/sample-good-document.md --mode decision --check-sources
-python scripts/lint_text_document.py evals/sample-bad-document.md --mode decision --check-sources
+python plugins/document-authoring/skills/text-document-architect/scripts/lint_text_document.py .agents/skills/maintain-text-document-skill/references/sample-good-document.md --mode decision --check-sources
+python plugins/document-authoring/skills/text-document-architect/scripts/lint_text_document.py .agents/skills/maintain-text-document-skill/references/sample-bad-document.md --mode decision --check-sources
 ```
 
 期待結果：

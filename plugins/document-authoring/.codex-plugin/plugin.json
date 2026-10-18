@@ -1,15 +1,15 @@
 {
   "name": "document-authoring",
-  "version": "0.5.0",
-  "description": "Skills for designing, creating, reviewing, revising, and verifying prose documents and presentations.",
+  "version": "0.6.0",
+  "description": "Skills for designing, creating, reviewing, revising, and verifying prose structure and expression, and presentations.",
   "author": {
     "name": "あお"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "Document Authoring",
-    "shortDescription": "文章・スライドの構造設計、作成、レビュー、改訂を支援",
-    "longDescription": "文章、スライドなど文書的な成果物を、用途に合う構造、根拠、情報配置、ナビゲーションから設計、作成、レビュー、改訂、検証するためのSkill bundleです。",
+    "shortDescription": "文章の構造・表現とスライドの設計、作成、レビュー、改訂を支援",
+    "longDescription": "文章やスライドを、読者に伝わる構成、根拠、情報配置から設計・作成・レビュー・改訂するSkill bundleです。文章文書では、素材の整理から文・段落の表現、読み直し、成果物の確認まで扱います。",
     "developerName": "あお",
     "category": "Productivity",
     "capabilities": [

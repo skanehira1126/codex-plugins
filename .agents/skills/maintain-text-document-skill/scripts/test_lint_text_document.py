@@ -6,8 +6,11 @@ import unittest
 from pathlib import Path
 
 
-SCRIPT = Path(__file__).parents[1] / "scripts" / "lint_text_document.py"
-SAMPLE_GOOD_OUTLINE = Path(__file__).parent / "sample-good-outline.md"
+SCRIPT = (
+    Path(__file__).resolve().parents[4]
+    / "plugins/document-authoring/skills/text-document-architect/scripts/lint_text_document.py"
+)
+SAMPLE_GOOD_OUTLINE = Path(__file__).resolve().parents[1] / "references/sample-good-outline.md"
 
 
 class LintTextDocumentCliTests(unittest.TestCase):
