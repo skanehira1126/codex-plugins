@@ -9,7 +9,7 @@
 以下のコマンドはリポジトリrootから実行する。
 
 ```bash
-python -m unittest discover -s evals/document-authoring/text-document-architect -p 'test_*.py'
+python -m unittest discover -s .agents/skills/maintain-text-document-skill/scripts -p 'test_*.py'
 ```
 
 ## 起動ケース
@@ -130,8 +130,8 @@ python -m unittest discover -s evals/document-authoring/text-document-architect 
 ## lint回帰確認
 
 ```bash
-python plugins/document-authoring/skills/text-document-architect/scripts/lint_text_document.py evals/document-authoring/text-document-architect/sample-good-document.md --mode decision --check-sources
-python plugins/document-authoring/skills/text-document-architect/scripts/lint_text_document.py evals/document-authoring/text-document-architect/sample-bad-document.md --mode decision --check-sources
+python plugins/document-authoring/skills/text-document-architect/scripts/lint_text_document.py .agents/skills/maintain-text-document-skill/references/sample-good-document.md --mode decision --check-sources
+python plugins/document-authoring/skills/text-document-architect/scripts/lint_text_document.py .agents/skills/maintain-text-document-skill/references/sample-bad-document.md --mode decision --check-sources
 ```
 
 期待結果：

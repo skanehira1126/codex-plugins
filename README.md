@@ -109,4 +109,4 @@ mkdocs serve
 
 ## Skillの保守・評価
 
-文章作成Skillの評価素材と検証方法は、[Text Document Architectの保守・評価](evals/document-authoring/text-document-architect/README.md)を参照してください。評価素材は配布pluginの外で管理します。
+文章作成Skillの評価素材と検証方法は、[Text Document Architectの保守・評価](.agents/skills/maintain-text-document-skill/SKILL.md)を参照してください。評価素材は配布pluginの外で管理します。
