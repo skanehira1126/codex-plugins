@@ -27,6 +27,10 @@ to the harness's current model descriptions and supported efforts, choosing a re
 profile that meets the acceptance criteria, including likely retries and review work. Respect user
 choices; do not hardcode model IDs or infer numerical savings from qualitative descriptions.
 
+For narrow, directly checkable work, start with a suitable model described as fast and affordable.
+Choose a broader-capability profile for a specific requirement that candidate is not expected to
+meet; familiarity or a generic preference for reliability is not enough.
+
 Set model and effort explicitly when supported; do not inherit the parent's settings by default.
 Use a compact brief containing the necessary instructions, decisions, constraints, and source paths.
 With `fork_turns`, prefer `"none"` or limited history; where full-history forks prevent profile
@@ -59,7 +63,14 @@ read-only, use one writer, or run workers sequentially.
 
 Continue useful work in the main agent only when it does not cross a worker's ownership boundary.
 Send additive constraints to the affected worker and interrupt work when the user replaces its
-direction. Wait for results without repeated polling or exposing raw worker logs as progress.
+direction. At dispatch, estimate a range for the next useful milestone from scope, similar work,
+or observed runtime, and state when to check again. Prefer completion/blocker notifications and
+event-based waits. Do not request status before that checkpoint unless new evidence or a user
+request warrants it. If unchanged, revise the estimate and lengthen the interval between checks.
+
+Keep user progress updates separate from checking workers. A short tool wait limit or an update
+deadline is not a reason to list workers or ask for status. Wait until a useful checkpoint instead
+of creating activity to fill the wait; do not expose raw worker logs as progress.
 
 ## Verify and integrate
 

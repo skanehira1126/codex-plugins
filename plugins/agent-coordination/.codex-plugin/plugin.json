@@ -1,6 +1,6 @@
 {
   "name": "agent-coordination",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Choose models, reasoning effort, and context for requested or planned Codex subagent work, coordinate verified results, and support implementation alongside ongoing discussion.",
   "author": {
     "name": "あお"
