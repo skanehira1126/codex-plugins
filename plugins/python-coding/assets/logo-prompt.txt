@@ -1,0 +1,8 @@
+Generated with the built-in image_gen tool; transparent_background=true.
+
+Use case: logo-brand
+Asset type: Square app/plugin logo for a personal developer plugin named Python Coding.
+Primary request: Create one polished, original logo combining a friendly python snake motif with a clear terminal prompt >_ motif. Blue and warm yellow reference the Python programming language. The snake body and terminal prompt should form one cohesive, striking graphic rather than a collection of small symbols.
+Style: restrained, modern flat graphic mark, crisp vector-like edges, bold simplified shapes, minimal details. No gradients, no texture, no 3D or shadows.
+Composition: one centered mark, square canvas, generous clean transparent margin, strong silhouette legible at 32px. Balanced blue and golden yellow, restrained dark navy only if useful. Transparent background.
+Constraints: no words, no lettering besides the terminal prompt symbol, no mockup, no watermark, no contact sheet. Deliver one finished logo.

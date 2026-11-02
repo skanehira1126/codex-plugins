@@ -16,6 +16,8 @@ Pythonのコード・テストを実装、修正、レビューする際の共�
 
 コード生成・変更時とコメントのレビュー時に、共通referenceを読みます。What・Howは基本的にコードで表し、読み取れないWhyや制約をコメントに残します。会話や変更履歴の実況、根拠のない理由の後付けを避け、docstringでは利用者に必要な契約を説明します。
 
+CLIの作成・引数変更・実行関数への振り分けでは、CLI用referenceを読みます。新規CLIでは`argparse`の`set_defaults(func=...)`で関数を登録し、共通入口からキーワード引数で呼ぶ構成を優先します。既存CLIでは採用済みのframeworkと公開挙動を尊重します。
+
 ```text
 $python-coding:write-python-code を使って、
 このPythonの処理を実装し、変更に必要な検証を行ってください。
@@ -91,6 +93,7 @@ $python-coding:polars-style を使って、
 | Pythonの実装・修正・レビューの入口 | `write-python-code` |
 | コードをどこで分割するか | `choose-code-boundaries` |
 | コメント・docstringに何を残すか | `write-python-code`の共通reference |
+| CLIの引数と実行関数をどう結び付けるか | `write-python-code`のCLI用reference |
 | どのテストを追加するか | `choose-effective-tests` |
 | 旧Python向け互換処理が必要か | `avoid-legacy-python-compatibility` |
 | Polarsの列名をどう付けるか | `polars-style` |

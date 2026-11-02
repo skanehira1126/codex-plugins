@@ -3,6 +3,14 @@
 このリポジトリで配布するpluginのrelease noteを記録する。2026-08-30以降はこのファイルを
 release noteの正本とし、既存のskill別changelogは過去履歴として保持する。
 
+## 2026-11-03
+
+### python-coding 0.6.0
+
+- Pythonを連想するヘビとターミナルを組み合わせた透過ロゴを追加し、pluginのロゴと入力欄アイコンに設定した。
+- `write-python-code`にCLI用referenceを追加し、CLIの作成・変更・振り分けのレビュー時に読む導線を設けた。
+- `argparse`の`set_defaults(func=...)`で実行関数を登録し、共通入口からキーワード引数で呼び出す構成を優先する。引数名の対応、共通処理用引数の除去、未指定時の扱いと実行例を含め、既存frameworkや公開挙動を尊重する。
+
 ## 2026-10-17
 
 ### document-authoring 0.6.0
