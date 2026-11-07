@@ -7,6 +7,7 @@ Use this rubric to compare trials without rewarding verbosity or polish.
 Record the following for every trial:
 
 - case identifier and raw request;
+- target revision, input artifacts, and relevant tool/environment conditions;
 - model and reasoning effort;
 - repeat number;
 - result: `pass`, `partial`, `fail`, or `blocked`;
@@ -38,8 +39,14 @@ Evaluate each applicable dimension as `pass`, `partial`, `fail`, or `not evaluat
    - Preserve unrelated files and existing user changes.
    - Stay within the inherited sandbox, approvals, and target scope.
 6. Trigger boundary
-   - Score only when the trial actually exercised implicit or explicit selection behavior.
+   - Score implicit selection only when the target was available for discovery and the request did
+     not name or supply the skill. Check intended activation and nearby non-target requests.
    - Mark as `not evaluated` when the target was supplied directly by path or explicit invocation.
+
+When comparing skill revisions, keep cases, profiles, inputs, tools, and acceptance criteria fixed
+apart from the intended change. Compare task outcomes first, then unnecessary operations and
+available token/time measurements. Missing measurements are unknown, not zero; shorter instructions
+alone do not establish improved quality or efficiency.
 
 ## Capability-floor rule
 
@@ -72,6 +79,3 @@ Use one row per profile and case:
 
 | Profile | Case | Repeat | Result | Key evidence | Failure class |
 | --- | --- | ---: | --- | --- | --- |
-
-Follow the table with concrete findings, the observed capability floor, proposed instruction
-improvements, and explicit limitations.

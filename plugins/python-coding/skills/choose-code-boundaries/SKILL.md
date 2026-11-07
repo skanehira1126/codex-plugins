@@ -1,7 +1,7 @@
 ---
 name: choose-code-boundaries
 description: >-
-  Pythonコードの設計・リファクタリングで、薄いhelper、pass-through wrapper、状態を持たないRunnerやManager、不要なService・Factory・Registryなどを反射的に追加せず、インライン・関数・class・モジュールから自然な境界を選ぶ。共通化、関数分割、責務分離、helperやwrapperの追加、Runner・Manager・Service・Factory・Registry・Protocol・抽象基底classの導入、複雑性改善、設計提案、コードレビューなど、抽象化判断が発生する作業で使用する。typo修正、formatter適用、抽象化判断のない機械的変更では使用しない。
+  Pythonの設計・リファクタリング・コードレビューで、共通化、関数分割、helper・class・モジュールの責務や抽象化を判断するときに使う。実在する契約と再利用から必要な境界を選ぶ。typo修正、formatter適用、抽象化判断のない機械的変更は対象外。
 ---
 
 # Choose Code Boundaries

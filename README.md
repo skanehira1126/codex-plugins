@@ -21,7 +21,7 @@
 
 Codex Skillの設計、変更、レビュー、評価を支援します。
 
-- `$skill-development:shape-skill-change`: Skill変更の実装前に責務と配置を判断し、実装後にscope drift、重複、肥大化をレビューする
+- `$skill-development:shape-skill-change`: Skillの責務と配置を判断し、既存Skill・plugin全体の重複、簡潔さ、検証をレビューする
 - `$skill-development:evaluate-skill-robustness`: 明示的に承認したモデルとreasoning effortでSkillの堅牢性を比較評価する
 
 ### document-authoring

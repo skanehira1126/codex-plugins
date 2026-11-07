@@ -5,6 +5,19 @@ release noteの正本とし、既存のskill別changelogは過去履歴として
 
 ## 2026-11-07
 
+### skill-development 0.6.0
+
+- `shape-skill-change`で既存Skill・plugin全体の監査を扱い、各記述を削ったときに失う判断・操作・成果物から簡潔さを評価する。descriptionの用途優先、実際の参照経路、変更に合う検証を設計・レビューへ組み込んだ。
+- 静的確認、明示呼び出し、暗黙選択、改訂前後の実測を区別し、回帰ケースを追加した。`evaluate-skill-robustness`は対象と参照先の版・実行条件を記録し、発火評価の採点条件を明確にした。明示起動と評価matrixの承認境界は維持する。
+
+### python-coding 0.7.0
+
+- `avoid-legacy-python-compatibility`と`choose-code-boundaries`のdescriptionを、用途・判断対象・発火境界へ絞った。互換処理と抽象化の詳細な規則は既存本文に保持する。
+
+### document-authoring 0.6.1
+
+- `presentation-architect`のスライド別項目一覧を既存storyboardテンプレートへ一本化した。本文からの導線と各スライドの記入義務を保ち、項目・品質gate・出力契約は変更しない。
+
 ### abstractum 0.4.0
 
 - `abstract-header`に標準ヘッダー・横長16:9・正方形・縦長9:16のサイズ選択と、幅×高さ・縦横比の自由指定を追加した。選んだ比率に合わせて構図と余白を設計する。

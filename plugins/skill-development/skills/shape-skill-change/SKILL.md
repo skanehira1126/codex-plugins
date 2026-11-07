@@ -1,6 +1,6 @@
 ---
 name: shape-skill-change
-description: Shape Codex skill changes before and after implementation by choosing the right skill boundary and reviewing the result for scope drift, duplication, and bloat. Use when deciding whether to create, update, extend, split, or avoid a skill, or when reviewing an implemented skill change for maintainability. Do not use for an exact routine edit with no boundary question or for cross-model robustness testing.
+description: Plan or review Codex skills and plugin workflows for scope, concise instructions, and maintainability. Use when deciding whether to create, update, extend, split, or avoid a skill, or auditing existing skills for duplication and bloat. Excludes mechanical edits with no boundary question and cross-model robustness testing.
 ---
 
 # Shape Skill Change
@@ -11,7 +11,7 @@ the change; it does not edit skill files by itself.
 ## Route the request
 
 - **Before implementation:** read [planning.md](references/planning.md) and produce a decision brief.
-- **After implementation:** read [review.md](references/review.md) and review the implemented change.
+- **Existing skill or implemented change:** read [review.md](references/review.md).
 - **Both:** plan first; when implementation is requested, continue with `skill-creator` and then
   review without another planning approval. Planning and review alone do not authorize edits.
 
@@ -33,9 +33,10 @@ Compare the proposal or implementation using:
 5. output and success criteria;
 6. scope, ownership, and intended audience.
 
-Treat bloat as material that no longer changes decisions, protects a real constraint, or improves
-repeatable work. Do not use file length alone as evidence. Prefer one coherent workflow over a
-smaller diff, but do not expand a skill into a collection of loosely related tasks.
+Aim for the shortest instructions that preserve the workflow. For each section, identify the
+decision, action, or output that would worsen if it were removed. Keep non-obvious constraints;
+remove generic advice and repetition; load conditional detail only when needed. Use file length
+as a diagnostic, not a quality target. A short self-contained skill needs no extra routing layer.
 
 Inspect facts instead of asking the user. Infer safe defaults that cannot change the boundary,
 placement, or review verdict. Ask only unresolved user choices needed for the current result, in

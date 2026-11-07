@@ -1,4 +1,4 @@
 interface:
   display_name: "Shape Skill Change"
-  short_description: "Plan and review coherent skill changes"
-  default_prompt: "Use $skill-development:shape-skill-change to plan or review this Codex skill change."
+  short_description: "Plan and audit concise skills and plugin workflows"
+  default_prompt: "Use $skill-development:shape-skill-change to plan a skill change or audit this skill or plugin for scope, concise instructions, and appropriate verification."

@@ -1,7 +1,8 @@
-# Review an Implemented Skill Change
+# Review a Skill or Plugin
 
-Use this workflow after skill files have been created or changed. Review the current result, not
-the history of rejected ideas.
+Use this workflow for existing skills or implemented changes. Review the current result, not the
+history of rejected ideas. For a plugin audit, inspect every skill's entrypoint and metadata, then
+follow its resource paths; report which skills need changes and which should remain as they are.
 
 ## 1. Recover the intended contract
 
@@ -17,13 +18,14 @@ user's unrelated changes and evaluate only the requested skill change.
 
 Check:
 
-- **Trigger drift:** The description still selects the intended requests and excludes likely
-  misroutes.
+- **Discovery:** The description leads with the intended task and distinguishes likely misroutes;
+  detailed procedures stay in the body. Invocation policy and UI prompts agree with this boundary.
 - **Boundary coherence:** The skill still owns one recognizable goal and success criterion.
-- **Instruction value:** Each instruction changes a decision, protects a real constraint, or
-  improves repeatable execution; generic advice and speculative edge cases do not accumulate.
+- **Instruction value:** Apply the entrypoint's removal test. Fixed steps and absolute language
+  need a concrete correctness, permission, or workflow reason; preserve justified local conventions.
 - **Progressive disclosure:** Shared routing stays in `SKILL.md`; conditional detail lives in a
-  reference that is read only when needed.
+  reference with an explicit load condition. Trace a representative request's reading path; moving
+  text into an always-loaded file does not by itself save context.
 - **Duplication:** The same rule is not repeated across the entrypoint, references, sibling skills,
   `AGENTS.md`, or plugin metadata.
 - **Evidence discipline:** A single failure, preference, or implementation detail has not become a
@@ -36,15 +38,26 @@ Check:
   reuse current consent. A skill-caused pause cites the file and rule, distinguishing its explicit
   requirement from interpretation. Verification ends after relevant risks and required checks pass.
 
-Do not optimize for fewer lines. A long non-obvious constraint may be essential, while a short
-duplicate or generic instruction may still be bloat.
-
 Classify each material finding as either **behavior-preserving consolidation** or
 **behavior-changing revision**. When both are in scope, complete and verify the behavior-preserving
 consolidation first so trigger, boundary, requirement, and output changes remain independently
 reviewable.
 
-## 3. Give every finding a disposition
+## 3. Verify the affected behavior
+
+Choose checks that match the change: intended requests and nearby non-target requests for
+description changes; representative inputs, material missing information, and failure paths for
+workflow changes. Reuse existing cases and required validators. When the target is
+`shape-skill-change`, select applicable cases from [evals/cases.md](../evals/cases.md).
+
+Separate static contract checks from observed runs. A validator proves structure, and a supplied
+skill path or explicit invocation exercises execution; neither proves implicit selection. For
+before/after runs, record the skill revision, inputs, model/effort, tools, and acceptance criteria;
+hold those conditions fixed except for the intended change. Compare outcome and unnecessary work,
+using token/time measurements only when available. Report unrun checks and limits; do not infer a
+quality or speed gain from fewer lines or launch cross-model evaluation as routine review.
+
+## 4. Give every finding a disposition
 
 Use one of:
 
@@ -67,7 +80,7 @@ that every remaining caller or routing instruction still reaches that owner. Pre
 trigger metadata, routing, and layer-specific invariants rather than treating them as duplicate
 detail.
 
-## 4. Report and hand off
+## 5. Report and hand off
 
 Return:
 
@@ -86,6 +99,10 @@ Return:
 ## Preserved contracts
 
 - <important behavior or boundary that must remain>
+
+## Verification
+
+- <checks performed, observed results, and untested behavior>
 
 ## Skill Creator handoff
 

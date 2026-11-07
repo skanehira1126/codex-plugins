@@ -11,13 +11,17 @@ Extract or infer:
 - representative prompts that should trigger the workflow;
 - nearby prompts that should not trigger it;
 - expected inputs, major steps, and output;
-- the success criteria;
+- observable success criteria, including the output and any required stopping condition;
 - required tools, references, scripts, or assets;
 - whether the workflow is repo-specific, personal, organizational, or distributable.
 
 For ordinary requests, stop questioning as soon as the decision brief is supportable. If the user
 explicitly asks for a thorough interview, continue only until the material planning choices are
 resolved; leave implementation details to `skill-creator`.
+
+Start from a representative task that works, then generalize only the steps needed across the
+intended use cases. Plan a concise description with the main use case first; keep procedures and
+capability catalogs in the body. Add exclusions where they prevent likely misrouting.
 
 ## 2. Choose one decision
 
@@ -57,6 +61,11 @@ Recommend placement independently from the change decision:
 When updating an existing skill, preserve its current scope unless concrete evidence supports
 moving the ownership boundary.
 
+Keep common workflow and essential constraints in `SKILL.md`. For each proposed reference, name
+the condition that makes it necessary; a split that still loads every file adds navigation without
+reducing context. Prefer existing tools and instructions; add scripts for repeated logic or
+deterministic execution, and assets for material used in the output.
+
 ## 4. Produce the decision brief
 
 Return:
@@ -78,6 +87,7 @@ Return:
 - Include: <responsibilities>
 - Exclude: <nearby responsibilities>
 - Resources: <scripts/references/assets or none>
+- Verification: <representative requests and observable checks for the proposed change>
 
 ## Skill Creator handoff
 

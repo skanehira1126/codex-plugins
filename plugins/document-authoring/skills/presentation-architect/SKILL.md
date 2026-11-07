@@ -124,17 +124,9 @@ detailed placement test and appendix rules.
 
 ### 6. Build the core storyline and storyboard
 
-Use `assets/storyboard.md`. For each core slide, specify:
-
-- slide ID and placement;
-- audience task or question;
-- primary cognitive move: **Orient, Tension, Question, Observe, Explain, Reframe, Compare, Decide, Act, or Consolidate**;
-- message-bearing title;
-- decisive evidence or content;
-- semantic visual form;
-- speaker beat and transition;
-- likely question, support or verification need, and appendix link when relevant;
-- time weight.
+Use [assets/storyboard.md](assets/storyboard.md) for the per-slide fields and cognitive-move
+choices. Complete those fields for each core slide with a message-bearing title and one primary
+cognitive move.
 
 Run the following gates before visual production.
 

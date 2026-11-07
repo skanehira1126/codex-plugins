@@ -40,8 +40,9 @@ plan, reduce the matrix or ask for new approval before spawning.
 
 After consent:
 
-1. Confirm the scoped target and approved matrix. Preserve the target unchanged. Record
-   pre-existing worktree changes and avoid treating them as evaluation output.
+1. Confirm the scoped target and approved matrix. Preserve the target unchanged. Identify the
+   exact skill and resource revision (including uncommitted content, using hashes or a snapshot).
+   Record pre-existing worktree changes and avoid treating them as evaluation output.
 2. Derive representative cases from the target's declared scope:
    - a typical positive request;
    - an important edge or failure case;
@@ -106,6 +107,7 @@ Match the user's language and any active higher-level instruction. Include:
 
 - approved level and actual run count;
 - tested and skipped model/reasoning profiles;
+- target revision and trial conditions;
 - case-by-profile outcome table;
 - concrete failures with evidence;
 - model-dependent behaviors and alternative explanations;

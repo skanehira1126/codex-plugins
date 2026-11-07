@@ -1,7 +1,7 @@
 ---
 name: avoid-legacy-python-compatibility
 description: >-
-  Pythonコードの実装・修正・レビューで、プロジェクトがサポートする最小Pythonバージョンを基準に構文・標準ライブラリ・typing機能を選び、不要な互換import、backport、shim、fallback、version分岐を追加しない。`from __future__ import annotations`、`typing.List`、`typing.Optional`、`typing_extensions`、`tomli`、`sys.version_info`分岐などを追加・踏襲する可能性がある作業で使用する。旧Pythonを含む複数バージョン対応が明示されている場合も、実際のサポート範囲に必要な互換処理だけに限定する。
+  Pythonの実装・修正・レビューで、サポート対象バージョンに合わせて構文、標準ライブラリ、型注釈、互換処理を選ぶときに使う。future import、backport、fallback、バージョン分岐の追加・維持・削除を判断し、旧Pythonを含む宣言済みのサポート範囲を守る。
 ---
 
 # Avoid Legacy Python Compatibility
