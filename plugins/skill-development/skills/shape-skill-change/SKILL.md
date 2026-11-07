@@ -26,22 +26,36 @@ the user points to another location.
 
 Compare the proposal or implementation using:
 
-1. user goal and trigger conditions;
-2. negative trigger conditions;
-3. expected inputs;
-4. workflow steps and dependencies;
-5. output and success criteria;
-6. scope, ownership, and intended audience.
+- user goal and trigger conditions;
+- negative trigger conditions;
+- expected inputs;
+- workflow steps and dependencies;
+- output and success criteria;
+- scope, ownership, and intended audience.
 
 Aim for the shortest instructions that preserve the workflow. For each section, identify the
 decision, action, or output that would worsen if it were removed. Keep non-obvious constraints;
 remove generic advice and repetition; load conditional detail only when needed. Use file length
 as a diagnostic, not a quality target. A short self-contained skill needs no extra routing layer.
 
-Inspect facts instead of asking the user. Infer safe defaults that cannot change the boundary,
-placement, or review verdict. Ask only unresolved user choices needed for the current result, in
-dependency order and at most three independent, high-impact questions per round. Give a
-recommended answer and brief rationale for each question.
+Match instruction structure to the relationship being expressed:
+
+- Numbered lists for steps whose order matters.
+- Bullets for independently checked rules, conditions, or alternatives.
+- Tables for comparisons or mappings with shared axes.
+- Short paragraphs for purpose, rationale, and connected explanation.
+
+Separate independently actionable instructions buried in a paragraph. Keep conditions and
+exceptions attached to the instruction they qualify; do not fragment connected reasoning or add
+numbering that implies an order the task does not require.
+
+When information is missing:
+
+- Inspect available facts and infer safe defaults that cannot change the boundary, placement, or
+  review verdict.
+- Ask only unresolved user choices needed for the current result, in dependency order and at most
+  three independent, high-impact questions per round.
+- Give a recommended answer and brief rationale for each question.
 
 ## Complete the requested scope
 

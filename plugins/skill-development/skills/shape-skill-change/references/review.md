@@ -23,6 +23,8 @@ Check:
 - **Boundary coherence:** The skill still owns one recognizable goal and success criterion.
 - **Instruction value:** Apply the entrypoint's removal test. Fixed steps and absolute language
   need a concrete correctness, permission, or workflow reason; preserve justified local conventions.
+- **Instruction structure:** Apply the entrypoint's format choices so steps, parallel rules, and
+  their conditions are easy to locate without changing their meaning.
 - **Progressive disclosure:** Shared routing stays in `SKILL.md`; conditional detail lives in a
   reference with an explicit load condition. Trace a representative request's reading path; moving
   text into an always-loaded file does not by itself save context.

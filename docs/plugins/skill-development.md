@@ -29,6 +29,7 @@ codex plugin add skill-development@codex-plugins
 - descriptionと実際の責務がずれていないか
 - 一つのSkillへ異なるworkflowを詰め込んでいないか
 - 各記述を削ったとき、どの判断・操作・成果物が悪くなるか
+- 順序のある手順は番号付きリスト、独立した規則は箇条書き、共通軸の比較は表、つながった説明は段落になっているか
 - 条件付きの詳細だけを読む経路があるか。分割後も全ファイルを読んでいないか
 - entrypoint、reference、兄弟Skill、`AGENTS.md`で規則が重複していないか
 - 未使用のreference、script、asset、exampleが残っていないか
