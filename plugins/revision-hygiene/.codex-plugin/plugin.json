@@ -1,6 +1,6 @@
 {
   "name": "revision-hygiene",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A cross-artifact review-revision overlay that removes obsolete residue while preserving current contracts and material safeguards.",
   "author": {
     "name": "あお"
@@ -19,6 +19,8 @@
     ],
     "defaultPrompt": [
       "レビュー指摘を、不要な不在testや墓標commentを増やさずに反映してください。"
-    ]
+    ],
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/logo.png"
   }
 }

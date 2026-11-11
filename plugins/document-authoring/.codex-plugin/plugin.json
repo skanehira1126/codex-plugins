@@ -1,6 +1,6 @@
 {
   "name": "document-authoring",
-  "version": "0.7.0",
+  "version": "0.7.2",
   "description": "Skills for designing, creating, reviewing, revising, and verifying prose structure and expression, and presentations.",
   "author": {
     "name": "あお"
@@ -19,6 +19,8 @@
     ],
     "defaultPrompt": [
       "依頼に応じて、文章またはスライドの設計、作成、レビュー、改訂、検証を行ってください。レビューのみの依頼では成果物を変更しないでください。"
-    ]
+    ],
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/logo.png"
   }
 }

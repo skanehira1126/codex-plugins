@@ -1,6 +1,6 @@
 {
   "name": "skill-development",
-  "version": "0.7.0",
+  "version": "0.7.2",
   "description": "Plan and audit concise Codex skills and plugin workflows, with explicitly approved model-profile evaluation.",
   "author": {
     "name": "あお"
@@ -21,6 +21,8 @@
       "新しいworkflowをSkillにするべきか、既存Skillを変更するべきか判断してください。",
       "既存Skillやplugin全体をレビューし、責務、重複、簡潔さと検証の不足を確認してください。",
       "開発中のCodex Skillを、承認したモデルとreasoning effortの範囲で比較評価してください。"
-    ]
+    ],
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/logo.png"
   }
 }

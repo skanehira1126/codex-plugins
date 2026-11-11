@@ -1,6 +1,6 @@
 {
   "name": "agent-coordination",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "description": "Choose models, reasoning effort, and context for requested or planned Codex subagent work, coordinate verified results, and support implementation alongside ongoing discussion.",
   "author": {
     "name": "あお"
@@ -19,6 +19,8 @@
     ],
     "defaultPrompt": [
       "依頼された、または別途決まったサブエージェントへの委譲について、モデル・推論強度・文脈を選び、担当範囲を調整し、結果を検証して統合してください。"
-    ]
+    ],
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/logo.png"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "abstractum",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "テーマと配色から、選べるサイズと複数の画風で洗練された抽象ヘッダー・背景画像を制作する。",
   "author": {
     "name": "あお"
@@ -20,6 +20,8 @@
       "$abstractum:abstract-header 抽象的で上品な画像を作りたい。テーマと配色からサイズと画風を提案して。",
       "$abstractum:abstract-header テーマは静かな変化。メインは紺、アクセントは銅色。複数の画風を比較したい。",
       "$abstractum:abstract-header 同じテーマと配色で、選んだ画風の構図違いを3案作って。"
-    ]
+    ],
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/logo.png"
   }
 }

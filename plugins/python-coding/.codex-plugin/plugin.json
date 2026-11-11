@@ -1,6 +1,6 @@
 {
   "name": "python-coding",
-  "version": "0.7.0",
+  "version": "0.7.2",
   "description": "Shared Python coding and CLI guidance with focused skills for design, testing, compatibility, and Polars.",
   "author": {
     "name": "あお"
@@ -8,8 +8,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Python Coding",
-    "logo": "./assets/logo.png",
-    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo-abstract.png",
+    "composerIcon": "./assets/logo-abstract.png",
     "shortDescription": "Pythonの設計・実装・テスト・レビューを支援",
     "longDescription": "Pythonの実装・修正・レビューに共通の指針を適用し、設計・テスト・互換性・Polarsの用途別Skillを必要に応じて選ぶ個人用Pluginです。コメントの役割と根拠、argparseで実行関数を登録して共通入口から呼ぶCLIの構成をreferenceで扱います。",
     "developerName": "あお",

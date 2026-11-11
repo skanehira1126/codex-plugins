@@ -3,6 +3,12 @@
 このリポジトリで配布するpluginのrelease noteを記録する。2026-08-30以降はこのファイルを
 release noteの正本とし、既存のskill別changelogは過去履歴として保持する。
 
+## 2026-11-11
+
+### abstractum 0.4.1 / agent-coordination 0.6.2 / document-authoring 0.7.2 / python-coding 0.7.2 / revision-hygiene 0.1.2 / skill-development 0.7.2
+
+- 全6 pluginのロゴと入力欄アイコンに、Abstractum（Abstract × Museum）を基にした透過ロゴを設定した。Abstractumは輪、Agent Coordinationは横に並ぶ部品、Document Authoringは扇、Python Codingは波形、Revision Hygieneは角を切り欠いた四角形、Skill Developmentは縦に積んだ形で見分けられる。
+
 ## 2026-11-07
 
 ### document-authoring 0.7.0
