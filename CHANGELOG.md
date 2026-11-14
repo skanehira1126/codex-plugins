@@ -3,6 +3,12 @@
 このリポジトリで配布するpluginのrelease noteを記録する。2026-08-30以降はこのファイルを
 release noteの正本とし、既存のskill別changelogは過去履歴として保持する。
 
+## 2026-11-15
+
+### python-coding 0.8.0
+
+- `polars-style` に、式をhelperに切り出しても呼び出し側で変換の順序を追え、対象列・結合キー・条件を対応する処理の近くで確認できるようにする指針を追加した。
+
 ## 2026-11-11
 
 ### abstractum 0.4.1 / agent-coordination 0.6.2 / document-authoring 0.7.2 / python-coding 0.7.2 / revision-hygiene 0.1.2 / skill-development 0.7.2

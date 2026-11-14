@@ -14,6 +14,7 @@ description: Polarsのnamed-expression実装規則。`pl.DataFrame` / `pl.LazyFr
 - 動的な列名やPython identifierにできない列名は`**{output_name: expression}`と書く。
 - `.alias()`は使わない。名前はexpressionではなく、それをDataFrameへ追加する呼び出し側で与える。
 - `pl.Expr` helperは名前を埋め込まず、未命名のexpressionまたは`dict[str, pl.Expr]`を返す。
+- helperに式を切り出すときも、呼び出し側で列生成・集計・補完・結合の順序を追えるようにし、対象列、結合キー、絞り込みや補完の条件を対応する処理の近くに書く。
 - 既存列をそのまま選ぶだけなら文字列指定を使ってよい。renameを伴う列と動的生成列はnamed expressionにする。
 - 列順、key、dtype、null処理、行数を変更前後で維持する。意図的に変える場合はテストで示す。
 - 長いexpressionは括弧と改行で整理し、意味のある中間列が必要なら段階的な`with_columns`に分ける。
