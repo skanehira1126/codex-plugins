@@ -124,9 +124,18 @@ detailed placement test and appendix rules.
 
 ### 6. Build the core storyline and storyboard
 
-Use [assets/storyboard.md](assets/storyboard.md) for the per-slide fields and cognitive-move
-choices. Complete those fields for each core slide with a message-bearing title and one primary
-cognitive move.
+For a longer sequence, group slides into sections around questions the audience needs answered
+or tasks it needs to complete. A short deck can move directly through its slide titles.
+Draft a message-bearing title and choose one primary audience task for each slide. Read the titles
+in order, then complete the per-slide fields in [assets/storyboard.md](assets/storyboard.md).
+Keep material together when the audience needs
+to see it together to grasp one message. Start another slide when the audience needs to take a
+distinct step or needs time and space to examine the evidence.
+
+For example, in a section on choosing a delivery service, show prices and delivery times together
+so the audience can compare options. Give a practice case its own slide so participants can make
+the choice themselves. Tracking a parcel after dispatch answers a different question and can
+begin another section.
 
 Run the following gates before visual production.
 
@@ -186,7 +195,9 @@ and the full filmstrip before delivery.
 
 ### 11. Rehearse and review independently
 
-Run a presenter pass:
+Work outward from the details: check that labels, figures, and qualifications support the slide
+title. Within each section, follow the slides in order and check that they answer its question.
+Then run a presenter pass through the whole core sequence:
 
 - Can the presenter explain why each core slide follows the previous one?
 - Can the deck fit the available time without rushing its intended audience outcome?
@@ -195,6 +206,11 @@ Run a presenter pass:
 - Is any critical content supported or explained only in speaker notes or appendix?
 
 Score the deck with `references/quality-rubric.md` and handle hard-gate failures according to the selected operating mode.
+
+In create and revise modes, apply the fixes and walk through the updated core sequence from
+beginning to end in presentation order. Use the refreshed preview for a deck or the complete
+storyboard for a slide specification. If that pass prompts another edit, repeat it on the version
+to be delivered.
 
 When a structured Markdown storyboard is available, optionally run:
 
